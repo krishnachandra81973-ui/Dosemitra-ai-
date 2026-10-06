@@ -181,8 +181,8 @@ p1_b2_elements = [
     Paragraph("ArogyaMitra AI एक अत्याधुनिक क्लिनिकल AI प्लेटफॉर्म है। मरीज अपने मोबाइल से डॉक्टर के पर्चे की फोटो खींचता है -> Google Gemini 1.5 Flash Vision AI 2.4 सेकंड में हस्तलेख को डिकोड करता है -> CDSCO और PMBJP डेटाबेस से मैच करके 50-90% सस्ती जन औषधि दवाओं की रसीद तैयार करता है -> फार्मासिस्ट (HITL) सत्यापन करता है -> मरीज को हिंदी ऑडियो और WhatsApp पर रसीद मिलती है।", body_style),
     3,
     Paragraph("<b>2. उत्पाद एवं सेवाएं (Products and Services):</b>", head_style),
-    Paragraph("• <b>ArogyaMitra Citizen Web/PWA App:</b> आम नागरिकों के लिए नि:शुल्क पर्ची स्कैनर, हिंदी ऑडियो खुराक गाइड, और नजदीकी जन औषधि केंद्र लोकेटर।", bullet_style),
-    Paragraph("• <b>ArogyaMitra Kendra SaaS / POS Terminal:</b> जन औषधि केंद्र संचालकों के लिए डिजिटल फुटफॉल, इन्वेंटरी अलर्ट और स्मार्ट बिलिंग सॉफ्टवेयर (₹299/माह)।", bullet_style),
+    Paragraph("• <b>ArogyaMitra Citizen Web/PWA App:</b> आम नागरिकों के लिए मुफ़्त बेसिक स्कैन तथा अति-किफायती 'आरोग्यमित्र परिवार पास' (₹50/माह या ₹299/वर्ष) — अनलिमिटेड एचडी स्कैन, WhatsApp रीफिल अलर्ट, 6 सदस्यों का हेल्थ वॉल्ट व 24x7 फार्मासिस्ट सपोर्ट।", bullet_style),
+    Paragraph("• <b>ArogyaMitra Kendra SaaS / POS Terminal:</b> जन औषधि केंद्र संचालकों के लिए डिजिटल फुटफॉल, इन्वेंटरी अलर्ट और स्मार्ट बिलिंग सॉफ्टवेयर (₹199/माह)।", bullet_style),
     Paragraph("• <b>B2B Clinical API:</b> टेलीमेडिसिन कंपनियों, इंश्योरेंस फर्मों और अस्पतालों के लिए प्रिस्क्रिप्शन डिजिटाइजेशन API।", bullet_style),
     3,
     Paragraph("<b>3. बाजार का आकार (Market Size):</b>", head_style),
@@ -237,8 +237,8 @@ p2_b2_elements = [
     Paragraph("<b>3. वायरल कम्युनिटी व WhatsApp मार्केटिंग (Viral WhatsApp Loop):</b>", head_style),
     Paragraph("मरीज द्वारा WhatsApp पर प्राप्त बचत रसीद ('मेरी पर्ची पर ₹960 की बचत हुई') को परिवार और पड़ोसियों के ग्रुप्स में शेयर करने का ऑर्गेनिक लूप। स्थानीय भाषा (हिंदी व भोजपुरी) में जागरूकता रील्स व वीडियोज।", body_style),
     3,
-    Paragraph("<b>4. बी2बी बिक्री रणनीति (B2B SaaS Sales Model):</b>", head_style),
-    Paragraph("जन औषधि केंद्र संचालकों को 30-दिन का नि:शुल्क ट्रायल देकर ऑनबोर्ड करना, तत्पश्चात ₹299/माह का नाममात्र सब्सक्रिप्शन शुल्क लेकर रिटेंशन बनाए रखना।", body_style)
+    Paragraph("<b>4. बी2सी व बी2बी मूल्य एवं विस्तार रणनीति (Pricing & Growth Model):</b>", head_style),
+    Paragraph("उपयोगकर्ताओं को प्रथम 3 पर्चियां निःशुल्क देकर प्लेटफॉर्म पर लाना, फिर केवल ₹50/माह या ₹299/वर्ष (50% भारी छूट, सिर्फ ₹25/माह) के सुपर-अफोर्डेबल परिवार पास में बदलना। केंद्रों को 30-दिन फ्री ट्रायल देकर ₹199/माह पर ऑनबोर्ड करना।", body_style)
 ]
 draw_box(c, MARGIN_X, BOT_BOX_Y, BOX_WIDTH, BOT_BOX_H, p2_b2_title, p2_b2_prompt, p2_b2_elements)
 
@@ -297,31 +297,34 @@ p4_b1_prompt = "How will the products or services offered by you offer generate 
 
 # Small Table for Year 1 Financials
 p4_table_data = [
-    [Paragraph("<b>मद (Component)</b>", bullet_style), Paragraph("<b>1 वर्ष का वित्तीय विवरण (Year 1 Figures)</b>", bullet_style)],
-    [Paragraph("प्रोजेक्टेड उपयोगकर्ता / स्कैन", bullet_style), Paragraph("50,000 सक्रिय मरीज | 1,80,000 प्रिस्क्रिप्शन स्कैन", bullet_style)],
-    [Paragraph("कुल राजस्व (Gross Revenue)", bullet_style), Paragraph("<b>₹15,20,000</b> (120 पेड केंद्र + B2B API पायलट + ग्रांट्स)", bullet_style)],
-    [Paragraph("कुल परिचालन व्यय (OpEx)", bullet_style), Paragraph("₹9,80,000 (API ₹2.5L + ऑपरेशंस ₹4.8L + मार्केटिंग ₹2.5L)", bullet_style)],
-    [Paragraph("शुद्ध लाभ (Net Profit Year 1)", bullet_style), Paragraph("<b>₹5,40,000 (35.5% शुद्ध लाभ मार्जिन)</b>", bullet_style)],
-    [Paragraph("सामाजिक प्रभाव (Social Impact)", bullet_style), Paragraph("मरीजों की शुद्ध दवा बचत: <b>₹1.8 करोड़</b>", bullet_style)]
+    [Paragraph("<b>मद (Financial Metric)</b>", bullet_style), Paragraph("<b>1 वर्ष का वित्तीय विवरण (Year 1 Figures)</b>", bullet_style)],
+    [Paragraph("सक्रिय परिवार / कुल स्कैन", bullet_style), Paragraph("50,000 सक्रिय परिवार | 1,80,000 पर्ची स्कैन", bullet_style)],
+    [Paragraph("पेड सब्सक्राइबर (Conversion ~11%)", bullet_style), Paragraph("<b>5,500 परिवार</b> (4,400 वार्षिक @ ₹299 + 1,100 मासिक @ ₹50)", bullet_style)],
+    [Paragraph("यूजर सब्सक्रिप्शन आय (B2C)", bullet_style), Paragraph("वार्षिक पास (₹13.15L) + मासिक पास (₹3.30L) = <b>₹16,45,000</b>", bullet_style)],
+    [Paragraph("B2B केंद्र SaaS व API पायलट", bullet_style), Paragraph("50 केंद्र पायलट (@₹199/माह) + API पायलट = <b>₹1,70,000</b>", bullet_style)],
+    [Paragraph("<b>कुल 1-वर्षीय टर्नओवर (Gross Revenue)</b>", bullet_style), Paragraph("<b>₹18,15,000 (लगभग ₹18.15 लाख)</b>", bullet_style)],
+    [Paragraph("कुल परिचालन व्यय (OpEx)", bullet_style), Paragraph("₹8,40,000 (AI विज़न ₹0.35L + टेक ₹1.05L + टीम ₹4.2L + मार्केटिंग ₹2.8L)", bullet_style)],
+    [Paragraph("<b>शुद्ध लाभ (Net Profit Year 1)</b>", bullet_style), Paragraph("<b>₹9,75,000 (53.7% शुद्ध लाभ मार्जिन)</b>", bullet_style)],
+    [Paragraph("मरीजों की शुद्ध बचत (Social Impact)", bullet_style), Paragraph("दवा बिलों में प्रत्यक्ष बचत: <b>₹2.4+ करोड़</b>", bullet_style)]
 ]
-p4_t = Table(p4_table_data, colWidths=[180, 310])
+p4_t = Table(p4_table_data, colWidths=[175, 315])
 p4_t.setStyle(TableStyle([
     ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#f1f5f9')),
     ('GRID', (0, 0), (-1, -1), 0.5, colors.HexColor('#cbd5e1')),
     ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
-    ('TOPPADDING', (0, 0), (-1, -1), 3),
-    ('BOTTOMPADDING', (0, 0), (-1, -1), 3),
+    ('TOPPADDING', (0, 0), (-1, -1), 2),
+    ('BOTTOMPADDING', (0, 0), (-1, -1), 2),
 ]))
 
 p4_b1_elements = [
-    Paragraph("<b>1. राजस्व मॉडल (Revenue Model):</b>", head_style),
-    Paragraph("• <b>Kendra SaaS Subscription:</b> जन औषधि केंद्रों से ₹299/माह (डिजिटल इन्वेंटरी, फुटफॉल एनालिटिक्स हेतु)।", bullet_style),
-    Paragraph("• <b>B2B Clinical API:</b> टेलीमेडिसिन कंपनियों व इंश्योरेंस फर्मों को प्रति प्रिस्क्रिप्शन स्कैन ₹2 शुल्क।", bullet_style),
-    Paragraph("• <b>Affiliate Convenience Fee:</b> मेडिसिन होम डिलीवरी पार्टनरशिप से 2-3% सुविधा शुल्क।", bullet_style),
+    Paragraph("<b>1. राजस्व मॉडल (Revenue Model & Consumer Pass):</b>", head_style),
+    Paragraph("• <b>आरोग्यमित्र परिवार पास - मासिक (Monthly): ₹50 / माह</b> (आसान 1-महीना ट्रायल, मात्र ₹1.6/दिन, अनलिमिटेड स्कैन व WhatsApp अलर्ट)।", bullet_style),
+    Paragraph("• <b>आरोग्यमित्र परिवार पास - वार्षिक (Annual): ₹299 / वर्ष</b> (50% फ्लैट छूट! मात्र <b>~₹25 / माह</b> में 6 सदस्यों का मेडिकल वॉल्ट, रीफिल रिमाइंडर, 24x7 फार्मासिस्ट सेकंड ओपिनियन व आपातकालीन इंटरेक्शन वार्निंग)।", bullet_style),
+    Paragraph("• <b>Kendra B2B & Clinical API:</b> जन औषधि केंद्रों हेतु इन्वेंटरी सॉफ्टवेयर (₹199/माह) + टेलीमेडिसिन API।", bullet_style),
     2,
-    Paragraph("<b>2. परिवर्तनीय लागत (Variable Cost per Scan):</b> AI विज़न टोकन ₹0.15 + सर्वर/डेटाबेस ₹0.05 + WhatsApp मैसेज ₹0.08 = <b>₹0.28 / स्कैन</b>।", body_style),
+    Paragraph("<b>2. परिवर्तनीय लागत (Variable Cost per Scan):</b> Google Gemini AI विज़न ₹0.15 + सर्वर ₹0.05 + WhatsApp अलर्ट ₹0.08 = <b>₹0.28 / स्कैन</b>।", body_style),
     2,
-    Paragraph("<b>3. प्रथम वर्ष का लाभ/हानि विवरण (1-Year P&L Structure):</b>", head_style),
+    Paragraph("<b>3. प्रथम वर्ष का पूर्ण टर्नओवर व लाभ/हानि विवरण (1-Year P&L Structure):</b>", head_style),
     p4_t
 ]
 draw_box(c, MARGIN_X, TOP_BOX_Y, BOX_WIDTH, TOP_BOX_H, p4_b1_title, p4_b1_prompt, p4_b1_elements)
@@ -361,7 +364,7 @@ p5_b1_prompt = "How do you plan to expand your service/product offerings? Provid
 # 5-Year Financial Projection Table
 p5_table_data = [
     [Paragraph("<b>वर्ष (Year)</b>", bullet_style), Paragraph("<b>सक्रिय परिवार</b>", bullet_style), Paragraph("<b>वार्षिक स्कैन</b>", bullet_style), Paragraph("<b>प्रोजेक्टेड राजस्व</b>", bullet_style), Paragraph("<b>नागरिकों की शुद्ध बचत</b>", bullet_style)],
-    [Paragraph("<b>वर्ष 1 (2026)</b>", bullet_style), Paragraph("50,000", bullet_style), Paragraph("1.8 लाख", bullet_style), Paragraph("₹15.2 लाख", bullet_style), Paragraph("₹1.8 करोड़", bullet_style)],
+    [Paragraph("<b>वर्ष 1 (2026)</b>", bullet_style), Paragraph("50,000", bullet_style), Paragraph("1.8 लाख", bullet_style), Paragraph("₹18.15 लाख", bullet_style), Paragraph("₹2.4 करोड़", bullet_style)],
     [Paragraph("<b>वर्ष 2 (2027)</b>", bullet_style), Paragraph("2,50,000", bullet_style), Paragraph("12.0 लाख", bullet_style), Paragraph("₹85.0 लाख", bullet_style), Paragraph("₹12.5 करोड़", bullet_style)],
     [Paragraph("<b>वर्ष 3 (2028)</b>", bullet_style), Paragraph("10,00,000", bullet_style), Paragraph("55.0 लाख", bullet_style), Paragraph("₹3.60 करोड़", bullet_style), Paragraph("₹58.0 करोड़", bullet_style)],
     [Paragraph("<b>वर्ष 4 (2029)</b>", bullet_style), Paragraph("50,00,000", bullet_style), Paragraph("2.8 करोड़", bullet_style), Paragraph("₹18.5 करोड़", bullet_style), Paragraph("₹310 करोड़", bullet_style)],
