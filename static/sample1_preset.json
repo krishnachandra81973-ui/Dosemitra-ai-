@@ -1,0 +1,57 @@
+{
+  "id": "SCAN_SAMPLE_01",
+  "status": "AUTO_VERIFIED",
+  "doctor_name": "Dr. Sunil V. Mehta, MBBS, MD (Medicine)",
+  "patient_name": "Rajesh Kumar Sharma",
+  "patient_age": "42 वर्ष (वयस्क)",
+  "diagnosis": "Acute Upper Respiratory Tract Infection & Bronchial Irritation",
+  "confidence_score": 97.5,
+  "financials": {
+    "total_branded_cost": 535.0,
+    "total_jan_aushadhi_cost": 113.0,
+    "monthly_savings": 422.0,
+    "savings_percentage": 78.9
+  },
+  "medicines": [
+    {
+      "brand_name": "Augmentin 625",
+      "strength": "625mg",
+      "generic_salt_name": "Amoxycillin 500mg + Potassium Clavulanate 125mg Tablets",
+      "branded_mrp": 204.0,
+      "jan_aushadhi_rate": 54.0,
+      "savings_amount": 150.0,
+      "savings_percentage": 73.5,
+      "confidence_score": 98.2,
+      "disease_purpose": "जीवाणु संक्रमण (Bacterial Infection)",
+      "precautions": "भोजन के बाद लें।",
+      "timing": "1-0-1 (5 दिन)"
+    },
+    {
+      "brand_name": "Pan 40",
+      "strength": "40mg",
+      "generic_salt_name": "Pantoprazole Gastro-resistant Tablets IP 40mg",
+      "branded_mrp": 98.0,
+      "jan_aushadhi_rate": 12.5,
+      "savings_amount": 85.5,
+      "savings_percentage": 87.2,
+      "confidence_score": 97.8,
+      "disease_purpose": "एसिडिटी व पेट में जलन",
+      "precautions": "सुबह खाली पेट लें।",
+      "timing": "1-0-0 (खाली पेट)"
+    },
+    {
+      "brand_name": "Dolo 650",
+      "strength": "650mg",
+      "generic_salt_name": "Paracetamol Tablets IP 650mg (PMBJP)",
+      "branded_mrp": 34.0,
+      "jan_aushadhi_rate": 9.5,
+      "savings_amount": 24.5,
+      "savings_percentage": 72.1,
+      "confidence_score": 99.0,
+      "disease_purpose": "बुखार और बदन दर्द",
+      "precautions": "भोजन के बाद लें।",
+      "timing": "1-0-1 (जरूरत पर)"
+    }
+  ],
+  "hindi_explanation": "नमस्ते राजेश जी! आपके पर्चे में कुल 3 मुख्य दवाएं लिखी गई हैं। पहली दवा ऑगमेंटिन 625 है, जिसकी जगह जन औषधि केंद्र पर एमोक्सिसिलिन और क्लैव्युलेनिक एसिड साल्ट मात्र ₹54 में मिल जाएगा। दूसरी दवा पैन-40 है जिसे खाली पेट लेना है और तीसरी डोलो 650 है। ब्रांडेड दवाइयों का कुल खर्च ₹535 आता है, जबकि जन औषधि केंद्र से यही दवाएं केवल ₹113 में मिलेंगी। इससे आपके परिवार की ₹422 यानी लगभग 79% की बचत होगी।"
+}

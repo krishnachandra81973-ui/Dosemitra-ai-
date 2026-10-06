@@ -1,0 +1,230 @@
+{
+  "media_1791218821837.jpg": {
+    "id": "SCAN_SAMPLE_01",
+    "status": "AUTO_VERIFIED",
+    "doctor_name": "Dr. Sunil V. Mehta, MBBS, MD (Medicine)",
+    "patient_name": "Rajesh Kumar Sharma",
+    "patient_age": "42 वर्ष (वयस्क)",
+    "diagnosis": "Acute Upper Respiratory Tract Infection",
+    "confidence_score": 97.5,
+    "financials": {
+      "total_branded_cost": 535.0,
+      "total_jan_aushadhi_cost": 113.0,
+      "monthly_savings": 422.0,
+      "savings_percentage": 78.9
+    },
+    "medicines": [
+      {
+        "brand_name": "Augmentin 625",
+        "strength": "625mg",
+        "generic_salt_name": "Amoxycillin 500mg + Potassium Clavulanate 125mg Tablets",
+        "branded_mrp": 204.0,
+        "jan_aushadhi_rate": 54.0,
+        "savings_amount": 150.0,
+        "savings_percentage": 73.5,
+        "confidence_score": 98.2,
+        "disease_purpose": "जीवाणु संक्रमण (Bacterial Infection)",
+        "precautions": "भोजन के बाद लें।",
+        "timing": "1-0-1 (5 दिन)"
+      },
+      {
+        "brand_name": "Pan 40",
+        "strength": "40mg",
+        "generic_salt_name": "Pantoprazole Gastro-resistant Tablets IP 40mg",
+        "branded_mrp": 98.0,
+        "jan_aushadhi_rate": 12.5,
+        "savings_amount": 85.5,
+        "savings_percentage": 87.2,
+        "confidence_score": 97.8,
+        "disease_purpose": "एसिडिटी व पेट में जलन",
+        "precautions": "सुबह खाली पेट लें।",
+        "timing": "1-0-0 (खाली पेट)"
+      },
+      {
+        "brand_name": "Dolo 650",
+        "strength": "650mg",
+        "generic_salt_name": "Paracetamol Tablets IP 650mg (PMBJP)",
+        "branded_mrp": 34.0,
+        "jan_aushadhi_rate": 9.5,
+        "savings_amount": 24.5,
+        "savings_percentage": 72.1,
+        "confidence_score": 99.0,
+        "disease_purpose": "बुखार और बदन दर्द",
+        "precautions": "भोजन के बाद लें।",
+        "timing": "1-0-1 (जरूरत पर)"
+      }
+    ],
+    "hindi_explanation": "नमस्ते राजेश जी! आपके पर्चे में 3 दवाएं लिखी हैं: ऑगमेंटिन 625, पैन-40 और डोलो 650। ब्रांडेड दवाइयों का कुल खर्च ₹535 आता है, जबकि जन औषधि केंद्र से यही दवाएं केवल ₹113 में मिलेंगी। इससे आपकी ₹422 (78.9%) की बचत होगी।"
+  },
+  "media_1791218828772.jpg": {
+    "id": "SCAN_SAMPLE_02",
+    "status": "AUTO_VERIFIED",
+    "doctor_name": "Dr. Anita Deshmukh, MD (Endocrinology)",
+    "patient_name": "Sunita Devi Verma",
+    "patient_age": "54 वर्ष (वयस्क)",
+    "diagnosis": "Type 2 Diabetes Mellitus with Essential Hypertension",
+    "confidence_score": 96.0,
+    "financials": {
+      "total_branded_cost": 365.0,
+      "total_jan_aushadhi_cost": 68.0,
+      "monthly_savings": 297.0,
+      "savings_percentage": 81.4
+    },
+    "medicines": [
+      {
+        "brand_name": "Glycomet GP 2",
+        "strength": "Glimepiride 2mg + Metformin 500mg",
+        "generic_salt_name": "Glimepiride 2mg + Metformin 500mg SR Tablets",
+        "branded_mrp": 142.0,
+        "jan_aushadhi_rate": 28.0,
+        "savings_amount": 114.0,
+        "savings_percentage": 80.3,
+        "confidence_score": 96.5,
+        "disease_purpose": "ब्लड शुगर नियंत्रण (Diabetes Type-2)",
+        "precautions": "सुबह-शाम नाश्ते और रात के खाने के साथ लें।",
+        "timing": "1-0-1 (30 दिन)"
+      },
+      {
+        "brand_name": "Telma 40",
+        "strength": "40mg",
+        "generic_salt_name": "Telmisartan Tablets IP 40mg",
+        "branded_mrp": 138.0,
+        "jan_aushadhi_rate": 22.0,
+        "savings_amount": 116.0,
+        "savings_percentage": 84.1,
+        "confidence_score": 98.0,
+        "disease_purpose": "हाई ब्लड प्रेशर (Hypertension)",
+        "precautions": "प्रतिदिन सुबह नाश्ते के बाद निश्चित समय पर लें।",
+        "timing": "1-0-0 (30 दिन)"
+      },
+      {
+        "brand_name": "Atorva 10",
+        "strength": "10mg",
+        "generic_salt_name": "Atorvastatin Tablets IP 10mg",
+        "branded_mrp": 85.0,
+        "jan_aushadhi_rate": 18.0,
+        "savings_amount": 67.0,
+        "savings_percentage": 78.8,
+        "confidence_score": 95.5,
+        "disease_purpose": "कोलेस्ट्रॉल व हृदय सुरक्षा",
+        "precautions": "रात को सोने से पहले लें।",
+        "timing": "0-0-1 (30 दिन)"
+      }
+    ],
+    "hindi_explanation": "नमस्ते सुनीता जी! आपके शुगर और बीपी के पर्चे में ग्लाइकोमेट GP 2, टेलमा 40 और अटोर्वा 10 लिखी गई हैं। ब्रांडेड दवाइयों का मासिक खर्च ₹365 आता है, जबकि जन औषधि केंद्र पर यह सिर्फ ₹68 में उपलब्ध हैं। आपकी हर महीने ₹297 (81.4%) की बचत होगी।"
+  },
+  "media_1791218841216.jpg": {
+    "id": "SCAN_SAMPLE_03",
+    "status": "AUTO_VERIFIED",
+    "doctor_name": "Dr. Pradeep K. Nair, MS (General Surgery)",
+    "patient_name": "Amitabh Sengupta",
+    "patient_age": "45 वर्ष (वयस्क)",
+    "diagnosis": "Acute Gastritis & Musculoskeletal Spasm",
+    "confidence_score": 95.8,
+    "financials": {
+      "total_branded_cost": 410.0,
+      "total_jan_aushadhi_cost": 84.0,
+      "monthly_savings": 326.0,
+      "savings_percentage": 79.5
+    },
+    "medicines": [
+      {
+        "brand_name": "Pan-D",
+        "strength": "40mg + 30mg",
+        "generic_salt_name": "Pantoprazole 40mg + Domperidone 30mg SR Capsules",
+        "branded_mrp": 195.0,
+        "jan_aushadhi_rate": 27.0,
+        "savings_amount": 168.0,
+        "savings_percentage": 86.2,
+        "confidence_score": 97.0,
+        "disease_purpose": "एसिडिटी, सीने में जलन और उल्टी जैसा लगना",
+        "precautions": "सुबह खाली पेट गुनगुने पानी के साथ लें।",
+        "timing": "1-0-0 (खाली पेट)"
+      },
+      {
+        "brand_name": "Zerodol-SP",
+        "strength": "100mg+325mg+15mg",
+        "generic_salt_name": "Aceclofenac 100mg + Paracetamol 325mg + Serratiopeptidase 15mg Tablets",
+        "branded_mrp": 132.0,
+        "jan_aushadhi_rate": 26.5,
+        "savings_amount": 105.5,
+        "savings_percentage": 79.9,
+        "confidence_score": 96.2,
+        "disease_purpose": "तीव्र दर्द और सूजन से राहत",
+        "precautions": "भोजन के बाद ही लें, खाली पेट न लें।",
+        "timing": "1-0-1 (5 दिन)"
+      },
+      {
+        "brand_name": "Crocin 500",
+        "strength": "500mg",
+        "generic_salt_name": "Paracetamol Tablets IP 500mg (PMBJP)",
+        "branded_mrp": 24.0,
+        "jan_aushadhi_rate": 6.0,
+        "savings_amount": 18.0,
+        "savings_percentage": 75.0,
+        "confidence_score": 98.0,
+        "disease_purpose": "हल्का बुखार और बदन दर्द",
+        "precautions": "भोजन के बाद लें।",
+        "timing": "1-0-1 (जरूरत पर)"
+      }
+    ],
+    "hindi_explanation": "नमस्ते अमिताभ जी! आपके पर्चे में गैस व दर्द के लिए पैन-डी और जीरोडोल-एसपी लिखी गई हैं। ब्रांडेड दवाओं पर ₹410 खर्च होते हैं जबकि जन औषधि केंद्र से यही केवल ₹84 में मिलेंगी। आपकी कुल ₹326 (79.5%) की बचत होगी।"
+  },
+  "media_1791218841236.jpg": {
+    "id": "SCAN_SAMPLE_04",
+    "status": "AUTO_VERIFIED",
+    "doctor_name": "Dr. Vikas Agrawal, MBBS, DNB",
+    "patient_name": "Pooja Yadav",
+    "patient_age": "29 वर्ष (वयस्क)",
+    "diagnosis": "Acute Tonsillitis with Allergy & Cough",
+    "confidence_score": 96.5,
+    "financials": {
+      "total_branded_cost": 490.0,
+      "total_jan_aushadhi_cost": 122.0,
+      "monthly_savings": 368.0,
+      "savings_percentage": 75.1
+    },
+    "medicines": [
+      {
+        "brand_name": "Azithral 500",
+        "strength": "500mg",
+        "generic_salt_name": "Azithromycin Tablets IP 500mg",
+        "branded_mrp": 125.0,
+        "jan_aushadhi_rate": 38.0,
+        "savings_amount": 87.0,
+        "savings_percentage": 69.6,
+        "confidence_score": 98.4,
+        "disease_purpose": "गले का इन्फेक्शन, टॉन्सिल व खांसी",
+        "precautions": "दिन में 1 बार भोजन के 1 घंटे बाद लें।",
+        "timing": "1-0-0 (3 दिन)"
+      },
+      {
+        "brand_name": "Allegra 120",
+        "strength": "120mg",
+        "generic_salt_name": "Fexofenadine Hydrochloride Tablets IP 120mg",
+        "branded_mrp": 215.0,
+        "jan_aushadhi_rate": 34.0,
+        "savings_amount": 181.0,
+        "savings_percentage": 84.2,
+        "confidence_score": 97.1,
+        "disease_purpose": "एलर्जी, छींकें और नाक बहना",
+        "precautions": "रात को सोने से पहले लें।",
+        "timing": "0-0-1 (5 दिन)"
+      },
+      {
+        "brand_name": "Montair-LC",
+        "strength": "10mg + 5mg",
+        "generic_salt_name": "Montelukast 10mg + Levocetirizine 5mg Tablets",
+        "branded_mrp": 150.0,
+        "jan_aushadhi_rate": 50.0,
+        "savings_amount": 100.0,
+        "savings_percentage": 66.7,
+        "confidence_score": 96.0,
+        "disease_purpose": "एलर्जी व सांस की नली में सूजन",
+        "precautions": "रात को 1 गोली लें।",
+        "timing": "0-0-1 (5 दिन)"
+      }
+    ],
+    "hindi_explanation": "नमस्ते पूजा जी! आपके टॉन्सिल और एलर्जी के पर्चे में एजिथ्रल 500 और एलेग्रा 120 लिखी गई हैं। ब्रांडेड दवाओं का कुल खर्च ₹490 है, जबकि जन औषधि केंद्र पर यही दवाएं मात्र ₹122 में मिलेंगी। आपकी कुल ₹368 (75.1%) की बचत होगी।"
+  }
+}
