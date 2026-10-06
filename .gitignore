@@ -39,3 +39,5 @@ uploads/*
 Thumbs.db
 .vscode/
 .idea/
+site-packages/
+fonts/
