@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DoseMitra AI (डोज़मित्र) | Smart Prescription Decoder & Jan Aushadhi Generic Platform — Aavishkaar YEP 2026</title>
+  <title>ArogyaMitra AI (आरोग्यमित्र) | आपकी सेहत का सच्चा साथी — Aavishkaar YEP 2026</title>
   
-  <meta name="description" content="DoseMitra AI is an advanced clinical AI platform that decodes handwritten doctor prescriptions, identifies CDSCO-approved generic salts, and provides PMBJP Jan Aushadhi rates with Hindi voice guidance.">
-  <meta name="keywords" content="DoseMitra AI, Jan Aushadhi, Generic Medicines, Prescription Decoder, CDSCO, PMBJP, Aavishkaar 2026, DDU Gorakhpur">
+  <meta name="description" content="ArogyaMitra AI (आपकी सेहत का सच्चा साथी) is an advanced clinical AI platform that decodes handwritten doctor prescriptions, identifies CDSCO-approved generic salts, and provides PMBJP Jan Aushadhi rates with Hindi voice guidance.">
+  <meta name="keywords" content="ArogyaMitra AI, आरोग्यमित्र, आपकी सेहत का सच्चा साथी, Jan Aushadhi, Generic Medicines, Prescription Decoder, CDSCO, PMBJP, Aavishkaar 2026, DDU Gorakhpur">
   
   <!-- Google Fonts: Outfit, Inter & Noto Sans Devanagari -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -223,22 +223,27 @@
     .brand-link:hover {
       transform: translateY(-1px);
     }
-    .brand-logo-badge {
-      width: 46px;
-      height: 46px;
-      border-radius: var(--radius-md);
-      background: linear-gradient(135deg, #059669 0%, #0d9488 60%, #0284c7 100%);
+    .brand-logo-wrap {
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #ffffff;
-      font-size: 1.4rem;
-      box-shadow: 0 6px 18px rgba(5, 150, 105, 0.35);
-      transition: transform var(--transition-spring), box-shadow var(--transition-normal);
+      background: #ffffff;
+      padding: 3px 8px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(13, 148, 136, 0.25);
+      box-shadow: 0 4px 14px rgba(13, 148, 136, 0.15);
+      transition: all var(--transition-spring);
     }
-    .brand-link:hover .brand-logo-badge {
-      transform: rotate(5deg) scale(1.05);
-      box-shadow: 0 8px 24px rgba(5, 150, 105, 0.5);
+    .brand-link:hover .brand-logo-wrap {
+      transform: scale(1.05) rotate(-2deg);
+      border-color: rgba(22, 163, 74, 0.45);
+      box-shadow: 0 6px 20px rgba(22, 163, 74, 0.25);
+    }
+    .brand-logo-img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+      display: block;
     }
     .brand-title {
       font-family: var(--font-brand);
@@ -246,15 +251,32 @@
       font-weight: 900;
       color: var(--text-main);
       letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
     }
-    .brand-title span {
-      background: linear-gradient(135deg, #059669, #0d9488);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .brand-arogya {
+      color: #0891b2;
+      font-weight: 900;
     }
-    .brand-naac-badge {
+    .brand-mitra {
+      color: #16a34a;
+      font-weight: 900;
+    }
+    .brand-ai-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #0891b2 0%, #16a34a 100%);
+      color: #ffffff;
+      padding: 2px 7px;
+      border-radius: 999px;
+      box-shadow: 0 2px 8px rgba(13, 148, 136, 0.35);
+      margin-left: 5px;
+      vertical-align: middle;
+    }
+    .brand-yep-badge {
       background: rgba(245, 158, 11, 0.12);
-      color: var(--accent-dark);
+      color: #b45309;
       border: 1px solid rgba(245, 158, 11, 0.35);
       font-size: 0.65rem;
       font-weight: 800;
@@ -264,9 +286,22 @@
       letter-spacing: 0.04em;
     }
     .brand-subtitle {
-      font-size: 0.72rem;
+      font-size: 0.73rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .brand-tagline-text {
+      font-family: var(--font-hindi);
+      font-weight: 700;
+      color: #0d9488;
+    }
+    .brand-dot-separator {
+      color: #94a3b8;
+    }
+    .brand-institute {
       color: var(--text-muted);
-      font-weight: 600;
+      font-weight: 500;
     }
 
     .nav-links {
@@ -466,6 +501,170 @@
       color: #ffffff;
       border-color: var(--primary);
       box-shadow: 0 2px 8px var(--primary-glow);
+    }
+
+    
+    /* ArogyaMitra Hero Flex & Showcase Card */
+    .hero-flex-layout {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 36px;
+      align-items: center;
+    }
+    @media (max-width: 992px) {
+      .hero-flex-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
+    .hero-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #99f6e4;
+      background: rgba(13, 148, 136, 0.3);
+      border: 1px solid rgba(153, 246, 228, 0.35);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 16px;
+      backdrop-filter: blur(8px);
+    }
+    .badge-dot-live {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #34d399;
+      box-shadow: 0 0 8px #34d399;
+    }
+    .btn-hero-accent {
+      background: linear-gradient(135deg, #0284c7 0%, #0d9488 100%);
+      color: #ffffff;
+      padding: 13px 22px;
+      border-radius: var(--radius-md);
+      font-size: 0.95rem;
+      font-weight: 800;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 24px rgba(2, 132, 199, 0.3);
+      transition: all var(--transition-fast);
+    }
+    .btn-hero-accent:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(2, 132, 199, 0.45);
+    }
+    .hero-showcase-glass-card {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      text-align: center;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition-normal);
+    }
+    .hero-showcase-glass-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 55px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    }
+    .showcase-logo-container {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 12px 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      margin-bottom: 14px;
+    }
+    .showcase-logo-img {
+      height: 56px;
+      width: auto;
+      object-fit: contain;
+    }
+    .showcase-brand-name {
+      font-family: var(--font-brand);
+      font-size: 1.6rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .showcase-ai-pill {
+      font-size: 0.72rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #0891b2, #16a34a);
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+    .showcase-tagline {
+      font-family: var(--font-hindi);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #a7f3d0;
+      margin-bottom: 14px;
+    }
+    .showcase-divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.18);
+      margin: 14px 0;
+    }
+    .showcase-savings-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(245, 158, 11, 0.25);
+      border: 1px solid rgba(245, 158, 11, 0.45);
+      color: #fde047;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 0.84rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .showcase-features-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-align: left;
+      font-size: 0.84rem;
+      color: #e2e8f0;
+      margin-bottom: 20px;
+    }
+    .showcase-feat-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-showcase-action {
+      width: 100%;
+      background: #ffffff;
+      color: #064e3b;
+      padding: 12px;
+      border-radius: var(--radius-md);
+      font-size: 0.88rem;
+      font-weight: 800;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+      transition: all var(--transition-fast);
+    }
+    .btn-showcase-action:hover {
+      background: #f0fdfa;
+      transform: translateY(-2px);
     }
 
     /* HERO BANNER SECTION */
@@ -1175,13 +1374,14 @@
   <!-- TOP ANNOUNCEMENT BAR -->
   <div class="top-announcement">
     <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-      <div>
-        <span class="badge-pill-live">🇮🇳 LIVE PROTOTYPE</span>
-        <span><strong>Aavishkaar YEP 2026</strong> • राष्ट्रीय स्वास्थ्य नवाचार परियोजना (CDSCO एवं PMBJP जन औषधि कैटलॉग)</span>
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="badge-pill-live">🌿 AROGYAMITRA AI</span>
+        <span><strong style="color: #a7f3d0;">आपकी सेहत का सच्चा साथी</strong> • राष्ट्रीय स्वास्थ्य नवाचार (Aavishkaar YEP 2026)</span>
       </div>
-      <div style="font-size: 0.72rem;">
-        <span style="margin-right: 14px;"><i class="fa-solid fa-shield-halved"></i> 95%+ Confidence HITL Rule</span>
-        <span><i class="fa-solid fa-hospital"></i> 10,000+ जन औषधि केंद्र समर्थित</span>
+      <div style="font-size: 0.72rem; display: flex; align-items: center; gap: 14px;">
+        <span><i class="fa-solid fa-circle-check" style="color: #34d399;"></i> 100% CDSCO जेनेरिक साल्ट</span>
+        <span><i class="fa-solid fa-shield-halved" style="color: #38bdf8;"></i> 95%+ HITL सुरक्षा</span>
+        <span><i class="fa-solid fa-hospital" style="color: #fde047;"></i> 10,000+ जन औषधि केंद्र</span>
       </div>
     </div>
   </div>
@@ -1191,16 +1391,20 @@
     <header class="navbar">
       <div class="container nav-container">
         
-        <a href="#home" onclick="App.navigateTo('home')" class="brand-link" title="DoseMitra AI">
-          <div class="brand-logo-badge">
-            <i class="fa-solid fa-notes-medical"></i>
+        <a href="#home" onclick="App.navigateTo('home')" class="brand-link" title="ArogyaMitra AI – आपकी सेहत का सच्चा साथी">
+          <div class="brand-logo-wrap">
+            <img src="logo.png" alt="ArogyaMitra Logo" class="brand-logo-img" onerror="this.onerror=null; this.src='static/logo.png';">
           </div>
           <div class="brand-info">
             <div class="brand-title-line">
-              <span class="brand-title">DoseMitra <span>AI</span></span>
-              <span class="brand-naac-badge">YEP 2026</span>
+              <span class="brand-title"><span class="brand-arogya">Arogya</span><span class="brand-mitra">Mitra</span> <span class="brand-ai-badge">AI</span></span>
+              <span class="brand-yep-badge">YEP 2026</span>
             </div>
-            <span class="brand-subtitle">Smart Generic Health Platform • IET DDU Gorakhpur</span>
+            <div class="brand-subtitle">
+              <span class="brand-tagline-text">आपकी सेहत का सच्चा साथी</span>
+              <span class="brand-dot-separator">•</span>
+              <span class="brand-institute">IET DDU Gorakhpur</span>
+            </div>
           </div>
         </a>
 
@@ -1243,7 +1447,7 @@
 
           <button onclick="App.toggleChat()" class="btn-chat-trigger" title="AI Health Assistant">
             <i class="fa-solid fa-robot"></i>
-            <span data-i18n="nav_chat_btn">AI असिस्टेंट</span>
+            <span data-i18n="nav_chat_btn">आरोग्य AI सहायक</span>
           </button>
         </div>
 
@@ -1269,44 +1473,79 @@
     <!-- SECTION 1: HOME / HERO -->
     <section id="section-home">
       <div class="hero-banner-card">
-        <div style="max-width: 820px;">
-          <div style="font-size: 0.76rem; font-weight: 700; color: #a7f3d0; margin-bottom: 12px;">
-            <i class="fa-solid fa-circle-check"></i> CDSCO व प्रधानमंत्री भारतीय जन औषधि (PMBJP) प्रमाणित
-          </div>
-          <h1 class="hero-title">
-            डॉक्टर का पर्चा डिकोड करें, <span>80% तक सस्ती</span> असली दवा पाएं!
-          </h1>
-          <p class="hero-desc">
-            DoseMitra AI डॉक्टर की कठिन लिखावट को तुरंत पढ़कर उसका सही केमिकल साल्ट पहचानता है और जन औषधि केंद्र की आधिकारिक दर, बचत व बीमारी की पूरी जानकारी शुद्ध हिंदी में समझाता है।
-          </p>
-          <div class="hero-btn-group">
-            <button onclick="App.navigateTo('scanner')" class="btn-hero-primary">
-              <i class="fa-solid fa-camera"></i> पर्चा स्कैन करें (Scan Now)
-            </button>
-            <button onclick="App.navigateTo('catalog')" class="btn-hero-secondary">
-              <i class="fa-solid fa-capsules"></i> जन औषधि दवा खोजें
-            </button>
-            <button onclick="App.navigateTo('roadmap')" class="btn-hero-secondary">
-              <i class="fa-solid fa-compass"></i> हमारा विज़न व कार्य
-            </button>
+        <div class="hero-flex-layout">
+          <div class="hero-left-col">
+            <div class="hero-badge-pill">
+              <span class="badge-dot-live"></span>
+              <span><strong>🌿 ArogyaMitra AI</strong> • आपकी सेहत का सच्चा साथी | PMBJP & CDSCO प्रमाणित</span>
+            </div>
+            <h1 class="hero-title">
+              डॉक्टर का पर्चा डिकोड करें, <span>50% से 90% तक</span> सस्ती असली दवा पाएं!
+            </h1>
+            <p class="hero-desc">
+              ArogyaMitra AI डॉक्टर की कठिन लिखावट को तुरंत पढ़कर उसका CDSCO प्रमाणित सही केमिकल साल्ट पहचानता है और जन औषधि केंद्र की आधिकारिक दर, बचत व बीमारी की पूरी जानकारी शुद्ध हिंदी में समझाता है।
+            </p>
+            <div class="hero-btn-group">
+              <button onclick="App.navigateTo('scanner')" class="btn-hero-primary">
+                <i class="fa-solid fa-camera"></i> पर्चा स्कैन करें (Scan Now)
+              </button>
+              <button onclick="App.navigateTo('catalog')" class="btn-hero-secondary">
+                <i class="fa-solid fa-capsules"></i> जन औषधि दवा खोजें
+              </button>
+              <button onclick="App.toggleChat()" class="btn-hero-accent">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> AI आरोग्य मित्र
+              </button>
+            </div>
+
+            <div class="hero-stats-grid">
+              <div>
+                <div class="stat-value">₹422+</div>
+                <div class="stat-label">औसत मासिक परिवार बचत</div>
+              </div>
+              <div>
+                <div class="stat-value">95%+</div>
+                <div class="stat-label">HITL क्लिनिकल शुद्धता नियम</div>
+              </div>
+              <div>
+                <div class="stat-value">40+</div>
+                <div class="stat-label">CDSCO मास्टर साल्ट कैटलॉग</div>
+              </div>
+              <div>
+                <div class="stat-value">10,000+</div>
+                <div class="stat-label">जन औषधि केंद्र समर्थित</div>
+              </div>
+            </div>
           </div>
 
-          <div class="hero-stats-grid">
-            <div>
-              <div class="stat-value">₹422+</div>
-              <div class="stat-label">औसत मासिक परिवार बचत</div>
-            </div>
-            <div>
-              <div class="stat-value">95%+</div>
-              <div class="stat-label">HITL क्लिनिकल शुद्धता नियम</div>
-            </div>
-            <div>
-              <div class="stat-value">40+</div>
-              <div class="stat-label">CDSCO मास्टर साल्ट कैटलॉग</div>
-            </div>
-            <div>
-              <div class="stat-value">10,000+</div>
-              <div class="stat-label">जन औषधि केंद्र समर्थित</div>
+          <!-- Hero Right Showcase Card -->
+          <div class="hero-right-col">
+            <div class="hero-showcase-glass-card">
+              <div class="showcase-logo-container">
+                <img src="logo.png" alt="ArogyaMitra Logo" class="showcase-logo-img" onerror="this.onerror=null; this.src='static/logo.png';">
+              </div>
+              <div class="showcase-brand-name">
+                <span style="color:#0891b2;">Arogya</span><span style="color:#16a34a;">Mitra</span>
+                <span class="showcase-ai-pill">AI</span>
+              </div>
+              <div class="showcase-tagline">"आपकी सेहत का सच्चा साथी"</div>
+              <div class="showcase-divider"></div>
+              <div class="showcase-savings-badge">
+                <i class="fa-solid fa-piggy-bank"></i> 78.9% औसत बचत प्रति पर्चा
+              </div>
+              <div class="showcase-features-list">
+                <div class="showcase-feat-item">
+                  <i class="fa-solid fa-circle-check" style="color:#34d399;"></i> <span>डॉक्टर की लिखावट की सटीक पहचान</span>
+                </div>
+                <div class="showcase-feat-item">
+                  <i class="fa-solid fa-circle-check" style="color:#34d399;"></i> <span>100% CDSCO जेनेरिक साल्ट मैच</span>
+                </div>
+                <div class="showcase-feat-item">
+                  <i class="fa-solid fa-circle-check" style="color:#34d399;"></i> <span>24/7 लाइव AI क्लिनिकल परामर्श</span>
+                </div>
+              </div>
+              <button onclick="App.navigateTo('scanner')" class="btn-showcase-action">
+                <i class="fa-solid fa-bolt"></i> 1-क्लिक टेस्ट पर्चे देखें
+              </button>
             </div>
           </div>
         </div>
@@ -1509,7 +1748,7 @@
     <section id="section-work" class="section-block">
       <div class="section-tag"><i class="fa-solid fa-microchip"></i> Engineering Architecture</div>
       <h2 class="section-title">हमारा कार्य (What We Are Working On)</h2>
-      <p class="section-subtitle">DoseMitra AI कैसे कार्य करता है: 4-स्तरीय सुरक्षित व क्लिनिकल AI आर्किटेक्चर।</p>
+      <p class="section-subtitle">ArogyaMitra AI कैसे कार्य करता है: 4-स्तरीय सुरक्षित व क्लिनिकल AI आर्किटेक्चर।</p>
 
       <div class="features-grid">
         <div class="feature-card">
@@ -1577,7 +1816,7 @@
     <section id="section-about" class="section-block">
       <div class="section-tag"><i class="fa-solid fa-user"></i> Project Leadership</div>
       <h2 class="section-title">Lead Innovator & AI Architect</h2>
-      <p class="section-subtitle">DoseMitra AI टीम एवं नवाचार प्रोफाइल (Aavishkaar YEP 2026 Submission)।</p>
+      <p class="section-subtitle">ArogyaMitra AI टीम एवं नवाचार प्रोफाइल (Aavishkaar YEP 2026 Submission)।</p>
 
       <div class="dev-profile-container">
         <div style="text-align: center;">
@@ -1594,7 +1833,7 @@
 
         <div>
           <div style="font-family: var(--font-hindi); font-size: 0.95rem; line-height: 1.7; margin-bottom: 14px;">
-            <strong>हमारा मिशन:</strong> "भारत के हर परिवार को सस्ती और गुणवत्तापूर्ण दवा उपलब्ध कराना। महंगी ब्रांडेड दवाओं के कारण देश का कोई भी गरीब परिवार इलाज से वंचित न रहे। DoseMitra AI तकनीक के माध्यम से डॉक्टर के पर्चे और जन औषधि केंद्र के बीच की दूरी को समाप्त करता है।"
+            <strong>हमारा मिशन:</strong> "भारत के हर परिवार को सस्ती और गुणवत्तापूर्ण दवा उपलब्ध कराना। महंगी ब्रांडेड दवाओं के कारण देश का कोई भी गरीब परिवार इलाज से वंचित न रहे। ArogyaMitra AI तकनीक के माध्यम से डॉक्टर के पर्चे और जन औषधि केंद्र के बीच की दूरी को समाप्त करता है।"
           </div>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.78rem;">
             <div style="background: var(--bg-card-alt); padding: 10px; border-radius: var(--radius-sm); border: 1px solid var(--border);">
@@ -1619,7 +1858,7 @@
           <span style="position: absolute; bottom: 0; right: 0; width: 9px; height: 9px; background: #22c55e; border: 2px solid #fff; border-radius: 50%;"></span>
         </div>
         <div>
-          <div style="font-weight: 800; font-size: 0.92rem; color: #fff; line-height: 1.2;" id="chat-header-title">डोज़मित्र AI असिस्टेंट</div>
+          <div style="font-weight: 800; font-size: 0.92rem; color: #fff; line-height: 1.2;" id="chat-header-title">आरोग्यमित्र AI असिस्टेंट</div>
           <div style="font-size: 0.7rem; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 5px;">
             <span style="display: inline-block; width: 6px; height: 6px; background: #4ade80; border-radius: 50%;"></span>
             <span id="chat-header-subtitle">24/7 क्लिनिकल फार्मासिस्ट</span>
@@ -1647,7 +1886,7 @@
     <div class="chat-messages" id="chat-messages-container">
       <div class="chat-bubble-ai">
         <div style="font-weight: 800; color: var(--primary); margin-bottom: 4px; font-size: 0.88rem;">
-          <i class="fa-solid fa-hand-holding-heart"></i> नमस्ते! मैं डोज़मित्र AI असिस्टेंट हूँ।
+          <i class="fa-solid fa-hand-holding-heart"></i> नमस्ते! मैं आरोग्यमित्र AI असिस्टेंट हूँ।
         </div>
         <div>
           आप मुझसे किसी भी डॉक्टर के पर्चे की दवा (जैसे <strong>Augmentin, Dolo, Pan-D, Glycomet, Telma</strong>) का जेनेरिक साल्ट, जन औषधि केंद्र पर बचत, या दवा लेने का सही समय (खाली पेट / खाने के बाद) पूछ सकते हैं।
@@ -1762,7 +2001,7 @@
   <div id="printable-slip" style="display: none; padding: 30px; background: #fff; color: #000; font-family: sans-serif;">
     <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 14px;">
       <h2>प्रधानमंत्री भारतीय जन औषधि परियोजना (PMBJP)</h2>
-      <p style="font-size: 0.8rem;">DoseMitra AI डिजिटल जेनेरिक प्रतिस्थापन पर्ची</p>
+      <p style="font-size: 0.8rem;">ArogyaMitra AI डिजिटल जेनेरिक प्रतिस्थापन पर्ची</p>
       <div style="font-size: 0.72rem;">ID: <span id="print-scan-id"></span> | Date: <span id="print-date"></span></div>
     </div>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.8rem; margin-bottom: 12px; border-bottom: 1px solid #ccc; padding-bottom: 8px;">
@@ -1783,7 +2022,7 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div style="font-family: var(--font-brand); font-size: 1.1rem; font-weight: 900; margin-bottom: 8px;">DoseMitra <span>AI</span></div>
+          <div style="font-family: var(--font-brand); font-size: 1.1rem; font-weight: 900; margin-bottom: 8px;"><span style="color:#0891b2;">Arogya</span><span style="color:#16a34a;">Mitra</span> <span>AI</span></div>
           <p style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 10px;">
             Aavishkaar YEP 2026 राष्ट्रीय स्वास्थ्य नवाचार परियोजना। डॉक्टर के हस्तलिखित पर्चे को डिकोड कर सस्ती जन औषधि जेनेरिक दवाइयों को हर भारतीय परिवार तक पहुंचाना।
           </p>
@@ -1810,7 +2049,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <div>© 2026 DoseMitra AI • Aavishkaar Foundation YEP Innovation Submission.</div>
+        <div>© 2026 ArogyaMitra AI (आपकी सेहत का सच्चा साथी) • Aavishkaar Foundation YEP Innovation Submission.</div>
         <div>Lead Architect: <strong>Keshav Narayan</strong> (B.Tech CSE AI & ML)</div>
       </div>
     </div>
@@ -1854,7 +2093,7 @@
           mob_nav_about: "👨‍💻 About",
           hero_badge: '<i class="fa-solid fa-circle-check"></i> CDSCO व प्रधानमंत्री भारतीय जन औषधि (PMBJP) प्रमाणित',
           hero_title: 'डॉक्टर का पर्चा डिकोड करें, <span style="color:#fde047;">80% तक सस्ती</span> असली दवा पाएं!',
-          hero_desc: 'DoseMitra AI डॉक्टर की कठिन लिखावट को तुरंत पढ़कर उसका सही केमिकल साल्ट पहचानता है और जन औषधि केंद्र की आधिकारिक दर, बचत व बीमारी की पूरी जानकारी शुद्ध हिंदी में समझाता है।',
+          hero_desc: 'ArogyaMitra AI डॉक्टर की कठिन लिखावट को तुरंत पढ़कर उसका सही केमिकल साल्ट पहचानता है और जन औषधि केंद्र की आधिकारिक दर, बचत व बीमारी की पूरी जानकारी शुद्ध हिंदी में समझाता है।',
           hero_btn_scan: '<i class="fa-solid fa-camera"></i> पर्चा स्कैन करें (Scan Now)',
           hero_btn_catalog: '<i class="fa-solid fa-capsules"></i> जन औषधि दवा खोजें',
           hero_btn_roadmap: '<i class="fa-solid fa-compass"></i> हमारा विज़न व कार्य',
@@ -1870,11 +2109,11 @@
           scanner_drop_sub: 'JPG, PNG फॉर्मेट (साफ़ फोटो खींचें)',
           scanner_btn_action: '<i class="fa-solid fa-bolt"></i> AI क्लिनिकल जांच शुरू करें',
           scanner_sample_title: '<i class="fa-solid fa-flask" style="color: var(--secondary);"></i> तुरंत टेस्ट के लिए नमूना पर्चा चुनें (1-Click Test):',
-          chat_header_title: 'डोज़मित्र AI असिस्टेंट',
+          chat_header_title: 'आरोग्यमित्र AI असिस्टेंट',
           chat_header_subtitle: '24/7 क्लिनिकल फार्मासिस्ट',
           chat_clear_btn_text: 'नयी चैट',
           chat_placeholder: 'दवा का नाम या स्वास्थ्य सवाल पूछें...',
-          chat_verified_badge: 'DoseMitra AI प्रमाणित',
+          chat_verified_badge: 'ArogyaMitra AI प्रमाणित',
           chat_btn_listen: 'सुनें',
           chat_btn_copy: 'कॉपी',
           reg_title: '👤 उपयोगकर्ता प्रोफ़ाइल एवं पंजीकरण',
@@ -1911,7 +2150,7 @@
           mob_nav_about: "👨‍💻 About",
           hero_badge: '<i class="fa-solid fa-circle-check"></i> CDSCO & PMBJP Jan Aushadhi Verified',
           hero_title: 'Doctor Ka Parcha Decode Karein, <span style="color:#fde047;">80% Tak Sasti</span> Generic Dawa Paayein!',
-          hero_desc: 'DoseMitra AI doctor ki difficult handwriting ko padhkar sahi chemical salt pehchanta hai aur Jan Aushadhi kendra ki sasti generic medicine bata kar 50% se 90% bachat karata hai.',
+          hero_desc: 'ArogyaMitra AI doctor ki difficult handwriting ko padhkar sahi chemical salt pehchanta hai aur Jan Aushadhi kendra ki sasti generic medicine bata kar 50% se 90% bachat karata hai.',
           hero_btn_scan: '<i class="fa-solid fa-camera"></i> Parcha Scan Karein (Scan Now)',
           hero_btn_catalog: '<i class="fa-solid fa-capsules"></i> Jan Aushadhi Dawa Dhoondhein',
           hero_btn_roadmap: '<i class="fa-solid fa-compass"></i> Hamara Vision & Work',
@@ -1927,11 +2166,11 @@
           scanner_drop_sub: 'JPG, PNG format (Clean photo khinchein)',
           scanner_btn_action: '<i class="fa-solid fa-bolt"></i> AI Clinical Scan Shuru Karein',
           scanner_sample_title: '<i class="fa-solid fa-flask" style="color: var(--secondary);"></i> Instant Test Ke Liye Sample Parcha Chunein (1-Click Test):',
-          chat_header_title: 'DoseMitra AI Assistant',
+          chat_header_title: 'ArogyaMitra AI Assistant',
           chat_header_subtitle: '24/7 Clinical AI Pharmacist',
           chat_clear_btn_text: 'New Chat',
           chat_placeholder: 'Dawa ka naam ya health sawal poochein...',
-          chat_verified_badge: 'DoseMitra AI Verified',
+          chat_verified_badge: 'ArogyaMitra AI Verified',
           chat_btn_listen: 'Sunein',
           chat_btn_copy: 'Copy',
           reg_title: '👤 User Profile & Registration',
@@ -1968,7 +2207,7 @@
           mob_nav_about: "👨‍💻 About",
           hero_badge: '<i class="fa-solid fa-circle-check"></i> Certified by CDSCO & PMBJP Jan Aushadhi',
           hero_title: 'Decode Doctor Prescriptions, <span style="color:#fde047;">Save 50% to 90%</span> on Generic Medicines!',
-          hero_desc: 'DoseMitra AI instantly reads handwritten prescriptions, detects approved active chemical salts, and recommends affordable PMBJP Jan Aushadhi generic equivalents.',
+          hero_desc: 'ArogyaMitra AI instantly reads handwritten prescriptions, detects approved active chemical salts, and recommends affordable PMBJP Jan Aushadhi generic equivalents.',
           hero_btn_scan: '<i class="fa-solid fa-camera"></i> Scan Prescription Now',
           hero_btn_catalog: '<i class="fa-solid fa-capsules"></i> Search Generic Catalog',
           hero_btn_roadmap: '<i class="fa-solid fa-compass"></i> Explore Vision & Work',
@@ -1984,11 +2223,11 @@
           scanner_drop_sub: 'JPG, PNG format (Ensure clear lighting)',
           scanner_btn_action: '<i class="fa-solid fa-bolt"></i> Start AI Clinical Analysis',
           scanner_sample_title: '<i class="fa-solid fa-flask" style="color: var(--secondary);"></i> Select a Sample Prescription for Instant Test (1-Click):',
-          chat_header_title: 'DoseMitra AI Assistant',
+          chat_header_title: 'ArogyaMitra AI Assistant',
           chat_header_subtitle: '24/7 Clinical AI Pharmacist',
           chat_clear_btn_text: 'New Chat',
           chat_placeholder: 'Ask medicine name, dosage, or health query...',
-          chat_verified_badge: 'DoseMitra AI Verified',
+          chat_verified_badge: 'ArogyaMitra AI Verified',
           chat_btn_listen: 'Listen',
           chat_btn_copy: 'Copy',
           reg_title: '👤 User Profile Registration',
@@ -2011,7 +2250,7 @@
       },
 
       init: function() {
-        console.log("DoseMitra AI initialized successfully!");
+        console.log("ArogyaMitra AI initialized successfully!");
         this.checkUserRegistration();
         this.fetchCatalog();
         this.fetchPharmacistQueue();
@@ -2269,7 +2508,7 @@
         this.setLanguage(language);
         this.closeAllModals();
 
-        alert(`✅ स्वागत है, ${name} जी! आपकी प्रोफ़ाइल DoseMitra AI पर सफलतापूर्वक सेव हो गई है।`);
+        alert(`✅ स्वागत है, ${name} जी! आपकी प्रोफ़ाइल ArogyaMitra AI पर सफलतापूर्वक सेव हो गई है।`);
       },
 
       updateNavbarUserBadge: function() {
@@ -2472,7 +2711,7 @@
             }
             try {
               const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
-              const prompt = 'You are DoseMitra AI, an expert clinical pharmacist. Analyze this prescription image. Return ONLY a JSON object with: doctor_name, patient_name, diagnosis, and medicines_list array with objects: raw_text, dosage, timing.';
+              const prompt = 'You are ArogyaMitra AI, an expert clinical pharmacist. Analyze this prescription image. Return ONLY a JSON object with: doctor_name, patient_name, diagnosis, and medicines_list array with objects: raw_text, dosage, timing.';
               const resp = await fetch(url, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -2661,7 +2900,7 @@
         const fin = d.financials || {};
         const medsList = (d.medicines || []).map((m, i) => `${i+1}. ${m.brand_name} -> जन औषधि साल्ट: ${m.generic_salt_name} (₹${m.jan_aushadhi_rate})`).join('\n');
 
-        const msg = `🩺 *DoseMitra AI - प्रिस्क्रिप्शन रिपोर्ट*\n` +
+        const msg = `🩺 *ArogyaMitra AI - आपकी सेहत का सच्चा साथी रिपोर्ट*\n` +
                     `मरीज़: ${d.patient_name || 'मरीज़'}\n` +
                     `डॉक्टर: ${d.doctor_name || 'डॉक्टर'}\n` +
                     `रोग: ${d.diagnosis || 'सामान्य'}\n\n` +
@@ -2971,7 +3210,7 @@
           container.innerHTML = `
             <div class="chat-bubble-ai">
               <div style="font-weight: 800; color: var(--primary); margin-bottom: 4px; font-size: 0.88rem;">
-                <i class="fa-solid fa-hand-holding-heart"></i> नमस्ते! मैं डोज़मित्र AI असिस्टेंट हूँ।
+                <i class="fa-solid fa-hand-holding-heart"></i> नमस्ते! मैं आरोग्यमित्र AI असिस्टेंट हूँ।
               </div>
               <div>
                 आप मुझसे किसी भी डॉक्टर के पर्चे की दवा (जैसे <strong>Augmentin, Dolo, Pan-D, Glycomet, Telma</strong>) का जेनेरिक साल्ट, जन औषधि केंद्र पर बचत, या दवा लेने का सही समय पूछ सकते हैं। आप मुझसे अपनी पढ़ाई, स्वास्थ्य या कोई भी सवाल बेझिझक पूछ सकते हैं!
@@ -3033,7 +3272,7 @@
         const targetEl = document.getElementById(typingId);
 
         const renderReply = (replyHtml, sourceName) => {
-          const verifiedText = this.t('chat_verified_badge') || 'DoseMitra AI Verified';
+          const verifiedText = this.t('chat_verified_badge') || 'ArogyaMitra AI Verified';
           const listenText = this.t('chat_btn_listen') || 'सुनें';
           const copyText = this.t('chat_btn_copy') || 'कॉपी';
 
@@ -3063,7 +3302,7 @@
         const userName = this.currentUser ? this.currentUser.name : '';
         const userCity = this.currentUser ? this.currentUser.city : 'Gorakhpur';
         const userLang = this.currentLang || 'hi';
-        const systemInstructionText = `You are "DoseMitra AI", an intelligent clinical AI pharmacist, medical doubt solver and 24/7 conversational healthcare assistant created by Keshav Narayan (B.Tech, DDU Gorakhpur) for the Aavishkaar Young Entrepreneurs Program (YEP 2026).
+        const systemInstructionText = `You are "ArogyaMitra AI", an intelligent clinical AI pharmacist, medical doubt solver and 24/7 conversational healthcare assistant created by Keshav Narayan (B.Tech, DDU Gorakhpur) for the Aavishkaar Young Entrepreneurs Program (YEP 2026).
 The user interacting with you is ${userName ? userName : 'a patient/citizen'} from ${userCity}. Their preferred language is ${userLang}.
 
 CRITICAL LANGUAGE RULE:
@@ -3075,7 +3314,7 @@ Strictly match the user's language and script. Never mix them unless asked.
 
 STRICT CONVERSATION & TONE RULES:
 1. NEVER use robotic introductions like "नमस्ते! आपके प्रश्न: ... के संबंध में:". Always start directly with the natural, helpful answer.
-2. If asked "tum kon ho" or "who are you", introduce yourself warmly as DoseMitra AI created by Keshav Narayan for Aavishkaar YEP 2026 at DDU Gorakhpur University. Explain that you can decode doctor prescriptions, find PMBJP Jan Aushadhi generic medicines (saving 50%-90%), explain medicine timings (empty stomach vs after food), and solve any healthcare or academic doubt.
+2. If asked "tum kon ho" or "who are you", introduce yourself warmly as ArogyaMitra AI created by Keshav Narayan for Aavishkaar YEP 2026 at DDU Gorakhpur University. Explain that you can decode doctor prescriptions, find PMBJP Jan Aushadhi generic medicines (saving 50%-90%), explain medicine timings (empty stomach vs after food), and solve any healthcare or academic doubt.
 3. You can answer ANY question the user asks — general doubts, healthcare, science, chemistry, physics, coding, formulas, or casual conversation.
 4. When discussing medicines:
    - State the Active Chemical Salt (API) approved by CDSCO.

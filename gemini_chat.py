@@ -1,5 +1,5 @@
 """
-DoseMitra AI - Advanced Clinical AI Health Assistant & Gemini Integration
+ArogyaMitra AI - Advanced Clinical AI Health Assistant & Gemini Integration
 Combines Live Google Gemini 1.5/2.0 API with CDSCO & PMBJP Jan Aushadhi Clinical Database.
 """
 
@@ -51,7 +51,7 @@ def set_gemini_api_key(new_key: str) -> bool:
     return True
 
 SYSTEM_PROMPT_CHAT = """
-You are "DoseMitra AI", an intelligent clinical AI pharmacist and 24/7 conversational healthcare assistant developed by Keshav Narayan (B.Tech IT, DDU Gorakhpur) for the Aavishkaar Young Entrepreneurs Program 2026.
+You are "ArogyaMitra AI", an intelligent clinical AI pharmacist and 24/7 conversational healthcare assistant developed by Keshav Narayan (B.Tech IT, DDU Gorakhpur) for the Aavishkaar Young Entrepreneurs Program 2026.
 
 CRITICAL LANGUAGE RULE:
 You MUST reply in the EXACT SAME language and script in which the user asked the question.
@@ -62,7 +62,7 @@ Strictly match the user's language. Never mix scripts unnecessarily.
 
 STRICT CONVERSATION & TONE RULES:
 1. NEVER use robotic preambles like "नमस्ते! आपके प्रश्न: ... के संबंध में:". Always start directly with the natural answer.
-2. If asked "tum kon ho" or "who are you", introduce yourself warmly as DoseMitra AI created by Keshav Narayan for Aavishkaar YEP 2026, explaining your ability to decode doctor prescriptions, suggest Jan Aushadhi generic medicines (saving 50%-90%), explain medicine timings and answer any health doubts.
+2. If asked "tum kon ho" or "who are you", introduce yourself warmly as ArogyaMitra AI created by Keshav Narayan for Aavishkaar YEP 2026, explaining your ability to decode doctor prescriptions, suggest Jan Aushadhi generic medicines (saving 50%-90%), explain medicine timings and answer any health doubts.
 3. You can answer ANY question the user asks — general doubts, medical advice, medicine dosages, science, chemistry, technology, or day-to-day conversation.
 4. When discussing medicines:
    - Always state the Active Chemical Salt (API) approved by CDSCO.
@@ -206,7 +206,7 @@ def clinical_knowledge_engine(user_msg: str) -> str:
     """
     m = user_msg.lower().strip()
     
-    # Priority 1: General & Informational Queries (Location, Quality, DoseMitra, Safety)
+    # Priority 1: General & Informational Queries (Location, Quality, ArogyaMitra, Safety)
     if any(w in m for w in ["kendra", "center", "kaha milegi", "kaha milega", "shop", "address", "kaha pe"]):
         return format_markdown_to_rich_html("""
 ### 📍 जन औषधि केंद्र (PMBJP Kendra) कैसे खोजें?
@@ -228,9 +228,9 @@ def clinical_knowledge_engine(user_msg: str) -> str:
 • **सस्ती क्यों हैं?:** ब्रांडेड कंपनियाँ टीवी विज्ञापनों और मार्केटिंग पर करोड़ों खर्च करती हैं जिसका बोझ मरीजों पर पड़ता है। सरकार जन औषधि दवाइयाँ बिना विज्ञापन सीधे फैक्ट्री से नागरिकों तक न्यूनतम मुनाफे पर पहुंचाती है।
 """)
 
-    if any(w in m for w in ["dosemitra", "डोज़मित्र", "kya karta hai", "about", "innovator", "keshav", "aavishkaar"]):
+    if any(w in m for w in ["dosemitra", "आरोग्यमित्र", "kya karta hai", "about", "innovator", "keshav", "aavishkaar"]):
         return format_markdown_to_rich_html("""
-### 🩺 DoseMitra AI (डोज़मित्र) के बारे में
+### 🩺 ArogyaMitra AI (आरोग्यमित्र) – आपकी सेहत का सच्चा साथी के बारे में
 
 • **मिशन:** गरीब और मध्यमवर्गीय परिवारों का दवाइयों पर होने वाला 50% से 90% खर्च बचाना और डॉक्टर के पर्चे की जटिलताओं को समाप्त करना।  
 • **निर्माता:** **केशव नारायण (Keshav Narayan)**, B.Tech IT, दीन दयाल उपाध्याय गोरखपुर विश्वविद्यालय (DDU).  
@@ -339,7 +339,7 @@ def clinical_knowledge_engine(user_msg: str) -> str:
     # Priority 2: Identity & Conversational Queries
     if any(w in m for w in ["tum kon ho", "who are you", "kya ho", "tera naam", "apna naam", "intro", "kaun ho", "tum kaun ho", "who r u"]):
         return format_markdown_to_rich_html("""
-### 🩺 नमस्ते! मैं DoseMitra AI हूँ।
+### 🩺 नमस्ते! मैं ArogyaMitra AI हूँ।
 
 मुझे **केशव नारायण (Keshav Narayan)** द्वारा **Aavishkaar Young Entrepreneurs Program (YEP 2026)** के तहत विकसित किया गया है।
 
@@ -352,7 +352,7 @@ def clinical_knowledge_engine(user_msg: str) -> str:
 
     if any(w in m for w in ["hello", "hi", "hey", "namaste", "pranam", "kese ho", "kaise ho"]):
         return format_markdown_to_rich_html("""
-### 👋 नमस्ते! मैं डोज़मित्र AI असिस्टेंट आपकी क्या सहायता कर सकता हूँ?
+### 👋 नमस्ते! मैं आरोग्यमित्र AI असिस्टेंट आपकी क्या सहायता कर सकता हूँ?
 
 आप मुझसे:
 • किसी भी दवा का नाम (जैसे *Augmentin 625, Dolo 650, Pan-D, Glycomet*) लिखकर उसका जेनेरिक साल्ट और जन औषधि रेट पूछ सकते हैं।
@@ -368,7 +368,7 @@ def clinical_knowledge_engine(user_msg: str) -> str:
 
     # 4. Default Direct Intelligent Guidance - Clean and natural
     return format_markdown_to_rich_html(f"""
-### 🩺 डोज़मित्र क्लिनिकल AI परामर्श
+### 🩺 आरोग्यमित्र क्लिनिकल AI परामर्श
 
 • **दवा परामर्श:** आप मुझसे किसी भी ब्रांडेड दवा (जैसे *Augmentin, Dolo, Pan-D, Glycomet, Telma, Azithral, Shelcal*) का नाम लिखकर पूछ सकते हैं — मैं उसका **समान केमिकल साल्ट, जन औषधि दर और बचत** तुरंत बता दूंगा।  
 • **बीमारी व लक्षण:** सर्दी, बुखार, गैस, बीपी, शुगर, दस्त से संबंधित प्राथमिक सावधानियाँ और दवा लेने का सही समय (खाली पेट या खाने के बाद) जान सकते हैं।  
@@ -440,6 +440,6 @@ def query_gemini_chatbot(user_message: str) -> dict:
     return {
         "success": True,
         "reply": response_html,
-        "source": "DoseMitra CDSCO Clinical Engine",
+        "source": "ArogyaMitra CDSCO Clinical Engine",
         "timestamp": time.strftime("%H:%M")
     }

@@ -1,5 +1,5 @@
 """
-DoseMitra AI - Gemini 1.5 Flash Vision Client
+ArogyaMitra AI - Gemini 1.5 Flash Vision Client
 Extracts structured clinical data from doctor prescriptions.
 """
 
@@ -151,7 +151,7 @@ def get_clinical_prescription_fallback(image_bytes: bytes) -> dict:
             "confidence_assessment": 97.5,
             "handwriting_readability": "Clear",
             "doctor_notes": "गर्म पानी से गरारे करें, 5 दिनों में पुनः परामर्श लें।",
-            "engine": "DoseMitra Clinical Neural OCR Engine"
+            "engine": "ArogyaMitra Clinical Neural OCR Engine"
         }
     elif selector == 1:
         return {
@@ -190,7 +190,7 @@ def get_clinical_prescription_fallback(image_bytes: bytes) -> dict:
             "confidence_assessment": 96.0,
             "handwriting_readability": "Clear",
             "doctor_notes": "नियमित फास्टिंग शुगर और बीपी जांचें। चीनी और चिकनाई से परहेज करें।",
-            "engine": "DoseMitra Clinical Neural OCR Engine"
+            "engine": "ArogyaMitra Clinical Neural OCR Engine"
         }
     elif selector == 2:
         return {
@@ -223,7 +223,7 @@ def get_clinical_prescription_fallback(image_bytes: bytes) -> dict:
             "confidence_assessment": 95.8,
             "handwriting_readability": "Moderate",
             "doctor_notes": "दर्द की दवा कभी भी खाली पेट न लें। अधिक तीखा-मसालेदार भोजन न करें।",
-            "engine": "DoseMitra Clinical Neural OCR Engine"
+            "engine": "ArogyaMitra Clinical Neural OCR Engine"
         }
     else:
         return {
@@ -256,5 +256,5 @@ def get_clinical_prescription_fallback(image_bytes: bytes) -> dict:
             "confidence_assessment": 98.2,
             "handwriting_readability": "Clear",
             "doctor_notes": "एंटीबायोटिक का 3 दिन का कोर्स बीच में न छोड़ें।",
-            "engine": "DoseMitra Clinical Neural OCR Engine"
+            "engine": "ArogyaMitra Clinical Neural OCR Engine"
         }

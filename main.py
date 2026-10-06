@@ -1,5 +1,5 @@
 """
-DoseMitra AI - Production Backend Server
+ArogyaMitra AI - Production Backend Server
 Zero-external-dependency robust HTTP server implementing:
 - /api/scan-prescription [POST]
 - /api/pharmacist/queue [GET]
@@ -50,7 +50,7 @@ class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
     daemon_threads = True
     allow_reuse_address = True
 
-class DoseMitraHandler(BaseHTTPRequestHandler):
+class ArogyaMitraHandler(BaseHTTPRequestHandler):
     
     def log_message(self, format, *args):
         # Concise logging
@@ -390,7 +390,7 @@ class DoseMitraHandler(BaseHTTPRequestHandler):
             media_url = parsed.get("MediaUrl0", [None])[0]
 
             response_msg = (
-                "🩺 *DoseMitra AI (डोज़मित्र)*\n"
+                "🩺 *ArogyaMitra AI (आरोग्यमित्र) – आपकी सेहत का सच्चा साथी*\n"
                 "नमस्ते! आपका पर्चा प्राप्त हुआ।\n\n"
                 "✅ *सत्यापित जेनेरिक विकल्प (PMBJP):*\n"
                 "1. ब्रांडेड दवाइयों का कुल खर्च: ₹580\n"
@@ -433,7 +433,7 @@ def run_server(port=8080):
 
     for try_port in candidate_ports:
         try:
-            server = ThreadedHTTPServer(("0.0.0.0", try_port), DoseMitraHandler)
+            server = ThreadedHTTPServer(("0.0.0.0", try_port), ArogyaMitraHandler)
             print("=" * 65)
             print(f"  DOSEMITRA AI - Full-Stack Production Server Active")
             print(f"  Access Web App at: http://localhost:{try_port}")

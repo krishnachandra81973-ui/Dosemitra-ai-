@@ -1,4 +1,4 @@
-# 🩺 DoseMitra AI (डोज़मित्र)
+# 🩺 ArogyaMitra AI (आरोग्यमित्र) – आपकी सेहत का सच्चा साथी
 ### Smart Prescription Decoder & Jan Aushadhi Generic Medicine Recommender
 **Built for Aavishkaar Young Entrepreneurs Program (YEP) 2026**  
 *Lead Developer & Innovator: **Keshav Narayan** (B.Tech IT, DDU Gorakhpur)*  
@@ -7,9 +7,9 @@
 ---
 
 ## 🌟 Overview
-**DoseMitra AI** is an end-to-end clinical AI and healthcare equity platform engineered to solve the acute challenge of illegible handwritten doctor prescriptions and expensive branded drug monopolies in India.
+**ArogyaMitra AI** is an end-to-end clinical AI and healthcare equity platform engineered to solve the acute challenge of illegible handwritten doctor prescriptions and expensive branded drug monopolies in India.
 
-By combining **Gemini 1.5 Flash Vision API**, **CDSCO Approved Active Pharmaceutical Ingredient (API) mappings**, and the **Pradhan Mantri Bhartiya Janaushadhi Pariyojana (PMBJP)** catalog, DoseMitra AI empowers patients with:
+By combining **Gemini 1.5 Flash Vision API**, **CDSCO Approved Active Pharmaceutical Ingredient (API) mappings**, and the **Pradhan Mantri Bhartiya Janaushadhi Pariyojana (PMBJP)** catalog, ArogyaMitra AI empowers patients with:
 1. **Accurate Decoded Prescriptions:** Identifies medicines, dosages, and administration timings from doctor handwriting.
 2. **Generic Salt Substitutions:** Maps proprietary brand names (e.g., *Augmentin 625*, *Pantocid 40*, *Glycomet GP2*) to equivalent generic chemical formulations.
 3. **Up to 85% Cost Savings:** Computes instant financial comparisons against subsidized Jan Aushadhi Kendra rates.
@@ -22,7 +22,7 @@ By combining **Gemini 1.5 Flash Vision API**, **CDSCO Approved Active Pharmaceut
 
 ```mermaid
 graph TD
-    A[Patient / User] -->|Upload Prescription / Click Sample| B[DoseMitra Frontend UI]
+    A[Patient / User] -->|Upload Prescription / Click Sample| B[ArogyaMitra Frontend UI]
     B -->|POST /api/scan-prescription| C[FastAPI / HTTP Server]
     C -->|Step 1: Clinical Vision OCR| D[Gemini 1.5 Flash Vision]
     D -->|Structured JSON Output| E[Fuzzy Matcher RapidFuzz]
@@ -113,7 +113,7 @@ Open your browser at:
 | `/api/pharmacist/queue` | `GET` | Returns list of flagged prescriptions requiring pharmacist verification. |
 | `/api/pharmacist/approve` | `POST` | Allows licensed pharmacist to verify or correct medicine substitution. |
 | `/api/medicines/search` | `GET` | Live search against CDSCO approved medicines and Jan Aushadhi generic catalog. |
-| `/api/chat` | `POST` | Conversational medical guidance via DoseMitra AI Assistant. |
+| `/api/chat` | `POST` | Conversational medical guidance via ArogyaMitra AI Assistant. |
 | `/api/whatsapp-webhook` | `POST` | Webhook receiver for Twilio WhatsApp incoming prescription queries. |
 
 ---
@@ -125,4 +125,4 @@ Open your browser at:
 - **Initiative:** Aavishkaar Young Entrepreneurs Program 2026
 
 ---
-*Disclaimer: DoseMitra AI is designed as a decision-support system to empower patients and pharmacists. Always consult a licensed medical practitioner or registered pharmacist before taking or substituting medications.*
+*Disclaimer: ArogyaMitra AI is designed as a decision-support system to empower patients and pharmacists. Always consult a licensed medical practitioner or registered pharmacist before taking or substituting medications.*
