@@ -19,7 +19,7 @@
 <body>
 
   <!-- TOP ANNOUNCEMENT NOTICE BAR (DDU Style) -->
-  <div style="background: #0f172a; color: #f8fafc; padding: 7px 16px; font-size: 0.76rem; text-align: center; font-weight: 600; letter-spacing: 0.2px; border-bottom: 1px solid rgba(255,255,255,0.08);">
+  <div id="top-announcement-bar" data-i18n="topBanner" style="background: #0f172a; color: #f8fafc; padding: 7px 16px; font-size: 0.76rem; text-align: center; font-weight: 600; letter-spacing: 0.2px; border-bottom: 1px solid rgba(255,255,255,0.08);">
     🏛️ <strong>Aavishkaar YEP 2026 National Innovation</strong> • Pradhan Mantri Bhartiya Janaushadhi Pariyojana (PMBJP) प्रमाणित पहल
   </div>
 
@@ -35,19 +35,19 @@
               <span class="brand-title" style="font-size: 1.18rem; font-weight: 800; color: var(--text-main);">ArogyaMitra AI</span>
               <span class="brand-naac-badge" style="background: linear-gradient(135deg, #d97706, #f59e0b); color: #ffffff; font-size: 0.65rem; font-weight: 800; padding: 2px 8px; border-radius: 4px;">YEP 2026</span>
             </div>
-            <span class="brand-subtitle" style="font-size: 0.74rem; color: var(--text-muted);">Dept of CSE • IET DDU Gorakhpur University</span>
+            <span class="brand-subtitle" id="brand-subtitle" data-i18n="brandSubtitle" style="font-size: 0.74rem; color: var(--text-muted);">Dept of CSE • IET DDU Gorakhpur University</span>
           </div>
         </a>
 
         <!-- Desktop Navigation Links -->
         <ul class="nav-links desktop-only-nav" id="navbar-links-list">
-          <li class="nav-item active"><a href="#landing" onclick="App.navigateTo('landing')">🌟 Purpose</a></li>
-          <li class="nav-item"><a href="#home" onclick="App.navigateTo('home')">🏠 Dashboard</a></li>
-          <li class="nav-item"><a href="#scanner" onclick="App.navigateTo('scanner')">📷 AI Scanner</a></li>
-          <li class="nav-item"><a href="#catalog" onclick="App.navigateTo('catalog')">💊 Jan Aushadhi (40+)</a></li>
-          <li class="nav-item"><a href="#pharmacist" onclick="App.navigateTo('pharmacist')">🩺 Pharmacist (HITL)</a></li>
-          <li class="nav-item"><a href="#roadmap" onclick="App.navigateTo('roadmap')">📈 Growth Model</a></li>
-          <li class="nav-item"><a href="#about" onclick="App.navigateTo('about')">👨‍💻 Keshav Narayan</a></li>
+          <li class="nav-item active"><a href="#landing" onclick="App.navigateTo('landing')" data-i18n="navPurpose">🌟 Purpose</a></li>
+          <li class="nav-item"><a href="#home" onclick="App.navigateTo('home')" data-i18n="navDashboard">🏠 Dashboard</a></li>
+          <li class="nav-item"><a href="#scanner" onclick="App.navigateTo('scanner')" data-i18n="navScanner">📷 AI Scanner</a></li>
+          <li class="nav-item"><a href="#catalog" onclick="App.navigateTo('catalog')" data-i18n="navCatalog">💊 Jan Aushadhi (40+)</a></li>
+          <li class="nav-item"><a href="#pharmacist" onclick="App.navigateTo('pharmacist')" data-i18n="navPharmacist">🩺 Pharmacist (HITL)</a></li>
+          <li class="nav-item"><a href="#roadmap" onclick="App.navigateTo('roadmap')" data-i18n="navRoadmap">📈 Growth Model</a></li>
+          <li class="nav-item"><a href="#about" onclick="App.navigateTo('about')" data-i18n="navAbout">👨‍💻 Keshav Narayan</a></li>
         </ul>
 
         <!-- Action Items & Auth -->
@@ -55,8 +55,14 @@
           <!-- Search Trigger -->
           <button onclick="App.openSearch()" class="search-trigger-btn" title="Search Portal (Ctrl+K)">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <span class="search-btn-text">Search...</span>
+            <span class="search-btn-text" data-i18n="searchBtn">Search...</span>
           </button>
+
+          <!-- Language Switcher Pill (Bilingual HI / EN) -->
+          <div class="lang-switcher-pill" id="lang-switcher-desktop" role="group" aria-label="Language Selector">
+            <button class="lang-btn active" id="btn-lang-hi" onclick="App.setLanguage('hi')">🇮🇳 हिंदी</button>
+            <button class="lang-btn" id="btn-lang-en" onclick="App.setLanguage('en')">English</button>
+          </div>
 
           <!-- Theme Toggle -->
           <button onclick="App.toggleTheme()" class="theme-toggle-btn" id="theme-toggle-btn" title="Toggle Dark/Light Mode">
@@ -64,18 +70,18 @@
           </button>
 
           <!-- AI Clinical Chat Drawer Trigger -->
-          <button onclick="App.toggleChat()" class="btn-primary btn-sm" style="background: linear-gradient(135deg, #0ea5e9, #0284c7); padding: 7px 12px; font-size: 0.8rem; gap: 5px;">
-            <span>🤖</span> AI Doctor
+          <button onclick="App.toggleChat()" class="btn-primary btn-sm" id="nav-chat-btn" style="background: linear-gradient(135deg, #0ea5e9, #0284c7); padding: 7px 12px; font-size: 0.8rem; gap: 5px; white-space: nowrap;">
+            <span>🤖</span> <span data-i18n="navAiDoctor">AI Doctor</span>
           </button>
 
           <!-- Dynamic Auth Container -->
           <div id="nav-guest-block" style="display: flex; gap: 8px;">
-            <button onclick="Auth.openAuthModal('login')" class="btn-secondary btn-sm">Log In</button>
-            <button onclick="Auth.openAuthModal('register')" class="btn-primary btn-sm">Register Free</button>
+            <button onclick="Auth.openAuthModal('login')" class="btn-secondary btn-sm" data-i18n="btnLogin">Log In</button>
+            <button onclick="Auth.openAuthModal('register')" class="btn-primary btn-sm" data-i18n="btnRegister">Register Free</button>
           </div>
           <div id="nav-user-block" style="display: none; align-items: center; gap: 8px;">
             <span id="nav-user-name" style="font-weight: 700; font-size: 0.82rem; color: var(--primary);">User</span>
-            <button onclick="Auth.logout()" class="btn-secondary btn-sm" style="font-size: 0.76rem; padding: 4px 10px;">Logout</button>
+            <button onclick="Auth.logout()" class="btn-secondary btn-sm" style="font-size: 0.76rem; padding: 4px 10px;" data-i18n="btnLogout">Logout</button>
           </div>
 
           <!-- Mobile Menu Toggle -->
@@ -88,13 +94,13 @@
 
     <!-- Mobile Horizontal Scrollable Sub-Navigation Bar -->
     <nav class="mobile-sub-nav scrollable-mobile-nav" id="mobile-sub-navigation">
-      <a href="#landing" class="sub-nav-link active" onclick="App.navigateTo('landing')">🌟 Purpose</a>
-      <a href="#home" class="sub-nav-link" onclick="App.navigateTo('home')">🏠 Dashboard</a>
-      <a href="#scanner" class="sub-nav-link" onclick="App.navigateTo('scanner')">📷 Scanner</a>
-      <a href="#catalog" class="sub-nav-link" onclick="App.navigateTo('catalog')">💊 Jan Aushadhi</a>
-      <a href="#pharmacist" class="sub-nav-link" onclick="App.navigateTo('pharmacist')">🩺 Pharmacist</a>
-      <a href="#roadmap" class="sub-nav-link" onclick="App.navigateTo('roadmap')">📈 Growth</a>
-      <a href="#about" class="sub-nav-link" onclick="App.navigateTo('about')">👨‍💻 About</a>
+      <a href="#landing" class="sub-nav-link active" onclick="App.navigateTo('landing')" data-i18n="navPurpose">🌟 Purpose</a>
+      <a href="#home" class="sub-nav-link" onclick="App.navigateTo('home')" data-i18n="navDashboard">🏠 Dashboard</a>
+      <a href="#scanner" class="sub-nav-link" onclick="App.navigateTo('scanner')" data-i18n="navScanner">📷 Scanner</a>
+      <a href="#catalog" class="sub-nav-link" onclick="App.navigateTo('catalog')" data-i18n="navCatalog">💊 Jan Aushadhi</a>
+      <a href="#pharmacist" class="sub-nav-link" onclick="App.navigateTo('pharmacist')" data-i18n="navPharmacist">🩺 Pharmacist</a>
+      <a href="#roadmap" class="sub-nav-link" onclick="App.navigateTo('roadmap')" data-i18n="navRoadmap">📈 Growth</a>
+      <a href="#about" class="sub-nav-link" onclick="App.navigateTo('about')" data-i18n="navAbout">👨‍💻 About</a>
     </nav>
   </div>
 
@@ -110,6 +116,14 @@
         </div>
       </div>
       <button class="mobile-drawer-close" onclick="App.toggleMobileMenu()">✕</button>
+    </div>
+
+    <!-- Mobile Language Switcher -->
+    <div style="padding: 12px 18px 0; display: flex; justify-content: center;">
+      <div class="lang-switcher-pill" id="lang-switcher-mobile" style="width: 100%; justify-content: center;">
+        <button class="lang-btn active" id="m-btn-lang-hi" style="flex: 1; justify-content: center;" onclick="App.setLanguage('hi')">🇮🇳 हिंदी</button>
+        <button class="lang-btn" id="m-btn-lang-en" style="flex: 1; justify-content: center;" onclick="App.setLanguage('en')">English</button>
+      </div>
     </div>
 
     <!-- Mobile Auth Section -->
@@ -157,36 +171,36 @@
           </div>
 
           <!-- University & Project Typography -->
-          <h1 class="guest-uni-title-hi">आरोग्यमित्र एआई (ArogyaMitra AI)</h1>
-          <div class="guest-uni-title-en">डॉक्टर की पर्ची समझें, 50% से 90% सस्ती दवाइयां पाएं</div>
-          <div class="guest-uni-faculty">National Health Mission • Pradhan Mantri Bhartiya Janaushadhi Pariyojana (PMBJP)</div>
+          <h1 class="guest-uni-title-hi" data-i18n="landingUniTitle">आरोग्यमित्र एआई (ArogyaMitra AI)</h1>
+          <div class="guest-uni-title-en" data-i18n="landingUniSub">डॉक्टर की पर्ची समझें, 50% से 90% सस्ती दवाइयां पाएं</div>
+          <div class="guest-uni-faculty" data-i18n="landingFaculty">National Health Mission • Pradhan Mantri Bhartiya Janaushadhi Pariyojana (PMBJP)</div>
 
           <!-- Accreditation & Innovation Badges -->
           <div class="guest-badges-row">
-            <span class="guest-badge-chip guest-badge-gold">🏛️ Aavishkaar YEP 2026 National Innovation</span>
-            <span class="guest-badge-chip guest-badge-green">✓ CDSCO प्रमाणित 40+ जेनेरिक साल्ट</span>
-            <span class="guest-badge-chip guest-badge-blue">💰 औसत मासिक परिवार बचत: ₹1,420+</span>
+            <span class="guest-badge-chip guest-badge-gold" data-i18n="badgeInnovation">🏛️ Aavishkaar YEP 2026 National Innovation</span>
+            <span class="guest-badge-chip guest-badge-green" data-i18n="badgeCdsco">✓ CDSCO प्रमाणित 40+ जेनेरिक साल्ट</span>
+            <span class="guest-badge-chip guest-badge-blue" data-i18n="badgeSavings">💰 औसत मासिक परिवार बचत: ₹1,420+</span>
           </div>
 
           <!-- Action Buttons -->
           <div class="guest-actions-row">
             <button onclick="Auth.openAuthModal('register')" class="guest-btn-primary">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7.5" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
-              ✨ नि:शुल्क अकाउंट बनाएं (Create Account)
+              <span data-i18n="btnCreateAccount">✨ नि:शुल्क अकाउंट बनाएं (Create Account)</span>
             </button>
             <button onclick="Auth.openAuthModal('login')" class="guest-btn-secondary">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              🔑 नागरिक लॉग इन (Sign In)
+              <span data-i18n="btnSignIn">🔑 नागरिक लॉग इन (Sign In)</span>
             </button>
             <button onclick="App.navigateTo('scanner')" class="guest-btn-primary" style="background: linear-gradient(135deg, #0ea5e9, #0284c7); box-shadow: 0 4px 18px rgba(14, 165, 233, 0.35);">
-              ⚡ बिना लॉगिन लाइव डेमो देखें (Demo)
+              <span data-i18n="btnLiveDemo">⚡ बिना लॉगिन लाइव डेमो देखें (Demo)</span>
             </button>
           </div>
         </div>
 
         <!-- Scroll Down Prompter -->
         <div class="guest-scroll-prompter" onclick="document.getElementById('guest-sheet').scrollIntoView({behavior: 'smooth'})" title="Scroll Down for Details">
-          <span>Explore Details & Benefits</span>
+          <span data-i18n="scrollPrompter">Explore Details & Benefits</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
       </section>
@@ -198,11 +212,9 @@
         <div class="container">
           <!-- Sheet Hero Header -->
           <div class="guest-sheet-hero">
-            <span class="guest-sheet-tag">🚀 Official Health Mission & AI Ecosystem</span>
-            <h2 class="guest-sheet-title">The Complete Healthcare & Generic Medicine Hub for <span class="grad-text">Every Indian</span></h2>
-            <p class="guest-sheet-desc" style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; max-width: 780px; margin: 0 auto;">
-              Welcome to <strong>ArogyaMitra AI (आरोग्यमित्र)</strong>. डॉक्टर की कठिन हैंडराइटिंग पर्ची को Google Gemini 1.5 Flash Vision AI द्वारा सेकंडों में डिकोड करें और Pradhan Mantri Bhartiya Janaushadhi Pariyojana (PMBJP) के सरकारी जेनेरिक साल्ट से जोड़कर हर परिवार का दवा खर्च 50% से 90% घटाएं।
-            </p>
+            <span class="guest-sheet-tag" data-i18n="sheetTag">🚀 Official Health Mission & AI Ecosystem</span>
+            <h2 class="guest-sheet-title" data-i18n="sheetTitle">The Complete Healthcare & Generic Medicine Hub for <span class="grad-text">Every Indian</span></h2>
+            <p class="guest-sheet-desc" data-i18n="sheetDesc" style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; max-width: 780px; margin: 0 auto;">Welcome to <strong>ArogyaMitra AI (आरोग्यमित्र)</strong>. डॉक्टर की कठिन हैंडराइटिंग पर्ची को Google Gemini 1.5 Flash Vision AI द्वारा सेकंडों में डिकोड करें और Pradhan Mantri Bhartiya Janaushadhi Pariyojana (PMBJP) के सरकारी जेनेरिक साल्ट से जोड़कर हर परिवार का दवा खर्च 50% से 90% घटाएं।</p>
           </div>
 
           <!-- Registration Required Alert Banner (DDU Style) -->
@@ -211,73 +223,65 @@
               <span style="font-size: 2.2rem;">🔐</span>
               <div>
                 <div style="font-weight: 800; font-size: 1.05rem; color: var(--text-main); font-family: 'Outfit', sans-serif;">
-                  नि:शुल्क खाता बनाकर संपूर्ण 40+ दवाओं व AI स्कैनर की पूर्ण सुविधा प्राप्त करें
+                  <span data-i18n="regBannerTitle">नि:शुल्क खाता बनाकर संपूर्ण 40+ दवाओं व AI स्कैनर की पूर्ण सुविधा प्राप्त करें</span>
                 </div>
                 <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 2px;">
-                  आम नागरिकों एवं परिवारों के लिए यह सेवा शत-प्रतिशत नि:शुल्क (₹0) है।
+                  <span data-i18n="regBannerSub">आम नागरिकों एवं परिवारों के लिए यह सेवा शत-प्रतिशत नि:शुल्क (₹0) है।</span>
                 </div>
               </div>
             </div>
-            <button onclick="Auth.openAuthModal('register')" class="guest-btn-primary" style="padding: 10px 20px; font-size: 0.88rem;">✨ अभी नि:शुल्क रजिस्टर करें</button>
+            <button onclick="Auth.openAuthModal('register')" class="guest-btn-primary" style="padding: 10px 20px; font-size: 0.88rem;"><span data-i18n="btnRegisterNow">✨ अभी नि:शुल्क रजिस्टर करें</span></button>
           </div>
 
           <!-- 4 CORE VALUE PILLARS (DDU Cards) -->
           <div class="grid grid-4" style="margin-bottom: 50px;">
             <div class="portal-card" style="border-top: 4px solid var(--primary);">
               <div class="card-icon" style="background: rgba(30, 64, 175, 0.1); color: var(--primary);">📝</div>
-              <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">1. कठिन पर्ची का सटीक पठन</h3>
-              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px;">
-                Google Gemini 1.5 Flash Vision AI डॉक्टरों की अस्पष्ट हैंडराइटिंग को 2.4 सेकंड में डिकोड करके सही एक्टिव साल्ट पहचानता है।
-              </p>
+              <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;" data-i18n="pillar1Title">1. कठिन पर्ची का सटीक पठन</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px;" data-i18n="pillar1Desc">Google Gemini 1.5 Flash Vision AI डॉक्टरों की अस्पष्ट हैंडराइटिंग को 2.4 सेकंड में डिकोड करके सही एक्टिव साल्ट पहचानता है।</p>
               <span style="font-size: 0.78rem; font-weight: 700; color: var(--primary);">OCR Accuracy: 92-96% →</span>
             </div>
 
             <div class="portal-card" style="border-top: 4px solid #10b981;">
               <div class="card-icon" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">💰</div>
-              <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">2. 50% से 90% की सीधी बचत</h3>
-              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px;">
-                ब्रांडेड महंगी दवाओं की जगह सरकार की जन औषधि (PMBJP) की वही समान साल्ट और गुणवत्ता वाली दवाएं सुझाता है।
-              </p>
+              <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;" data-i18n="pillar2Title">2. 50% से 90% की सीधी बचत</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px;" data-i18n="pillar2Desc">ब्रांडेड महंगी दवाओं की जगह सरकार की जन औषधि (PMBJP) की वही समान साल्ट और गुणवत्ता वाली दवाएं सुझाता है।</p>
               <span style="font-size: 0.78rem; font-weight: 700; color: #10b981;">औसत परिवार बचत: ₹1,420/माह →</span>
             </div>
 
             <div class="portal-card" style="border-top: 4px solid #d97706;">
               <div class="card-icon" style="background: rgba(217, 119, 6, 0.1); color: #d97706;">🛡️</div>
-              <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">3. 95%+ क्लिनिकल सुरक्षा</h3>
-              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px;">
-                Human-in-the-Loop आर्किटेक्चर: रजिस्टर्ड फार्मासिस्ट द्वारा दवा के संयोजन, खुराक (Dosage), और साइड-इफेक्ट्स की पूर्व-जांच।
-              </p>
+              <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;" data-i18n="pillar3Title">3. 95%+ क्लिनिकल सुरक्षा</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px;" data-i18n="pillar3Desc">Human-in-the-Loop आर्किटेक्चर: रजिस्टर्ड फार्मासिस्ट द्वारा दवा के संयोजन, खुराक (Dosage), और साइड-इफेक्ट्स की पूर्व-जांच।</p>
               <span style="font-size: 0.78rem; font-weight: 700; color: #d97706;">Certified Pharmacist Check →</span>
             </div>
 
             <div class="portal-card" style="border-top: 4px solid #6366f1;">
               <div class="card-icon" style="background: rgba(99, 102, 241, 0.1); color: #6366f1;">🗣️</div>
-              <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">4. 24/7 हिंदी व अंग्रेजी गाइड</h3>
-              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px;">
-                बुजुर्गों और मरीजों के लिए हिंदी में खुराक समझाई जाती है। प्रिस्क्रिप्शन समरी 1-क्लिक में WhatsApp पर शेयर करें।
-              </p>
+              <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;" data-i18n="pillar4Title">4. 24/7 हिंदी व अंग्रेजी गाइड</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px;" data-i18n="pillar4Desc">बुजुर्गों और मरीजों के लिए हिंदी में खुराक समझाई जाती है। प्रिस्क्रिप्शन समरी 1-क्लिक में WhatsApp पर शेयर करें।</p>
               <span style="font-size: 0.78rem; font-weight: 700; color: #6366f1;">Voice TTS & WhatsApp Ready →</span>
             </div>
           </div>
 
           <!-- COMPARISON SHOWCASE TABLE (DDU Table Style) -->
           <div class="section-header">
-            <span class="section-tag">📊 वास्तविक तुलना व प्रमाण (Real Savings Evidence)</span>
-            <h2 class="section-title">ब्रांडेड दवा बनाम जन औषधि जेनेरिक: सीधी तुलना</h2>
-            <p class="section-subtitle">वही वैज्ञानिक मॉलिक्यूल, वही प्रभाव — पर 80% से 88% तक कम कीमत</p>
+            <span class="section-tag" data-i18n="compTag">📊 वास्तविक तुलना व प्रमाण (Real Savings Evidence)</span>
+            <h2 class="section-title" data-i18n="compTitle">ब्रांडेड दवा बनाम जन औषधि जेनेरिक: सीधी तुलना</h2>
+            <p class="section-subtitle" data-i18n="compSub">वही वैज्ञानिक मॉलिक्यूल, वही प्रभाव — पर 80% से 88% तक कम कीमत</p>
           </div>
 
           <div class="table-container" style="margin-bottom: 50px;">
             <table class="data-table">
               <thead>
                 <tr>
-                  <th>बीमारी / श्रेणी</th>
-                  <th>ब्रांडेड दवा (Market Brand)</th>
-                  <th>एक्टिव साल्ट (Generic Salt)</th>
-                  <th>जन औषधि विकल्प (PMBJP)</th>
-                  <th>ब्रांडेड मूल्य (₹)</th>
-                  <th>जन औषधि मूल्य (₹)</th>
-                  <th>सीधी बचत (%)</th>
+                  <th data-i18n="thCategory">बीमारी / श्रेणी</th>
+                  <th data-i18n="thBrandedMed">ब्रांडेड दवा (Market Brand)</th>
+                  <th data-i18n="thActiveSalt">एक्टिव साल्ट (Generic Salt)</th>
+                  <th data-i18n="thPmbjpOpt">जन औषधि विकल्प (PMBJP)</th>
+                  <th data-i18n="thBrandedRate">ब्रांडेड मूल्य (₹)</th>
+                  <th data-i18n="thPmbjpRate">जन औषधि मूल्य (₹)</th>
+                  <th data-i18n="thDirectSavings">सीधी बचत (%)</th>
                 </tr>
               </thead>
               <tbody>
@@ -324,13 +328,11 @@
           <!-- Subscription Plans Section -->
           <div style="margin: 48px 0 36px 0;">
             <div style="text-align: center; margin-bottom: 28px;">
-              <span class="tag tag-blue" style="font-size: 0.82rem; padding: 4px 14px; text-transform: uppercase; letter-spacing: 0.5px;">💎 किफायती मूल्य निर्धारण (Transparent & Affordable Plans)</span>
+              <span class="tag tag-blue" data-i18n="pricingTag" style="font-size: 0.82rem; padding: 4px 14px; text-transform: uppercase; letter-spacing: 0.5px;">💎 किफायती मूल्य निर्धारण (Transparent & Affordable Plans)</span>
               <h2 style="font-size: 2rem; font-weight: 800; margin: 12px 0 8px 0; color: var(--text-main);">
-                हर परिवार के बजट में <span style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">विश्वसनीय स्वास्थ्य सुरक्षा</span>
+                <span data-i18n="pricingTitle">हर परिवार के बजट में <span style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">विश्वसनीय स्वास्थ्य सुरक्षा</span></span>
               </h2>
-              <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 620px; margin: 0 auto;">
-                दवा बिलों पर 80% बचत के साथ अपने पूरे परिवार के नुस्खे, डोज टाइमटेबल और क्लिनिकल सेफ्टी को सुरक्षित रखें।
-              </p>
+              <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 620px; margin: 0 auto;" data-i18n="pricingDesc">दवा बिलों पर 80% बचत के साथ अपने पूरे परिवार के नुस्खे, डोज टाइमटेबल और क्लिनिकल सेफ्टी को सुरक्षित रखें।</p>
             </div>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; align-items: stretch;">
@@ -338,15 +340,13 @@
               <div style="background: var(--card-bg); border: 1.5px solid var(--border-color); border-radius: 16px; padding: 28px 24px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 16px rgba(0,0,0,0.03);">
                 <div>
                   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-main);">7-दिन फ्री ट्रायल (Trial)</h3>
-                    <span class="tag tag-blue">पूर्ण एक्सेस</span>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-main);" data-i18n="trialTitle">7-दिन फ्री ट्रायल (Trial)</h3>
+                    <span class="tag tag-blue" data-i18n="trialAccess">पूर्ण एक्सेस</span>
                   </div>
                   <div style="font-size: 2.4rem; font-weight: 800; color: var(--text-main); margin-bottom: 4px;">
-                    ₹0 <span style="font-size: 0.9rem; font-weight: 500; color: var(--text-muted);">/ 7 दिनों हेतु</span>
+                    <span data-i18n="trialPriceBox">₹0 <span style="font-size: 0.9rem; font-weight: 500; color: var(--text-muted);">/ 7 दिनों हेतु</span></span>
                   </div>
-                  <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">
-                    सभी नए परिवारों के लिए बिना किसी कार्ड या अग्रिम शुल्क के पूर्ण सुविधाएं।
-                  </p>
+                  <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;" data-i18n="trialDesc">सभी नए परिवारों के लिए बिना किसी कार्ड या अग्रिम शुल्क के पूर्ण सुविधाएं।</p>
                   <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; color: var(--text-main); display: flex; flex-direction: column; gap: 10px;">
                     <li style="display: flex; gap: 8px; align-items: center;">✅ 7 दिनों तक एचडी पर्ची स्कैनिंग</li>
                     <li style="display: flex; gap: 8px; align-items: center;">✅ जेनेरिक सॉल्ट व 80% मूल्य तुलना</li>
@@ -457,18 +457,18 @@
             <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
               <span style="font-size: 1.5rem;">👋</span>
               <h1 style="font-size: 1.5rem; font-weight: 800; color: var(--text-main); margin: 0;">नमस्ते, <span id="home-user-name" style="color: var(--primary);">स्वास्थ्य साधक</span>!</h1>
-              <span class="tag tag-success" id="home-user-badge">सक्रिय सदस्य (Verified)</span>
+              <span class="tag tag-success" id="home-user-badge" data-i18n="dashMember">सक्रिय सदस्य (Verified)</span>
             </div>
             <p style="color: var(--text-muted); font-size: 0.88rem; margin: 0;">
-              ArogyaMitra AI व्यक्तिगत स्वास्थ्य केंद्र • आपका निकटतम जन औषधि केंद्र: <strong id="home-user-city" style="color: var(--text-main);">गोरखपुर (DDU परिक्षेत्र)</strong>
+              <span data-i18n="dashCenterText">ArogyaMitra AI व्यक्तिगत स्वास्थ्य केंद्र • आपका निकटतम जन औषधि केंद्र:</span> <strong id="home-user-city" style="color: var(--text-main);">गोरखपुर (DDU परिक्षेत्र)</strong>
             </p>
           </div>
           <div style="display: flex; gap: 10px;">
             <button class="btn-primary" onclick="App.navigateTo('scanner')">
-              <span>📷</span> नई पर्ची स्कैन करें
+              <span>📷</span> <span data-i18n="dashBtnScan">नई पर्ची स्कैन करें</span>
             </button>
             <button class="btn-secondary" onclick="App.toggleChat()">
-              <span>🤖</span> AI डॉक्टर सलाह
+              <span>🤖</span> <span data-i18n="dashBtnDoctor">AI डॉक्टर सलाह</span>
             </button>
           </div>
         </div>
@@ -477,30 +477,30 @@
         <div class="grid grid-4" style="margin-bottom: 30px;">
           <div class="portal-card" style="cursor: pointer;" onclick="App.navigateTo('scanner')">
             <div class="card-icon" style="background: rgba(30, 64, 175, 0.1); color: var(--primary);">📷</div>
-            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 6px;">पर्ची स्कैन करें</h3>
-            <p style="font-size: 0.82rem; color: var(--text-muted);">हैंडराइटिंग पर्ची अपलोड करें या 1-क्लिक सैंपल टेस्ट करें</p>
-            <div style="font-size: 0.78rem; font-weight: 700; color: var(--primary); margin-top: 10px;">स्कैनर खोलें →</div>
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 6px;" data-i18n="dashTile1Title">पर्ची स्कैन करें</h3>
+            <p style="font-size: 0.82rem; color: var(--text-muted);" data-i18n="dashTile1Desc">हैंडराइटिंग पर्ची अपलोड करें या 1-क्लिक सैंपल टेस्ट करें</p>
+            <div style="font-size: 0.78rem; font-weight: 700; color: var(--primary); margin-top: 10px;" data-i18n="dashTile1Cta">स्कैनर खोलें →</div>
           </div>
 
           <div class="portal-card" style="cursor: pointer;" onclick="App.navigateTo('catalog')">
             <div class="card-icon" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">💊</div>
-            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 6px;">जन औषधि डायरेक्टरी</h3>
-            <p style="font-size: 0.82rem; color: var(--text-muted);">40+ CDSCO प्रमाणित दवाओं के दाम व बचत खोजें</p>
-            <div style="font-size: 0.78rem; font-weight: 700; color: #10b981; margin-top: 10px;">दवाएं देखें →</div>
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 6px;" data-i18n="dashTile2Title">जन औषधि डायरेक्टरी</h3>
+            <p style="font-size: 0.82rem; color: var(--text-muted);" data-i18n="dashTile2Desc">40+ CDSCO प्रमाणित दवाओं के दाम व बचत खोजें</p>
+            <div style="font-size: 0.78rem; font-weight: 700; color: #10b981; margin-top: 10px;" data-i18n="dashTile2Cta">दवाएं देखें →</div>
           </div>
 
           <div class="portal-card" style="cursor: pointer;" onclick="App.navigateTo('pharmacist')">
             <div class="card-icon" style="background: rgba(217, 119, 6, 0.1); color: #d97706;">🩺</div>
-            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 6px;">फार्मासिस्ट सुरक्षा पोर्टल</h3>
-            <p style="font-size: 0.82rem; color: var(--text-muted);">क्लिनिकल सुरक्षा जांच व प्रिस्क्रिप्शन सत्यापन कतार</p>
-            <div style="font-size: 0.78rem; font-weight: 700; color: #d97706; margin-top: 10px;">HITL रिव्यू खोलें →</div>
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 6px;" data-i18n="dashTile3Title">फार्मासिस्ट सुरक्षा पोर्टल</h3>
+            <p style="font-size: 0.82rem; color: var(--text-muted);" data-i18n="dashTile3Desc">क्लिनिकल सुरक्षा जांच व प्रिस्क्रिप्शन सत्यापन कतार</p>
+            <div style="font-size: 0.78rem; font-weight: 700; color: #d97706; margin-top: 10px;" data-i18n="dashTile3Cta">HITL रिव्यू खोलें →</div>
           </div>
 
           <div class="portal-card" style="cursor: pointer;" onclick="App.navigateTo('roadmap')">
             <div class="card-icon" style="background: rgba(99, 102, 241, 0.1); color: #6366f1;">📈</div>
-            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 6px;">5-वर्षीय विकास मॉडल</h3>
-            <p style="font-size: 0.82rem; color: var(--text-muted);">Aavishkaar YEP 2026 स्केल मॉडल व सामाजिक प्रभाव</p>
-            <div style="font-size: 0.78rem; font-weight: 700; color: #6366f1; margin-top: 10px;">प्रोजेक्शन देखें →</div>
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 6px;" data-i18n="dashTile4Title">5-वर्षीय विकास मॉडल</h3>
+            <p style="font-size: 0.82rem; color: var(--text-muted);" data-i18n="dashTile4Desc">Aavishkaar YEP 2026 स्केल मॉडल व सामाजिक प्रभाव</p>
+            <div style="font-size: 0.78rem; font-weight: 700; color: #6366f1; margin-top: 10px;" data-i18n="dashTile4Cta">प्रोजेक्शन देखें →</div>
           </div>
         </div>
 
@@ -508,26 +508,26 @@
         <div class="grid grid-4" style="margin-bottom: 36px;">
           <div class="portal-card" style="text-align: center; padding: 24px;">
             <div style="font-size: 2.2rem; font-weight: 800; color: var(--primary); margin-bottom: 4px;">₹1,420</div>
-            <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 4px;">औसत मासिक बचत / परिवार</div>
-            <div style="font-size: 0.78rem; color: var(--text-muted);">क्रोनिक (बीपी + शुगर) दवाइयों पर</div>
+            <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 4px;" data-i18n="metric1Title">औसत मासिक बचत / परिवार</div>
+            <div style="font-size: 0.78rem; color: var(--text-muted);" data-i18n="metric1Sub">क्रोनिक (बीपी + शुगर) दवाइयों पर</div>
           </div>
 
           <div class="portal-card" style="text-align: center; padding: 24px;">
             <div style="font-size: 2.2rem; font-weight: 800; color: #10b981; margin-bottom: 4px;">40+</div>
-            <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 4px;">सक्रिय जेनेरिक साल्ट डेटाबेस</div>
-            <div style="font-size: 0.78rem; color: var(--text-muted);">CDSCO व PMBJP आधिकारिक कोड सहित</div>
+            <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 4px;" data-i18n="metric2Title">सक्रिय जेनेरिक साल्ट डेटाबेस</div>
+            <div style="font-size: 0.78rem; color: var(--text-muted);" data-i18n="metric2Sub">CDSCO व PMBJP आधिकारिक कोड सहित</div>
           </div>
 
           <div class="portal-card" style="text-align: center; padding: 24px;">
             <div style="font-size: 2.2rem; font-weight: 800; color: #d97706; margin-bottom: 4px;">2.4s</div>
-            <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 4px;">AI विज़न डिकोडिंग गति</div>
-            <div style="font-size: 0.78rem; color: var(--text-muted);">Gemini 1.5 Flash Vision OCR</div>
+            <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 4px;" data-i18n="metric3Title">AI विज़न डिकोडिंग गति</div>
+            <div style="font-size: 0.78rem; color: var(--text-muted);" data-i18n="metric3Sub">Gemini 1.5 Flash Vision OCR</div>
           </div>
 
           <div class="portal-card" style="text-align: center; padding: 24px;">
             <div style="font-size: 2.2rem; font-weight: 800; color: #6366f1; margin-bottom: 4px;">95%+</div>
-            <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 4px;">क्लिनिकल सुरक्षा सटीकता</div>
-            <div style="font-size: 0.78rem; color: var(--text-muted);">रजिस्टर्ड फार्मासिस्ट द्वारा प्रमाणित</div>
+            <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 4px;" data-i18n="metric4Title">क्लिनिकल सुरक्षा सटीकता</div>
+            <div style="font-size: 0.78rem; color: var(--text-muted);" data-i18n="metric4Sub">रजिस्टर्ड फार्मासिस्ट द्वारा प्रमाणित</div>
           </div>
         </div>
       </div>
@@ -539,16 +539,16 @@
     <div class="portal-page" id="page-scanner">
       <div class="container" style="padding-top: 30px; padding-bottom: 60px;">
         <div class="section-header">
-          <span class="section-tag">🔬 AI पर्ची विश्लेषण केंद्र (Prescription Scanner)</span>
-          <h2 class="section-title">डॉक्टर की पर्ची अपलोड करें या 1-क्लिक सैंपल चुनें</h2>
-          <p class="section-subtitle">Google Gemini 1.5 Flash Vision द्वारा हस्तलिखित पर्चियों का सटीक क्लिनिकल विश्लेषण</p>
+          <span class="section-tag" data-i18n="scanSectionTag">🔬 AI पर्ची विश्लेषण केंद्र (Prescription Scanner)</span>
+          <h2 class="section-title" data-i18n="scanSectionTitle">डॉक्टर की पर्ची अपलोड करें या 1-क्लिक सैंपल चुनें</h2>
+          <p class="section-subtitle" data-i18n="scanSectionSub">Google Gemini 1.5 Flash Vision द्वारा हस्तलिखित पर्चियों का सटीक क्लिनिकल विश्लेषण</p>
         </div>
 
         <!-- 1-Click Samples Bar -->
         <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 18px 22px; margin-bottom: 24px; box-shadow: var(--shadow-sm);">
           <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
             <div style="font-weight: 700; font-size: 0.9rem; color: var(--text-main);">
-              ⚡ 1-क्लिक सैंपल पर्चियां (तुरंत परीक्षण हेतु क्लिक करें):
+              <span data-i18n="samplePrompter">⚡ 1-क्लिक सैंपल पर्चियां (तुरंत परीक्षण हेतु क्लिक करें):</span>
             </div>
             <div style="font-size: 0.75rem; color: var(--primary); font-weight: 700;">
               Real Clinical Handwriting Datasets
@@ -557,16 +557,16 @@
 
           <div style="display: flex; gap: 10px; flex-wrap: wrap;">
             <button class="btn-secondary btn-sm" onclick="App.loadSample('sample1')">
-              <span>🩺</span> डॉ. ए.के. शर्मा (डायबिटीज + कोलेस्ट्रॉल)
+              <span>🩺</span> <span data-i18n="sample1Btn">डॉ. ए.के. शर्मा (डायबिटीज + कोलेस्ट्रॉल)</span>
             </button>
             <button class="btn-secondary btn-sm" onclick="App.loadSample('sample2')">
-              <span>🩺</span> डॉ. आर.के. वर्मा (हाइपरटेंशन + एसिडिटी)
+              <span>🩺</span> <span data-i18n="sample2Btn">डॉ. आर.के. वर्मा (हाइपरटेंशन + एसिडिटी)</span>
             </button>
             <button class="btn-secondary btn-sm" onclick="App.loadSample('sample3')">
-              <span>🩺</span> डॉ. प्रिया गुप्ता (संक्रमण + बुखार)
+              <span>🩺</span> <span data-i18n="sample3Btn">डॉ. प्रिया गुप्ता (संक्रमण + बुखार)</span>
             </button>
             <button class="btn-secondary btn-sm" onclick="App.loadSample('sample4')">
-              <span>🩺</span> डॉ. वी.के. मिश्रा (सीने में दर्द + एलर्जी)
+              <span>🩺</span> <span data-i18n="sample4Btn">डॉ. वी.के. मिश्रा (सीने में दर्द + एलर्जी)</span>
             </button>
           </div>
         </div>
@@ -577,12 +577,10 @@
           <div class="portal-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 280px; border: 2px dashed var(--border); cursor: pointer;" id="dropzone" onclick="document.getElementById('prescription-file').click()">
             <input type="file" id="prescription-file" accept="image/*" style="display: none;" onchange="App.handleFileSelect(event)">
             <div style="font-size: 3rem; margin-bottom: 12px;">📄</div>
-            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 6px;">पर्ची की फोटो यहां खींचें या अपलोड करें</h3>
-            <p style="font-size: 0.82rem; color: var(--text-muted); max-width: 320px; margin-bottom: 16px;">
-              कैमरा या गैलरी से JPEG, PNG फोटो अपलोड करें
-            </p>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 6px;" data-i18n="dropzoneTitle">पर्ची की फोटो यहां खींचें या अपलोड करें</h3>
+            <p style="font-size: 0.82rem; color: var(--text-muted); max-width: 320px; margin-bottom: 16px;" data-i18n="dropzoneSub">कैमरा या गैलरी से JPEG, PNG फोटो अपलोड करें</p>
             <button class="btn-primary" style="font-size: 0.85rem;" onclick="event.stopPropagation(); document.getElementById('prescription-file').click();">
-              <span>📁</span> फाइल चुनें (Choose File)
+              <span>📁</span> <span data-i18n="dropzoneBtn">फाइल चुनें (Choose File)</span>
             </button>
           </div>
 
@@ -590,21 +588,21 @@
           <div class="portal-card" style="display: flex; flex-direction: column; justify-content: space-between;">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                <h3 style="font-size: 1.05rem; font-weight: 700;">पर्ची पूर्वावलोकन (Preview)</h3>
-                <span class="tag tag-blue" id="scan-status-tag">तैयार (Ready)</span>
+                <h3 style="font-size: 1.05rem; font-weight: 700;" data-i18n="previewTitle">पर्ची पूर्वावलोकन (Preview)</h3>
+                <span class="tag tag-blue" id="scan-status-tag" data-i18n="previewStatus">तैयार (Ready)</span>
               </div>
               <div id="preview-container" style="width: 100%; height: 180px; background: var(--bg-main); border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 16px;">
-                <span id="preview-placeholder" style="color: var(--text-muted); font-size: 0.82rem;">कोई पर्ची नहीं चुनी गई (ऊपर 1-क्लिक सैंपल चुनें)</span>
+                <span id="preview-placeholder" data-i18n="previewPlaceholder" style="color: var(--text-muted); font-size: 0.82rem;">कोई पर्ची नहीं चुनी गई (ऊपर 1-क्लिक सैंपल चुनें)</span>
                 <img id="preview-img" src="" alt="Prescription Preview" style="display: none; max-width: 100%; max-height: 100%; object-fit: contain;">
               </div>
             </div>
 
             <div style="display: flex; gap: 10px;">
               <button class="btn-primary" id="btn-start-scan" style="flex: 1; justify-content: center;" onclick="App.runScan()">
-                <span>⚡</span> AI विज़न से स्कैन करें (Analyze Prescription)
+                <span>⚡</span> <span data-i18n="btnStartScan">AI विज़न से स्कैन करें (Analyze Prescription)</span>
               </button>
               <button class="btn-secondary" onclick="App.resetScan()">
-                <span>🔄</span> रीसेट
+                <span>🔄</span> <span data-i18n="btnResetScan">रीसेट</span>
               </button>
             </div>
           </div>
@@ -631,13 +629,13 @@
             <table class="data-table">
               <thead>
                 <tr>
-                  <th>लिखी गई ब्रांडेड दवा</th>
-                  <th>पहचाना गया जेनेरिक साल्ट</th>
-                  <th>समान जन औषधि दवा (PMBJP)</th>
-                  <th>ब्रांडेड मूल्य (₹)</th>
-                  <th>जन औषधि (₹)</th>
-                  <th>बचत (%)</th>
-                  <th>खुराक व सेवन विधि</th>
+                  <th data-i18n="thResBranded">लिखी गई ब्रांडेड दवा</th>
+                  <th data-i18n="thResSalt">पहचाना गया जेनेरिक साल्ट</th>
+                  <th data-i18n="thResPmbjp">समान जन औषधि दवा (PMBJP)</th>
+                  <th data-i18n="thResBrandedRate">ब्रांडेड मूल्य (₹)</th>
+                  <th data-i18n="thResJanRate">जन औषधि (₹)</th>
+                  <th data-i18n="thResSavings">बचत (%)</th>
+                  <th data-i18n="thResDosage">खुराक व सेवन विधि</th>
                 </tr>
               </thead>
               <tbody id="scan-medicines-tbody"></tbody>
@@ -648,40 +646,38 @@
           <div class="grid grid-2">
             <div class="portal-card" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(30, 64, 175, 0.04) 100%); border: 1px solid rgba(16, 185, 129, 0.35);">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                <span style="font-size: 0.85rem; font-weight: 700; color: #10b981;">💰 कुल दवा बचत रसीद (Savings Summary)</span>
+                <span style="font-size: 0.85rem; font-weight: 700; color: #10b981;" data-i18n="receiptTitle">💰 कुल दवा बचत रसीद (Savings Summary)</span>
                 <span class="tag tag-success" id="res-savings-percent">82% की सीधी बचत</span>
               </div>
               <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
-                <span style="font-size: 0.9rem; color: var(--text-muted);">ब्रांडेड मार्केट कुल मूल्य:</span>
+                <span style="font-size: 0.9rem; color: var(--text-muted);" data-i18n="receiptMarket">ब्रांडेड मार्केट कुल मूल्य:</span>
                 <span style="font-size: 1.1rem; color: var(--accent-rose); font-weight: 700;" id="res-market-total">₹1,170.00</span>
               </div>
               <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
-                <span style="font-size: 0.9rem; color: var(--text-muted);">जन औषधि सरकारी मूल्य:</span>
+                <span style="font-size: 0.9rem; color: var(--text-muted);" data-i18n="receiptGeneric">जन औषधि सरकारी मूल्य:</span>
                 <span style="font-size: 1.3rem; color: var(--accent-emerald); font-weight: 800;" id="res-generic-total">₹210.00</span>
               </div>
               <div style="border-top: 1px dashed var(--border); padding-top: 10px; display: flex; justify-content: space-between; align-items: baseline;">
-                <span style="font-weight: 800; font-size: 1rem; color: var(--text-main);">आपकी कुल शुद्ध बचत:</span>
+                <span style="font-weight: 800; font-size: 1rem; color: var(--text-main);" data-i18n="receiptNet">आपकी कुल शुद्ध बचत:</span>
                 <span style="font-size: 1.5rem; font-weight: 900; color: var(--accent-emerald);" id="res-net-savings">₹960.00</span>
               </div>
             </div>
 
             <div class="portal-card" style="display: flex; flex-direction: column; justify-content: space-between;">
               <div>
-                <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 6px;">🗣️ वॉयस गाइड व साझाकरण विकल्प</div>
-                <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 14px;">
-                  मरीज को हिंदी में दवा की खुराक सुनाएं या पर्ची की बचत रसीद तुरंत WhatsApp पर भेजें।
-                </p>
+                <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 6px;" data-i18n="voiceShareTitle">🗣️ वॉयस गाइड व साझाकरण विकल्प</div>
+                <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 14px;" data-i18n="voiceShareDesc">मरीज को हिंदी में दवा की खुराक सुनाएं या पर्ची की बचत रसीद तुरंत WhatsApp पर भेजें।</p>
               </div>
               <div style="display: flex; flex-direction: column; gap: 8px;">
                 <button class="btn-secondary" onclick="App.speakDosageHindi()">
-                  <span>🔊</span> खुराक हिंदी में सुनें (Listen Voice Guide)
+                  <span>🔊</span> <span data-i18n="btnVoiceGuide">खुराक हिंदी में सुनें (Listen Voice Guide)</span>
                 </button>
                 <div style="display: flex; gap: 8px;">
                   <button class="btn-primary" style="flex: 1; justify-content: center; background: #25d366; border-color: #25d366;" onclick="App.shareWhatsApp()">
-                    <span>📲</span> WhatsApp शेयर
+                    <span>📲</span> <span data-i18n="btnWhatsApp">WhatsApp शेयर</span>
                   </button>
                   <button class="btn-secondary" style="flex: 1; justify-content: center;" onclick="window.print()">
-                    <span>🖨️</span> रसीद प्रिंट
+                    <span>🖨️</span> <span data-i18n="btnPrintSlip">रसीद प्रिंट</span>
                   </button>
                 </div>
               </div>
@@ -697,37 +693,37 @@
     <div class="portal-page" id="page-pharmacist">
       <div class="container" style="padding-top: 30px; padding-bottom: 60px;">
         <div class="section-header">
-          <span class="section-tag">🩺 रजिस्टर्ड फार्मासिस्ट समीक्षा कक्ष (Clinical HITL)</span>
-          <h2 class="section-title">Human-in-the-Loop क्लिनिकल सुरक्षा द्वार</h2>
-          <p class="section-subtitle">प्रत्येक AI विश्लेषण को प्रमाणित फार्मासिस्ट द्वारा अनुमोदित किया जाता है</p>
+          <span class="section-tag" data-i18n="pharmaSectionTag">🩺 रजिस्टर्ड फार्मासिस्ट समीक्षा कक्ष (Clinical HITL)</span>
+          <h2 class="section-title" data-i18n="pharmaSectionTitle">Human-in-the-Loop क्लिनिकल सुरक्षा द्वार</h2>
+          <p class="section-subtitle" data-i18n="pharmaSectionSub">प्रत्येक AI विश्लेषण को प्रमाणित फार्मासिस्ट द्वारा अनुमोदित किया जाता है</p>
         </div>
 
         <div class="grid grid-3" style="margin-bottom: 28px;">
           <div class="portal-card" style="text-align: center;">
             <div style="font-size: 1.8rem; font-weight: 800; color: #d97706;" id="queue-pending-count">1</div>
-            <div style="font-size: 0.85rem; font-weight: 700;">समीक्षा हेतु लंबित (Pending)</div>
+            <div style="font-size: 0.85rem; font-weight: 700;" data-i18n="pharmaQueuePending">समीक्षा हेतु लंबित (Pending)</div>
           </div>
           <div class="portal-card" style="text-align: center;">
             <div style="font-size: 1.8rem; font-weight: 800; color: #10b981;" id="queue-verified-count">12</div>
-            <div style="font-size: 0.85rem; font-weight: 700;">आज सत्यापित (Verified Today)</div>
+            <div style="font-size: 0.85rem; font-weight: 700;" data-i18n="pharmaQueueVerified">आज सत्यापित (Verified Today)</div>
           </div>
           <div class="portal-card" style="text-align: center;">
             <div style="font-size: 1.8rem; font-weight: 800; color: var(--primary);">99.4%</div>
-            <div style="font-size: 0.85rem; font-weight: 700;">सुरक्षा अनुपालन स्कोर</div>
+            <div style="font-size: 0.85rem; font-weight: 700;" data-i18n="pharmaQueueScore">सुरक्षा अनुपालन स्कोर</div>
           </div>
         </div>
 
         <div class="portal-card" style="border: 2px solid rgba(30, 64, 175, 0.3); margin-bottom: 30px;">
           <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 14px; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
             <div>
-              <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0;">पर्चा सत्यापन: #RX-2026-9812</h3>
+              <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0;" data-i18n="pharmaRxTitle">पर्चा सत्यापन: #RX-2026-9812</h3>
               <span style="font-size: 0.82rem; color: var(--text-muted);">मरीज: रामेश्वर प्रसाद • 52Y • डॉ. ए.के. शर्मा</span>
             </div>
-            <span class="tag tag-warning">प्रतीक्षारत (Needs Approval)</span>
+            <span class="tag tag-warning" data-i18n="pharmaBadgeWait">प्रतीक्षारत (Needs Approval)</span>
           </div>
 
           <div style="font-size: 0.88rem; margin-bottom: 16px;">
-            <strong style="color: var(--text-main);">दवा मिलान एवं सुरक्षा चेकलिस्ट:</strong>
+            <strong style="color: var(--text-main);" data-i18n="pharmaChecklistHeader">दवा मिलान एवं सुरक्षा चेकलिस्ट:</strong>
             <ul style="margin: 8px 0 0 20px; line-height: 1.6; color: var(--text-muted); font-size: 0.85rem;">
               <li>✅ <strong>साल्ट बायोइक्विवेलेंस:</strong> Metformin 500mg SR + Glimepiride 1mg समान स्ट्रेंथ में प्रमाणित।</li>
               <li>✅ <strong>ड्रग इंटरैक्शन:</strong> कोई खतरनाक Drug-Drug Interaction नहीं पाया गया।</li>
@@ -737,10 +733,10 @@
 
           <div style="display: flex; gap: 10px; flex-wrap: wrap;">
             <button class="btn-primary" onclick="App.approvePharmacistReview()">
-              <span>✅</span> पर्ची को अनुमोदित करें (Approve Jan Aushadhi Slip)
+              <span>✅</span> <span data-i18n="btnApproveRx">पर्ची को अनुमोदित करें (Approve Jan Aushadhi Slip)</span>
             </button>
             <button class="btn-secondary" onclick="alert('पर्ची को अतिरिक्त जांच हेतु डॉक्टर को भेजा गया।')">
-              <span>⚠️</span> डॉक्टर से स्पष्टीकरण मांगें
+              <span>⚠️</span> <span data-i18n="btnClarifyRx">डॉक्टर से स्पष्टीकरण मांगें</span>
             </button>
           </div>
         </div>
@@ -753,18 +749,18 @@
     <div class="portal-page" id="page-catalog">
       <div class="container" style="padding-top: 30px; padding-bottom: 60px;">
         <div class="section-header">
-          <span class="section-tag">💊 जन औषधि दवा डायरेक्टरी (CDSCO Master Database)</span>
-          <h2 class="section-title">40+ प्रमाणित जन औषधि दवाएं एवं बचत खोजें</h2>
-          <p class="section-subtitle">समान साल्ट, समान क्षमता, लेकिन 50% से 90% कम कीमत पर उपलब्ध आधिकारिक दवाएं</p>
+          <span class="section-tag" data-i18n="catSectionTag">💊 जन औषधि दवा डायरेक्टरी (CDSCO Master Database)</span>
+          <h2 class="section-title" data-i18n="catSectionTitle">40+ प्रमाणित जन औषधि दवाएं एवं बचत खोजें</h2>
+          <p class="section-subtitle" data-i18n="catSectionSub">समान साल्ट, समान क्षमता, लेकिन 50% से 90% कम कीमत पर उपलब्ध आधिकारिक दवाएं</p>
         </div>
 
         <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 20px 24px; margin-bottom: 24px; box-shadow: var(--shadow-sm);">
           <div style="display: flex; gap: 12px; margin-bottom: 14px; flex-wrap: wrap;">
             <div style="flex: 1; min-width: 260px;">
-              <input type="text" id="catalog-search-input" placeholder="🔍 दवा का नाम, साल्ट या बीमारी खोजें (जैसे: Paracetamol, Metformin, BP)..." style="width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-main); font-size: 0.9rem;" oninput="App.filterCatalog()">
+              <input type="text" id="catalog-search-input" data-i18n-placeholder="catSearchPlaceholder" placeholder="🔍 दवा का नाम, साल्ट या बीमारी खोजें (जैसे: Paracetamol, Metformin, BP)..." style="width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-main); font-size: 0.9rem;" oninput="App.filterCatalog()">
             </div>
             <button class="btn-secondary" onclick="document.getElementById('catalog-search-input').value=''; App.filterCatalog();">
-              <span>🔄</span> रीसेट खोज
+              <span>🔄</span> <span data-i18n="btnResetSearch">रीसेट खोज</span>
             </button>
           </div>
 
@@ -784,14 +780,14 @@
           <table class="data-table">
             <thead>
               <tr>
-                <th>PMBJP कोड</th>
-                <th>जेनेरिक दवा का नाम (Generic Name)</th>
-                <th>एक्टिव साल्ट एवं क्षमता (Composition)</th>
-                <th>श्रेणी</th>
-                <th>ब्रांडेड MRP (₹)</th>
-                <th>जन औषधि (₹)</th>
-                <th>बचत (%)</th>
-                <th>पैक साइज</th>
+                <th data-i18n="thPmbjpCode">PMBJP कोड</th>
+                <th data-i18n="thGenericName">जेनेरिक दवा का नाम (Generic Name)</th>
+                <th data-i18n="thComposition">एक्टिव साल्ट एवं क्षमता (Composition)</th>
+                <th data-i18n="thCategoryCol">श्रेणी</th>
+                <th data-i18n="thBrandedMrp">ब्रांडेड MRP (₹)</th>
+                <th data-i18n="thJanPrice">जन औषधि (₹)</th>
+                <th data-i18n="thSavingsCol">बचत (%)</th>
+                <th data-i18n="thPackSize">पैक साइज</th>
               </tr>
             </thead>
             <tbody id="catalog-medicines-tbody"></tbody>
@@ -806,15 +802,15 @@
     <div class="portal-page" id="page-work">
       <div class="container" style="padding-top: 30px; padding-bottom: 60px;">
         <div class="section-header">
-          <span class="section-tag">⚙️ आर्किटेक्चर व कार्यप्रणाली (How It Works)</span>
-          <h2 class="section-title">4-टियर क्लिनिकल AI पाइपलाइन</h2>
-          <p class="section-subtitle">पर्ची की तस्वीर से लेकर सुरक्षित जेनेरिक दवा के वितरण तक का पूर्ण तकनीकी चक्र</p>
+          <span class="section-tag" data-i18n="workSectionTag">⚙️ आर्किटेक्चर व कार्यप्रणाली (How It Works)</span>
+          <h2 class="section-title" data-i18n="workSectionTitle">4-टियर क्लिनिकल AI पाइपलाइन</h2>
+          <p class="section-subtitle" data-i18n="workSectionSub">पर्ची की तस्वीर से लेकर सुरक्षित जेनेरिक दवा के वितरण तक का पूर्ण तकनीकी चक्र</p>
         </div>
 
         <div class="grid grid-2" style="margin-bottom: 40px;">
           <div class="portal-card" style="border-left: 4px solid var(--primary);">
             <div style="font-size: 0.8rem; font-weight: 800; color: var(--primary); margin-bottom: 4px;">TIER 1 • MULTIMODAL COMPUTER VISION</div>
-            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">1. हैंडराइटिंग OCR व इमेज नॉर्मलाइजेशन</h3>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;" data-i18n="tier1Title">1. हैंडराइटिंग OCR व इमेज नॉर्मलाइजेशन</h3>
             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
               Google Gemini 1.5 Flash Vision मॉडल का उपयोग करके प्रिस्क्रिप्शन की धुंधली लिखावट को प्रोसेस किया जाता है और क्लिनिकल टोकन में बदला जाता है।
             </p>
@@ -822,7 +818,7 @@
 
           <div class="portal-card" style="border-left: 4px solid #10b981;">
             <div style="font-size: 0.8rem; font-weight: 800; color: #10b981; margin-bottom: 4px;">TIER 2 • CDSCO FUZZY MATCHING ENGINE</div>
-            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">2. एक्टिव साल्ट व जेनेरिक मैपिंग</h3>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;" data-i18n="tier2Title">2. एक्टिव साल्ट व जेनेरिक मैपिंग</h3>
             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
               ब्रांडेड दवाओं को उनके मूल एक्टिव इंग्रीडिएंट में बदलकर सरकारी PMBJP डेटाबेस के 40+ सत्यापित मॉलिक्यूल्स से 99% शुद्धता पर मैप किया जाता है।
             </p>
@@ -830,7 +826,7 @@
 
           <div class="portal-card" style="border-left: 4px solid #d97706;">
             <div style="font-size: 0.8rem; font-weight: 800; color: #d97706; margin-bottom: 4px;">TIER 3 • CLINICAL SAFETY CHECK</div>
-            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">3. ड्रग-ड्रग इंटरैक्शन व डोसेज सत्यापन</h3>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;" data-i18n="tier3Title">3. ड्रग-ड्रग इंटरैक्शन व डोसेज सत्यापन</h3>
             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
               यदि पर्ची में खतरनाक Drug-Drug Interaction की संभावना है, तो सिस्टम तुरंत रेड-फ्लैग जारी करता है।
             </p>
@@ -838,7 +834,7 @@
 
           <div class="portal-card" style="border-left: 4px solid #6366f1;">
             <div style="font-size: 0.8rem; font-weight: 800; color: #6366f1; margin-bottom: 4px;">TIER 4 • HITL & VOICE DELIVERY</div>
-            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">4. रजिस्टर्ड फार्मासिस्ट द्वार व वॉइस गाइड</h3>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;" data-i18n="tier4Title">4. रजिस्टर्ड फार्मासिस्ट द्वार व वॉइस गाइड</h3>
             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
               अंतिम रसीद जारी करने से पहले फार्मासिस्ट 1-क्लिक समीक्षा करता है और मरीज को मातृभाषा हिंदी में खुराक सुनाई जाती है।
             </p>
@@ -853,21 +849,21 @@
     <div class="portal-page" id="page-roadmap">
       <div class="container" style="padding-top: 30px; padding-bottom: 60px;">
         <div class="section-header">
-          <span class="section-tag">📈 5-वर्षीय विकास रोडमैप व वित्तीय मॉडल</span>
-          <h2 class="section-title">Aavishkaar YEP 2026: 5-Year Scaling Model</h2>
-          <p class="section-subtitle">2026 से 2030 तक 2 करोड़ भारतीय परिवारों तक सस्ती दवाएं पहुंचाने का वित्तीय मॉडल</p>
+          <span class="section-tag" data-i18n="roadSectionTag">📈 5-वर्षीय विकास रोडमैप व वित्तीय मॉडल</span>
+          <h2 class="section-title" data-i18n="roadSectionTitle">Aavishkaar YEP 2026: 5-Year Scaling Model</h2>
+          <p class="section-subtitle" data-i18n="roadSectionSub">2026 से 2030 तक 2 करोड़ भारतीय परिवारों तक सस्ती दवाएं पहुंचाने का वित्तीय मॉडल</p>
         </div>
 
         <div class="table-container" style="margin-bottom: 30px;">
           <table class="data-table">
             <thead>
               <tr>
-                <th>वर्ष</th>
-                <th>सक्रिय परिवार</th>
-                <th>वार्षिक पर्ची स्कैन</th>
-                <th>नागरिकों की बचत</th>
-                <th>PMBJP केंद्र</th>
-                <th>प्रोजेक्टेड राजस्व</th>
+                <th data-i18n="thYear">वर्ष</th>
+                <th data-i18n="thFamilies">सक्रिय परिवार</th>
+                <th data-i18n="thScans">वार्षिक पर्ची स्कैन</th>
+                <th data-i18n="thCitizenSavings">नागरिकों की बचत</th>
+                <th data-i18n="thKendraCount">PMBJP केंद्र</th>
+                <th data-i18n="thRevenue">प्रोजेक्टेड राजस्व</th>
               </tr>
             </thead>
             <tbody>
@@ -923,9 +919,9 @@
     <div class="portal-page" id="page-about">
       <div class="container" style="padding-top: 30px; padding-bottom: 60px;">
         <div class="section-header">
-          <span class="section-tag">👨‍💻 इनोवेटर परिचय (Creator & Academic Vision)</span>
-          <h2 class="section-title">केशव नारायण (Keshav Narayan) एवं आरोग्यमित्र विज़न</h2>
-          <p class="section-subtitle">Department of Computer Science & Engineering, IET, DDU Gorakhpur University</p>
+          <span class="section-tag" data-i18n="aboutTag">👨‍💻 इनोवेटर परिचय (Creator & Academic Vision)</span>
+          <h2 class="section-title" data-i18n="aboutTitle">केशव नारायण (Keshav Narayan) एवं आरोग्यमित्र विज़न</h2>
+          <p class="section-subtitle" data-i18n="aboutSub">Department of Computer Science & Engineering, IET, DDU Gorakhpur University</p>
         </div>
 
         <div class="grid grid-3">
@@ -949,13 +945,9 @@
           </div>
 
           <div class="portal-card" style="grid-column: span 2;">
-            <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 12px; color: var(--text-main);">परियोजना की प्रेरणा व विज़न</h3>
-            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px;">
-              भारत में लाखों परिवार हर महीने अपनी कमाई का बड़ा हिस्सा महंगी ब्रांडेड दवाइयों पर खर्च कर देते हैं। डॉक्टरों की अस्पष्ट हैंडराइटिंग के कारण मरीजों को पता ही नहीं चल पाता कि उसी दवा का सरकारी जन औषधि में 80% सस्ता विकल्प उपलब्ध है।
-            </p>
-            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 18px;">
-              <strong>ArogyaMitra AI</strong> का उद्देश्य आर्टिफिशियल इंटेलिजेंस द्वारा हर भारतीय परिवार के दवा खर्च को आधा करना और सुरक्षित जेनेरिक दवाओं को जन-जन तक पहुंचाना है।
-            </p>
+            <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 12px; color: var(--text-main);" data-i18n="aboutVisionTitle">परियोजना की प्रेरणा व विज़न</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px;" data-i18n="aboutVisionP1">भारत में लाखों परिवार हर महीने अपनी कमाई का बड़ा हिस्सा महंगी ब्रांडेड दवाइयों पर खर्च कर देते हैं। डॉक्टरों की अस्पष्ट हैंडराइटिंग के कारण मरीजों को पता ही नहीं चल पाता कि उसी दवा का सरकारी जन औषधि में 80% सस्ता विकल्प उपलब्ध है।</p>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 18px;" data-i18n="aboutVisionP2"><strong>ArogyaMitra AI</strong> का उद्देश्य आर्टिफिशियल इंटेलिजेंस द्वारा हर भारतीय परिवार के दवा खर्च को आधा करना और सुरक्षित जेनेरिक दवाओं को जन-जन तक पहुंचाना है।</p>
             <div style="border-top: 1px solid var(--border); padding-top: 16px; display: flex; gap: 16px; flex-wrap: wrap; font-size: 0.82rem; color: var(--text-muted);">
               <div><strong>संस्थान:</strong> IET, DDU Gorakhpur University</div>
               <div><strong>विशेषज्ञता:</strong> AI, ML, Full Stack Web Architecture</div>
@@ -995,7 +987,7 @@
 
         <!-- Col 2: Navigation Links -->
         <div>
-          <h4 class="footer-col-title">Portal Navigation</h4>
+          <h4 class="footer-col-title" data-i18n="footerNav">Portal Navigation</h4>
           <ul class="footer-links">
             <li><a href="#landing" onclick="App.navigateTo('landing')">🌟 Purpose & Mission</a></li>
             <li><a href="#home" onclick="App.navigateTo('home')">🏠 Patient Dashboard</a></li>
@@ -1008,7 +1000,7 @@
 
         <!-- Col 3: Govt Portals -->
         <div>
-          <h4 class="footer-col-title">Government Portals</h4>
+          <h4 class="footer-col-title" data-i18n="footerGovt">Government Portals</h4>
           <ul class="footer-links">
             <li><a href="https://janaushadhi.gov.in" target="_blank" rel="noopener">🏛️ PMBJP जन औषधि पोर्टल</a></li>
             <li><a href="https://cdsco.gov.in" target="_blank" rel="noopener">📜 CDSCO ड्रग कंट्रोलर जनरल</a></li>
@@ -1020,7 +1012,7 @@
 
         <!-- Col 4: Lead Developer -->
         <div>
-          <h4 class="footer-col-title">Lead Developer & Innovator</h4>
+          <h4 class="footer-col-title" data-i18n="footerLead">Lead Developer & Innovator</h4>
           <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 16px; position: relative; overflow: hidden; box-shadow: var(--shadow-sm);">
             <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #1e40af, #0284c7, #f59e0b);"></div>
             <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
@@ -1134,6 +1126,21 @@
   </div>
 
   <!-- ======================================================== -->
+  <!-- FLOATING ACTION BUTTON (FAB): AI CLINICAL ASSISTANT -->
+  <!-- ======================================================== -->
+  <div class="floating-ai-wrapper" id="floating-ai-wrapper">
+    <button class="floating-ai-btn" onclick="App.toggleChat()" aria-label="ArogyaMitra AI Chat Assistant" title="AI डॉक्टर से पूछें / Ask AI Doctor">
+      <span class="floating-ai-pulse"></span>
+      <span class="floating-ai-icon">🤖</span>
+      <span class="floating-ai-label" id="floating-ai-label" data-i18n="floatingChatBtn">AI आरोग्यमित्र</span>
+      <span class="floating-ai-badge">Online</span>
+    </button>
+  </div>
+
+  <!-- CHAT DRAWER BACKDROP OVERLAY -->
+  <div class="chat-drawer-overlay" id="chat-drawer-overlay" onclick="App.toggleChat()"></div>
+
+  <!-- ======================================================== -->
   <!-- CHAT DRAWER: GEMINI CLINICAL ASSISTANT -->
   <!-- ======================================================== -->
   <div class="chat-drawer" id="chat-drawer">
@@ -1141,25 +1148,25 @@
       <div style="display: flex; align-items: center; gap: 8px;">
         <span style="font-size: 1.3rem;">🤖</span>
         <div>
-          <h3 style="font-size: 1rem; font-weight: 700; margin: 0; color: var(--text-main);">ArogyaMitra AI असिस्टेंट</h3>
-          <span style="font-size: 0.74rem; color: #10b981; font-weight: 600;">● Gemini 2.5 Flash Online</span>
+          <h3 style="font-size: 1rem; font-weight: 700; margin: 0; color: var(--text-main);" id="chat-drawer-title" data-i18n="chatAssistantTitle">ArogyaMitra AI असिस्टेंट</h3>
+          <span style="font-size: 0.74rem; color: #10b981; font-weight: 600;" id="chat-drawer-online" data-i18n="chatOnlineBadge">● Gemini 2.5 Flash Online</span>
         </div>
       </div>
-      <button onclick="App.toggleChat()" style="background: none; border: none; font-size: 1.3rem; color: var(--text-muted); cursor: pointer;">✕</button>
+      <button onclick="App.toggleChat()" style="background: none; border: none; font-size: 1.3rem; color: var(--text-muted); cursor: pointer;" aria-label="Close Chat">✕</button>
     </div>
     <div class="chat-body" id="chat-body">
-      <div class="chat-bubble chat-ai">
+      <div class="chat-bubble chat-ai" id="chat-welcome-msg" data-i18n="chatGreeting">
         नमस्ते! मैं ArogyaMitra AI असिस्टेंट हूँ। आप मुझसे किसी भी दवा, उसके जेनेरिक साल्ट, सही खुराक, या पास के जन औषधि केंद्र के बारे में पूछ सकते हैं।
       </div>
     </div>
     <div style="padding: 8px 14px; display: flex; gap: 6px; overflow-x: auto; white-space: nowrap; border-top: 1px solid var(--border); background: var(--bg-card);">
-      <button class="btn-secondary btn-sm" style="font-size: 0.72rem; padding: 4px 8px;" onclick="App.sendPresetChat('Paracetamol कब और कितनी मात्रा में लेना चाहिए?')">💊 Paracetamol खुराक?</button>
-      <button class="btn-secondary btn-sm" style="font-size: 0.72rem; padding: 4px 8px;" onclick="App.sendPresetChat('Metformin 500mg जन औषधि में कितने की मिलती है?')">💰 Metformin कीमत?</button>
-      <button class="btn-secondary btn-sm" style="font-size: 0.72rem; padding: 4px 8px;" onclick="App.sendPresetChat('गोरखपुर में जन औषधि केंद्र कहाँ स्थित हैं?')">📍 जन औषधि केंद्र?</button>
+      <button class="btn-secondary btn-sm" id="chat-preset-1" style="font-size: 0.72rem; padding: 4px 8px;" onclick="App.sendPresetChat('Paracetamol कब और कितनी मात्रा में लेना चाहिए?')">💊 Paracetamol खुराक?</button>
+      <button class="btn-secondary btn-sm" id="chat-preset-2" style="font-size: 0.72rem; padding: 4px 8px;" onclick="App.sendPresetChat('Metformin 500mg जन औषधि में कितने की मिलती है?')">💰 Metformin कीमत?</button>
+      <button class="btn-secondary btn-sm" id="chat-preset-3" style="font-size: 0.72rem; padding: 4px 8px;" onclick="App.sendPresetChat('गोरखपुर में जन औषधि केंद्र कहाँ स्थित हैं?')">📍 जन औषधि केंद्र?</button>
     </div>
     <div class="chat-footer">
-      <input type="text" id="chat-input" placeholder="दवा या स्वास्थ्य से जुड़ा सवाल पूछें..." onkeydown="if(event.key==='Enter') App.sendChat()">
-      <button class="btn-primary" onclick="App.sendChat()" style="padding: 8px 14px;">भेजें</button>
+      <input type="text" id="chat-input" data-i18n-placeholder="chatInputPlaceholder" placeholder="दवा या स्वास्थ्य से जुड़ा सवाल पूछें..." onkeydown="if(event.key==='Enter') App.sendChat()">
+      <button class="btn-primary" id="chat-send-btn" onclick="App.sendChat()" style="padding: 8px 14px;" data-i18n="btnSendChat">भेजें</button>
     </div>
   </div>
 
@@ -1169,6 +1176,374 @@
   <script>
     const MEDICINES_DATA = [{"id": 1, "brand_name": "Dolo 650", "chemical_salt": "Paracetamol IP 650mg", "strength": "650mg", "branded_mrp": 34.0, "generic_salt_name": "Paracetamol Tablets IP 650mg (PMBJP)", "jan_aushadhi_rate": 9.5, "precautions": "भोजन के बाद लें। 24 घंटे में 4 से अधिक गोलियाँ न लें। लिवर के रोगी डॉक्टर की सलाह से लें।", "disease_purpose": "तेज़ बुखार, सिरदर्द, बदन दर्द, दांत दर्द और वायरल फीवर के दर्द को कम करने के लिए।"}, {"id": 2, "brand_name": "Crocin 500", "chemical_salt": "Paracetamol IP 500mg", "strength": "500mg", "branded_mrp": 24.0, "generic_salt_name": "Paracetamol Tablets IP 500mg (PMBJP)", "jan_aushadhi_rate": 6.0, "precautions": "खाना खाने के बाद पानी के साथ लें। खाली पेट न लें।", "disease_purpose": "हल्के से मध्यम बुखार, बदन दर्द और सिरदर्द के इलाज के लिए।"}, {"id": 3, "brand_name": "Combiflam", "chemical_salt": "Ibuprofen (400mg) + Paracetamol (325mg)", "strength": "400mg + 325mg", "branded_mrp": 52.0, "generic_salt_name": "Ibuprofen 400mg + Paracetamol 325mg Tablets", "jan_aushadhi_rate": 11.2, "precautions": "हमेशा भोजन के बाद भरपूर पानी से लें। पेट में अल्सर हो तो न लें।", "disease_purpose": "मांसपेशियों के दर्द, दांत दर्द, मोच, जोड़ों के दर्द और सूजन को दूर करने के लिए।"}, {"id": 4, "brand_name": "Zerodol-SP", "chemical_salt": "Aceclofenac (100mg) + Paracetamol (325mg) + Serratiopeptidase (15mg)", "strength": "100mg+325mg+15mg", "branded_mrp": 132.0, "generic_salt_name": "Aceclofenac 100mg + Paracetamol 325mg + Serratiopeptidase 15mg Tablets", "jan_aushadhi_rate": 26.5, "precautions": "कड़े पेट या भोजन के बाद ही लें। इसके साथ एंटासिड लेना सुरक्षित रहता है।", "disease_purpose": "चोट की सूजन, ऑपरेशन के बाद का दर्द, गठिया (Arthritis) और गंभीर जोड़ों के दर्द के लिए।"}, {"id": 5, "brand_name": "Zerodol-P", "chemical_salt": "Aceclofenac (100mg) + Paracetamol (325mg)", "strength": "100mg + 325mg", "branded_mrp": 72.0, "generic_salt_name": "Aceclofenac 100mg + Paracetamol 325mg Tablets", "jan_aushadhi_rate": 15.0, "precautions": "भोजन के बाद लें। चक्कर आने पर गाड़ी न चलाएं।", "disease_purpose": "गठिया, दांत दर्द, कमर दर्द और जोड़ों के दर्द से राहत के लिए।"}, {"id": 6, "brand_name": "Meftal-Spas", "chemical_salt": "Mefenamic Acid (250mg) + Dicyclomine (10mg)", "strength": "250mg + 10mg", "branded_mrp": 52.0, "generic_salt_name": "Dicyclomine 10mg + Mefenamic Acid 250mg Tablets", "jan_aushadhi_rate": 9.8, "precautions": "पेट में अत्यधिक जलन होने पर एंटासिड के साथ लें।", "disease_purpose": "पेट में तेज मरोड़, ऐंठन, आंतों के दर्द और मासिक धर्म (Periods) के दर्द से राहत के लिए।"}, {"id": 7, "brand_name": "Voveran 50", "chemical_salt": "Diclofenac Sodium IP 50mg", "strength": "50mg", "branded_mrp": 96.0, "generic_salt_name": "Diclofenac Gastro-resistant Tablets IP 50mg", "jan_aushadhi_rate": 6.5, "precautions": "भोजन के बाद लें। दिल व किडनी के मरीज डॉक्टर की सलाह से लें।", "disease_purpose": "हड्डियों के गंभीर दर्द, फ्रैक्चर के दर्द और तीव्र गठिया के दर्द के लिए।"}, {"id": 8, "brand_name": "Pan-D", "chemical_salt": "Pantoprazole (40mg) + Domperidone (30mg SR)", "strength": "40mg + 30mg", "branded_mrp": 195.0, "generic_salt_name": "Pantoprazole 40mg + Domperidone 30mg SR Capsules", "jan_aushadhi_rate": 27.0, "precautions": "सुबह उठते ही बासी मुँह (नाश्ते से 30 मिनट पहले खाली पेट) लें।", "disease_purpose": "पेट में भयंकर गैस, सीने में जलन (Heartburn), खट्टी डकारें, एसिड रिफ्लक्स और जी मिचलाने के लिए।"}, {"id": 9, "brand_name": "Pan 40", "chemical_salt": "Pantoprazole Sodium IP 40mg", "strength": "40mg", "branded_mrp": 98.0, "generic_salt_name": "Pantoprazole Gastro-resistant Tablets IP 40mg", "jan_aushadhi_rate": 12.5, "precautions": "रोजाना सुबह नाश्ते से 30 मिनट पहले खाली पेट लें।", "disease_purpose": "पेट के अल्सर, सीने की जलन, एसिडिटी और भारीपन को शांत करने के लिए।"}, {"id": 10, "brand_name": "Omez 20", "chemical_salt": "Omeprazole IP 20mg", "strength": "20mg", "branded_mrp": 62.0, "generic_salt_name": "Omeprazole Capsules IP 20mg", "jan_aushadhi_rate": 6.2, "precautions": "सुबह खाली पेट एक कैप्सूल सादे पानी से लें। कैप्सूल चबाएं नहीं।", "disease_purpose": "पेट में अत्यधिक एसिड बनना, अपच और खट्टी डकारों को रोकने के लिए।"}, {"id": 11, "brand_name": "Razo-D", "chemical_salt": "Rabeprazole (20mg) + Domperidone (30mg SR)", "strength": "20mg + 30mg", "branded_mrp": 225.0, "generic_salt_name": "Rabeprazole 20mg + Domperidone 30mg SR Capsules", "jan_aushadhi_rate": 28.5, "precautions": "सुबह नाश्ते से पहले खाली पेट लें।", "disease_purpose": "तीव्र एसिडिटी, गले में जलन और उल्टी जैसा महसूस होने से तुरंत राहत के लिए।"}, {"id": 12, "brand_name": "Emeset 4", "chemical_salt": "Ondansetron Hydrochloride 4mg", "strength": "4mg", "branded_mrp": 58.0, "generic_salt_name": "Ondansetron Tablets IP 4mg", "jan_aushadhi_rate": 8.0, "precautions": "उल्टी महसूस होने पर या खाने से 30 मिनट पहले लें।", "disease_purpose": "उल्टी, मतली, चक्कर और सफर में उल्टी आने की समस्या को रोकने के लिए।"}, {"id": 13, "brand_name": "Telma 40", "chemical_salt": "Telmisartan IP 40mg", "strength": "40mg", "branded_mrp": 138.0, "generic_salt_name": "Telmisartan Tablets IP 40mg", "jan_aushadhi_rate": 22.0, "precautions": "रोजाना सुबह नाश्ते के बाद एक निश्चित समय पर लें। अचानक बंद न करें।", "disease_purpose": "उच्च रक्तचाप (High BP) को नियंत्रित रखने और दिल का दौरा (Heart Attack) व स्ट्रोक से बचाने के लिए।"}, {"id": 14, "brand_name": "Telma-H", "chemical_salt": "Telmisartan (40mg) + Hydrochlorothiazide (12.5mg)", "strength": "40mg + 12.5mg", "branded_mrp": 182.0, "generic_salt_name": "Telmisartan 40mg + Hydrochlorothiazide 12.5mg Tablets", "jan_aushadhi_rate": 29.5, "precautions": "सुबह नाश्ते के बाद लें। दिन में पर्याप्त पानी पिएं।", "disease_purpose": "अनियंत्रित हाई ब्लड प्रेशर में नसों को रिलैक्स करने और शरीर से एक्स्ट्रा नमक बाहर निकालने के लिए।"}, {"id": 15, "brand_name": "Telma-AM", "chemical_salt": "Telmisartan (40mg) + Amlodipine (5mg)", "strength": "40mg + 5mg", "branded_mrp": 210.0, "generic_salt_name": "Telmisartan 40mg + Amlodipine 5mg Tablets", "jan_aushadhi_rate": 32.0, "precautions": "सुबह एक समय पर लें। पैरों में सूजन दिखे तो डॉक्टर को बताएं।", "disease_purpose": "डबल एक्शन से जिद्दी हाई ब्लड प्रेशर को नॉर्मल रेंज में बनाए रखने के लिए।"}, {"id": 16, "brand_name": "Amlong 5", "chemical_salt": "Amlodipine Besylate IP 5mg", "strength": "5mg", "branded_mrp": 58.0, "generic_salt_name": "Amlodipine Tablets IP 5mg", "jan_aushadhi_rate": 6.8, "precautions": "रोजाना रात को सोते समय या सुबह नाश्ते के बाद लें।", "disease_purpose": "रक्त वाहिकाओं को चौड़ा करके ब्लड प्रेशर घटाने और दिल पर दबाव कम करने के लिए।"}, {"id": 17, "brand_name": "Concor 5", "chemical_salt": "Bisoprolol Fumarate 5mg", "strength": "5mg", "branded_mrp": 128.0, "generic_salt_name": "Bisoprolol Tablets IP 5mg", "jan_aushadhi_rate": 19.5, "precautions": "सुबह नाश्ते के बाद लें। नब्ज (Pulse rate) नियमित चेक करें।", "disease_purpose": "दिल की तेज धड़कन (Palpitations) को सामान्य करने और हार्ट अटैक के खतरे को घटाने के लिए।"}, {"id": 18, "brand_name": "Ecosprin 75", "chemical_salt": "Aspirin (Acetylsalicylic Acid) 75mg", "strength": "75mg", "branded_mrp": 9.5, "generic_salt_name": "Aspirin Gastro-resistant Tablets IP 75mg", "jan_aushadhi_rate": 3.8, "precautions": "हमेशा रात के भोजन के बाद लें। खाली पेट कभी न लें।", "disease_purpose": "खून में थक्के (Clots) बनने से रोकने, हार्ट अटैक और पैरालिसिस (Stroke) से बचाव के लिए।"}, {"id": 19, "brand_name": "Glycomet 500", "chemical_salt": "Metformin Hydrochloride IP 500mg SR", "strength": "500mg", "branded_mrp": 42.0, "generic_salt_name": "Metformin Hydrochloride Sustained Release Tablets IP 500mg", "jan_aushadhi_rate": 8.5, "precautions": "सुबह और शाम खाना खाने के साथ या तुरंत बाद लें। खाली पेट न लें।", "disease_purpose": "टाइप-2 डायबिटीज में बढ़े हुए ब्लड शुगर को नियंत्रित रखने और इंसुलिन सेंसिटिविटी बढ़ाने के लिए।"}, {"id": 20, "brand_name": "Glycomet-GP 2", "chemical_salt": "Metformin (500mg) + Glimepiride (2mg)", "strength": "500mg + 2mg", "branded_mrp": 145.0, "generic_salt_name": "Glimepiride 2mg + Metformin 500mg Tablets", "jan_aushadhi_rate": 28.0, "precautions": "सुबह नाश्ते से 10 मिनट पहले लें। दवा लेने के बाद नाश्ता न छोड़ें।", "disease_purpose": "पैंक्रियाज से इंसुलिन रिलीज करवाकर अनियंत्रित शुगर को तेजी से नॉर्मल रेंज में लाने के लिए।"}, {"id": 21, "brand_name": "Amaryl 1mg", "chemical_salt": "Glimepiride IP 1mg", "strength": "1mg", "branded_mrp": 88.0, "generic_salt_name": "Glimepiride Tablets IP 1mg", "jan_aushadhi_rate": 11.5, "precautions": "सुबह नाश्ते के पहले निवाले के साथ लें।", "disease_purpose": "टाइप-2 डायबिटीज में पैंक्रियाज से इंसुलिन की मात्रा बढ़ाने के लिए।"}, {"id": 22, "brand_name": "Forxiga 10", "chemical_salt": "Dapagliflozin 10mg", "strength": "10mg", "branded_mrp": 480.0, "generic_salt_name": "Dapagliflozin Tablets 10mg", "jan_aushadhi_rate": 65.0, "precautions": "सुबह एक गोली पानी के साथ लें। दिनभर खूब पानी पिएं।", "disease_purpose": "यूरिन के रास्ते एक्स्ट्रा शुगर बाहर निकालने और डायबिटीज मरीजों की किडनी व दिल की सुरक्षा के लिए।"}, {"id": 23, "brand_name": "Januvia 100", "chemical_salt": "Sitagliptin Phosphate 100mg", "strength": "100mg", "branded_mrp": 385.0, "generic_salt_name": "Sitagliptin Tablets IP 100mg", "jan_aushadhi_rate": 48.0, "precautions": "दिन में एक बार भोजन के साथ या बिना लें।", "disease_purpose": "भोजन के बाद अचानक बढ़ने वाली शुगर (Postprandial) को कंट्रोल करने के लिए।"}, {"id": 24, "brand_name": "Atorva 10", "chemical_salt": "Atorvastatin Calcium IP 10mg", "strength": "10mg", "branded_mrp": 115.0, "generic_salt_name": "Atorvastatin Tablets IP 10mg", "jan_aushadhi_rate": 14.2, "precautions": "रात को सोने से पहले भोजन के बाद लें। तली-भुनी चीजों से परहेज करें।", "disease_purpose": "खून में बैड कोलेस्ट्रॉल (LDL) और ट्राइग्लिसराइड्स घटाकर नसों को ब्लॉक होने से बचाने के लिए।"}, {"id": 25, "brand_name": "Rosuvas 10", "chemical_salt": "Rosuvastatin IP 10mg", "strength": "10mg", "branded_mrp": 178.0, "generic_salt_name": "Rosuvastatin Tablets IP 10mg", "jan_aushadhi_rate": 26.0, "precautions": "रात को भोजन के बाद लें।", "disease_purpose": "धमनियों में जमी चर्बी को साफ करने और दिल की बीमारियों का रिस्क कम करने के लिए।"}, {"id": 26, "brand_name": "Augmentin 625 Duo", "chemical_salt": "Amoxicillin (500mg) + Clavulanic Acid (125mg)", "strength": "625mg", "branded_mrp": 205.0, "generic_salt_name": "Amoxicillin 500mg + Potassium Clavulanate 125mg Tablets IP", "jan_aushadhi_rate": 60.0, "precautions": "सुबह-शाम भोजन के बाद लें। डॉक्टर द्वारा बताया गया 5 दिन का पूरा कोर्स करें।", "disease_purpose": "गले में इन्फेक्शन, टॉन्सिल, छाती में कफ, फेफड़ों में इन्फेक्शन, कान व दांत के मवाद के इलाज के लिए।"}, {"id": 27, "brand_name": "Azithral 500", "chemical_salt": "Azithromycin IP 500mg", "strength": "500mg", "branded_mrp": 135.0, "generic_salt_name": "Azithromycin Tablets IP 500mg", "jan_aushadhi_rate": 38.0, "precautions": "दिन में एक बार, खाना खाने से 1 घंटा पहले या 2 घंटे बाद लें (3 से 5 दिन)।", "disease_purpose": "गले की खराश, खांसी, ब्रोंकाइटिस, निमोनिया और नाक-कान के बैक्टीरियल इन्फेक्शन के लिए।"}, {"id": 28, "brand_name": "Taxim-O 200", "chemical_salt": "Cefixime IP 200mg", "strength": "200mg", "branded_mrp": 118.0, "generic_salt_name": "Cefixime Dispersible Tablets IP 200mg", "jan_aushadhi_rate": 42.0, "precautions": "सुबह-शाम भोजन के बाद पानी के साथ लें।", "disease_purpose": "टाइफाइड बुखार, यूरिनरी ट्रैक्ट इन्फेक्शन (UTI) और सांस नली के संक्रमण के लिए।"}, {"id": 29, "brand_name": "Cifran 500", "chemical_salt": "Ciprofloxacin IP 500mg", "strength": "500mg", "branded_mrp": 45.0, "generic_salt_name": "Ciprofloxacin Tablets IP 500mg", "jan_aushadhi_rate": 14.5, "precautions": "सुबह-शाम भोजन के 2 घंटे बाद लें। दूध के साथ न लें।", "disease_purpose": "दस्त (Diarrhea), फूड पॉइजनिंग, पेट के कीड़े व पेशाब में इन्फेक्शन के खात्मे के लिए।"}, {"id": 30, "brand_name": "Flagyl 400", "chemical_salt": "Metronidazole IP 400mg", "strength": "400mg", "branded_mrp": 24.0, "generic_salt_name": "Metronidazole Tablets IP 400mg", "jan_aushadhi_rate": 7.5, "precautions": "भोजन के बाद लें। दवा के दौरान शराब का सेवन बिल्कुल न करें।", "disease_purpose": "पेट के इन्फेक्शन, अमीबिक पेचिश (खूनी दस्त) और मसूड़ों के इन्फेक्शन के लिए।"}, {"id": 31, "brand_name": "Montair-LC", "chemical_salt": "Montelukast (10mg) + Levocetirizine (5mg)", "strength": "10mg + 5mg", "branded_mrp": 198.0, "generic_salt_name": "Levocetirizine 5mg + Montelukast 10mg Tablets", "jan_aushadhi_rate": 31.0, "precautions": "रोजाना रात को सोते समय लें।", "disease_purpose": "लगातार छींकें आना, नाक बहना, आंखों से पानी आना, धूल-धुएं की एलर्जी और अस्थमा से बचाव के लिए।"}, {"id": 32, "brand_name": "Cetzine 10", "chemical_salt": "Cetirizine Hydrochloride IP 10mg", "strength": "10mg", "branded_mrp": 24.0, "generic_salt_name": "Cetirizine Tablets IP 10mg", "jan_aushadhi_rate": 4.5, "precautions": "रात को एक गोली लें। इससे हल्की नींद आ सकती है।", "disease_purpose": "त्वचा की खुजली, पित्ती (Hives), सर्दी-जुकाम और एलर्जिक छींकों से राहत के लिए।"}, {"id": 33, "brand_name": "Allegra 120", "chemical_salt": "Fexofenadine Hydrochloride 120mg", "strength": "120mg", "branded_mrp": 218.0, "generic_salt_name": "Fexofenadine Tablets IP 120mg", "jan_aushadhi_rate": 34.0, "precautions": "दिन में एक बार भोजन के बाद लें। इससे नींद नहीं आती।", "disease_purpose": "त्वचा पर लाल चकत्ते, तेज खुजली और मौसमी एलर्जी के लिए।"}, {"id": 34, "brand_name": "Ascoril-LS", "chemical_salt": "Levosalbutamol + Ambroxol + Guaiphenesin", "strength": "100ml Syrup", "branded_mrp": 125.0, "generic_salt_name": "Ambroxol + Levosalbutamol + Guaiphenesin Syrup", "jan_aushadhi_rate": 28.0, "precautions": "दिन में 3 बार 10ml भोजन के बाद गुनगुने पानी के साथ लें।", "disease_purpose": "छाती में जमे गाढ़े बलगम को पिघलाकर बाहर निकालने और सांस नली खोलने के लिए।"}, {"id": 35, "brand_name": "Thyronorm 50mcg", "chemical_salt": "Thyroxine Sodium IP 50mcg", "strength": "50mcg", "branded_mrp": 165.0, "generic_salt_name": "Thyroxine Sodium Tablets IP 50mcg", "jan_aushadhi_rate": 24.0, "precautions": "सुबह आँख खुलते ही खाली पेट केवल सादे पानी से लें (चाय से 45 मिनट पहले)।", "disease_purpose": "हाइपोथायरायडिज्म (कम थायरॉयड बनना), सुस्ती, वजन बढ़ना और हार्मोनल असंतुलन ठीक करने के लिए।"}, {"id": 36, "brand_name": "Shelcal 500", "chemical_salt": "Calcium Carbonate (500mg) + Vitamin D3 (250 IU)", "strength": "500mg + 250IU", "branded_mrp": 131.0, "generic_salt_name": "Calcium 500mg with Vitamin D3 250 IU Tablets IP", "jan_aushadhi_rate": 20.0, "precautions": "दोपहर या रात को भोजन के बाद पानी से लें।", "disease_purpose": "कमजोर हड्डियां, जोड़ों में कटकट की आवाज, ऑस्टियोपोरोसिस और कैल्शियम की कमी दूर करने के लिए।"}, {"id": 37, "brand_name": "Becosules Z", "chemical_salt": "Vitamin B-Complex + Vitamin C + Zinc", "strength": "Capsule", "branded_mrp": 56.0, "generic_salt_name": "Vitamin B Complex with Vitamin C & Zinc Capsules", "jan_aushadhi_rate": 12.0, "precautions": "दोपहर भोजन के बाद एक कैप्सूल लें।", "disease_purpose": "मुंह में बार-बार छाले होना, कमजोरी, भूख न लगना और रोग प्रतिरोधक क्षमता बढ़ाने के लिए।"}, {"id": 38, "brand_name": "Neurobion Forte", "chemical_salt": "Vitamin B1 + B6 + B12 (Cyanocobalamin)", "strength": "Tablet", "branded_mrp": 42.0, "generic_salt_name": "Vitamin B1 + B6 + B12 Tablets", "jan_aushadhi_rate": 9.2, "precautions": "रात को भोजन के बाद लें।", "disease_purpose": "हाथ-पैरों में सुन्नपन, चींटी रेंगने जैसी झनझनाहट, नसों की कमजोरी और साइटिका के लिए।"}, {"id": 39, "brand_name": "Orofer-XT", "chemical_salt": "Ferrous Ascorbate (100mg Iron) + Folic Acid (1.5mg)", "strength": "100mg + 1.5mg", "branded_mrp": 185.0, "generic_salt_name": "Ferrous Ascorbate 100mg + Folic Acid 1.5mg Tablets", "jan_aushadhi_rate": 24.5, "precautions": "रात को भोजन के बाद पानी से लें। चाय या दूध के साथ न लें।", "disease_purpose": "खून की कमी (Anemia), लो हीमोग्लोबिन, चक्कर आना और अत्यधिक थकान दूर करने के लिए।"}, {"id": 40, "brand_name": "Uprise-D3 60K", "chemical_salt": "Cholecalciferol (Vitamin D3) 60,000 IU", "strength": "60,000 IU", "branded_mrp": 310.0, "generic_salt_name": "Cholecalciferol (Vitamin D3) Capsules IP 60,000 IU", "jan_aushadhi_rate": 45.0, "precautions": "सप्ताह में केवल एक बार (Weekly 1 Capsule) रात को गर्म दूध के साथ लें।", "disease_purpose": "शरीर में विटामिन D की गंभीर कमी, कमर दर्द, थकान और हड्डियों की कमजोरी के लिए।"}];
     const SAMPLES_DATA = {"sample1": {"patient": "रामेश्वर प्रसाद (उम्र 52 वर्ष, पुरुष)", "doctor": "डॉ. ए.के. शर्मा (एमडी फिजिशियन) • Reg. UP-48192 • गोरखपुर", "medicines": [{"brand": "Januvia 100mg", "salt": "Sitagliptin 100mg", "pmbjp": "PMBJP Sitagliptin Tablets 100mg", "mrp": 450, "generic": 60, "dosage": "1 गोली सुबह नाश्ते के बाद (1-0-0)"}, {"brand": "Amaryl 1mg", "salt": "Glimepiride 1mg", "pmbjp": "PMBJP Glimepiride Tablets 1mg", "mrp": 120, "generic": 14, "dosage": "1 गोली नाश्ते से 15 मिनट पहले (1-0-0)"}, {"brand": "Lipitor 10mg", "salt": "Atorvastatin 10mg", "pmbjp": "PMBJP Atorvastatin Tablets 10mg", "mrp": 230, "generic": 28, "dosage": "1 गोली रात को सोने से पहले (0-0-1)"}, {"brand": "Pan 40", "salt": "Pantoprazole 40mg", "pmbjp": "PMBJP Pantoprazole Gastro-Resistant 40mg", "mrp": 155, "generic": 22, "dosage": "1 गोली सुबह खाली पेट (1-0-0)"}]}, "sample2": {"patient": "कमला देवी (उम्र 48 वर्ष, महिला)", "doctor": "डॉ. आर.के. वर्मा (एमडी मेडिसिन) • Reg. UP-39201 • देवरिया", "medicines": [{"brand": "Telma-H 40/12.5", "salt": "Telmisartan 40mg + Hydrochlorothiazide 12.5mg", "pmbjp": "PMBJP Telmisartan + HCTZ Tablets", "mrp": 210, "generic": 28, "dosage": "1 गोली सुबह नाश्ते के बाद (1-0-0)"}, {"brand": "Amlong 5mg", "salt": "Amlodipine 5mg", "pmbjp": "PMBJP Amlodipine Tablets 5mg", "mrp": 75, "generic": 8, "dosage": "1 गोली शाम 6 बजे (0-1-0)"}, {"brand": "Razo 20", "salt": "Rabeprazole 20mg", "pmbjp": "PMBJP Rabeprazole Sodium Tablets 20mg", "mrp": 140, "generic": 18, "dosage": "1 गोली सुबह खाली पेट (1-0-0)"}]}, "sample3": {"patient": "दिनेश चंद्र (उम्र 34 वर्ष, पुरुष)", "doctor": "डॉ. प्रिया गुप्ता (एमबीबीएस, डीएनबी) • Reg. UP-51204 • गोरखपुर", "medicines": [{"brand": "Augmentin 625 Duo", "salt": "Amoxycillin 500mg + Potassium Clavulanate 125mg", "pmbjp": "PMBJP Amoxycillin + Pot. Clavulanate 625mg", "mrp": 220, "generic": 45, "dosage": "1 गोली भोजन के बाद सुबह और शाम (1-0-1)"}, {"brand": "Dolo 650", "salt": "Paracetamol IP 650mg", "pmbjp": "PMBJP Paracetamol Tablets 650mg", "mrp": 34, "generic": 9.5, "dosage": "1 गोली बुखार आने पर या हर 8 घंटे पर (SOS)"}, {"brand": "Cetzine 10mg", "salt": "Cetirizine Hydrochloride 10mg", "pmbjp": "PMBJP Cetirizine Tablets 10mg", "mrp": 42, "generic": 5, "dosage": "1 गोली रात को सोने से पहले (0-0-1)"}]}, "sample4": {"patient": "सुभाष यादव (उम्र 61 वर्ष, पुरुष)", "doctor": "डॉ. वी.के. मिश्रा (सीनियर कार्डियोलॉजिस्ट) • Reg. UP-29402 • बस्ती", "medicines": [{"brand": "Rosuvas 10mg", "salt": "Rosuvastatin Calcium 10mg", "pmbjp": "PMBJP Rosuvastatin Tablets 10mg", "mrp": 290, "generic": 35, "dosage": "1 गोली रात को भोजन के बाद (0-0-1)"}, {"brand": "Galvus 50mg", "salt": "Vildagliptin 50mg", "pmbjp": "PMBJP Vildagliptin Tablets 50mg", "mrp": 280, "generic": 42, "dosage": "1 गोली सुबह व 1 गोली शाम (1-0-1)"}, {"brand": "Montair-LC", "salt": "Levocetirizine 5mg + Montelukast 10mg", "pmbjp": "PMBJP Montelukast + Levocetirizine Tablets", "mrp": 195, "generic": 32, "dosage": "1 गोली रात को सोते समय (0-0-1)"}]}};
+
+    
+    const TRANSLATIONS = {
+      hi: {
+        topBanner: "🏛️ <strong>Aavishkaar YEP 2026 National Innovation</strong> • Pradhan Mantri Bhartiya Janaushadhi Pariyojana (PMBJP) प्रमाणित पहल",
+        brandSubtitle: "Dept of CSE • IET DDU Gorakhpur University",
+        navPurpose: "🌟 Purpose",
+        navDashboard: "🏠 Dashboard",
+        navScanner: "📷 AI Scanner",
+        navCatalog: "💊 Jan Aushadhi (40+)",
+        navPharmacist: "🩺 Pharmacist (HITL)",
+        navRoadmap: "📈 Growth Model",
+        navAbout: "👨‍💻 Keshav Narayan",
+        searchBtn: "खोजें...",
+        navAiDoctor: "AI Doctor",
+        btnLogin: "लॉग इन",
+        btnRegister: "रजिस्टर करें",
+        btnLogout: "लॉगआउट",
+        floatingChatBtn: "AI आरोग्यमित्र",
+        landingUniTitle: "आरोग्यमित्र एआई (ArogyaMitra AI)",
+        landingUniSub: "डॉक्टर की पर्ची समझें, 50% से 90% सस्ती दवाइयां पाएं",
+        landingFaculty: "National Health Mission • Pradhan Mantri Bhartiya Janaushadhi Pariyojana (PMBJP)",
+        badgeInnovation: "🏛️ Aavishkaar YEP 2026 National Innovation",
+        badgeCdsco: "✓ CDSCO प्रमाणित 40+ जेनेरिक साल्ट",
+        badgeSavings: "💰 औसत मासिक परिवार बचत: ₹1,420+",
+        btnCreateAccount: "✨ नि:शुल्क अकाउंट बनाएं (Create Account)",
+        btnSignIn: "🔑 नागरिक लॉग इन (Sign In)",
+        btnLiveDemo: "⚡ बिना लॉगिन लाइव डेमो देखें (Demo)",
+        scrollPrompter: "विवरण व लाभ देखें (Explore Details)",
+        sheetTag: "🚀 Official Health Mission & AI Ecosystem",
+        sheetTitle: "हर भारतीय परिवार के लिए पूर्ण स्वास्थ्य एवं जेनेरिक दवा केंद्र",
+        sheetDesc: "ArogyaMitra AI (आरोग्यमित्र) में आपका स्वागत है। डॉक्टर की कठिन हैंडराइटिंग पर्ची को Google Gemini 1.5 Flash Vision AI द्वारा सेकंडों में डिकोड करें और Pradhan Mantri Bhartiya Janaushadhi Pariyojana (PMBJP) के सरकारी जेनेरिक साल्ट से जोड़कर हर परिवार का दवा खर्च 50% से 90% घटाएं।",
+        regBannerTitle: "नि:शुल्क खाता बनाकर संपूर्ण 40+ दवाओं व AI स्कैनर की पूर्ण सुविधा प्राप्त करें",
+        regBannerSub: "आम नागरिकों एवं परिवारों के लिए यह सेवा शत-प्रतिशत नि:शुल्क (₹0) है।",
+        btnRegisterNow: "✨ अभी नि:शुल्क रजिस्टर करें",
+        pillar1Title: "1. कठिन पर्ची का सटीक पठन",
+        pillar1Desc: "Google Gemini 1.5 Flash Vision AI डॉक्टरों की अस्पष्ट हैंडराइटिंग को 2.4 सेकंड में डिकोड करके सही एक्टिव साल्ट पहचानता है।",
+        pillar2Title: "2. 50% से 90% की सीधी बचत",
+        pillar2Desc: "ब्रांडेड महंगी दवाओं की जगह सरकार की जन औषधि (PMBJP) की वही समान साल्ट और गुणवत्ता वाली दवाएं सुझाता है।",
+        pillar3Title: "3. 95%+ क्लिनिकल सुरक्षा",
+        pillar3Desc: "Human-in-the-Loop आर्किटेक्चर: रजिस्टर्ड फार्मासिस्ट द्वारा दवा के संयोजन, खुराक (Dosage), और साइड-इफेक्ट्स की पूर्व-जांच।",
+        pillar4Title: "4. 24/7 हिंदी व अंग्रेजी गाइड",
+        pillar4Desc: "बुजुर्गों और मरीजों के लिए हिंदी में खुराक समझाई जाती है। प्रिस्क्रिप्शन समरी 1-क्लिक में WhatsApp पर शेयर करें।",
+        compTag: "📊 वास्तविक तुलना व प्रमाण (Real Savings Evidence)",
+        compTitle: "ब्रांडेड दवा बनाम जन औषधि जेनेरिक: सीधी तुलना",
+        compSub: "वही वैज्ञानिक मॉलिक्यूल, वही प्रभाव — पर 80% से 88% तक कम कीमत",
+        thCategory: "बीमारी / श्रेणी",
+        thBrandedMed: "ब्रांडेड दवा (Market Brand)",
+        thActiveSalt: "एक्टिव साल्ट (Generic Salt)",
+        thPmbjpOpt: "जन औषधि विकल्प (PMBJP)",
+        thBrandedRate: "ब्रांडेड मूल्य (₹)",
+        thPmbjpRate: "जन औषधि मूल्य (₹)",
+        thDirectSavings: "सीधी बचत (%)",
+        pricingTag: "💎 किफायती मूल्य निर्धारण (Transparent & Affordable Plans)",
+        pricingTitle: "हर परिवार के बजट में <span style=\"background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;\">विश्वसनीय स्वास्थ्य सुरक्षा</span>",
+        pricingDesc: "दवा बिलों पर 80% बचत के साथ अपने पूरे परिवार के नुस्खे, डोज टाइमटेबल और क्लिनिकल सेफ्टी को सुरक्षित रखें।",
+        trialTitle: "7-दिन फ्री ट्रायल (Trial)",
+        trialAccess: "पूर्ण एक्सेस",
+        trialPriceBox: "₹0 <span style=\"font-size: 0.9rem; font-weight: 500; color: var(--text-muted);\">/ 7 दिनों हेतु</span>",
+        trialDesc: "सभी नए परिवारों के लिए बिना किसी कार्ड या अग्रिम शुल्क के पूर्ण सुविधाएं।",
+        monthTitle: "पारिवारिक मासिक (Monthly)",
+        monthBadge: "सर्वाधिक लोकप्रिय",
+        monthPriceBox: "₹49 <span style=\"font-size: 0.9rem; font-weight: 500; color: var(--text-muted);\">/ माह (सिर्फ ₹1.6/दिन)</span>",
+        monthDesc: "हर महीने दवा खर्च पर ₹1,000+ से ₹3,000+ बचाने वाले परिवारों के लिए।",
+        yearTitle: "वार्षिक स्वास्थ्य सुरक्षा (Annual)",
+        yearBadge: "सर्वोत्तम मूल्य (32% बचत)",
+        yearPriceBox: "₹399 <span style=\"font-size: 0.9rem; font-weight: 500; color: var(--text-muted);\">/ वर्ष (सिर्फ ₹33/माह)</span>",
+        yearDesc: "पूरे 12 महीने के लिए पूरे परिवार (6 सदस्य) की पूर्ण स्वास्थ्य व बचत सुरक्षा।",
+        btnStartTrial: "मुफ़्त 7-दिन ट्रायल शुरू करें",
+        btnGetMonthly: "₹49/माह प्लान चुनें",
+        btnGetYearly: "₹399/वर्ष प्लान चुनें",
+        dashMember: "सक्रिय सदस्य (Verified)",
+        dashCenterText: "ArogyaMitra AI व्यक्तिगत स्वास्थ्य केंद्र • आपका निकटतम जन औषधि केंद्र:",
+        dashBtnScan: "नई पर्ची स्कैन करें",
+        dashBtnDoctor: "AI डॉक्टर सलाह",
+        dashTile1Title: "पर्ची स्कैन करें",
+        dashTile1Desc: "हैंडराइटिंग पर्ची अपलोड करें या 1-क्लिक सैंपल टेस्ट करें",
+        dashTile1Cta: "स्कैनर खोलें →",
+        dashTile2Title: "जन औषधि डायरेक्टरी",
+        dashTile2Desc: "40+ CDSCO प्रमाणित दवाओं के दाम व बचत खोजें",
+        dashTile2Cta: "दवाएं देखें →",
+        dashTile3Title: "फार्मासिस्ट सुरक्षा पोर्टल",
+        dashTile3Desc: "क्लिनिकल सुरक्षा जांच व प्रिस्क्रिप्शन सत्यापन कतार",
+        dashTile3Cta: "HITL रिव्यू खोलें →",
+        dashTile4Title: "5-वर्षीय विकास मॉडल",
+        dashTile4Desc: "Aavishkaar YEP 2026 स्केल मॉडल व सामाजिक प्रभाव",
+        dashTile4Cta: "प्रोजेक्शन देखें →",
+        metric1Title: "औसत मासिक बचत / परिवार",
+        metric1Sub: "क्रोनिक (बीपी + शुगर) दवाइयों पर",
+        metric2Title: "सक्रिय जेनेरिक साल्ट डेटाबेस",
+        metric2Sub: "CDSCO व PMBJP आधिकारिक कोड सहित",
+        metric3Title: "AI विज़न डिकोडिंग गति",
+        metric3Sub: "Gemini 1.5 Flash Vision OCR",
+        metric4Title: "क्लिनिकल सुरक्षा सटीकता",
+        metric4Sub: "रजिस्टर्ड फार्मासिस्ट द्वारा प्रमाणित",
+        scanSectionTag: "🔬 AI पर्ची विश्लेषण केंद्र (Prescription Scanner)",
+        scanSectionTitle: "डॉक्टर की पर्ची अपलोड करें या 1-क्लिक सैंपल चुनें",
+        scanSectionSub: "Google Gemini 1.5 Flash Vision द्वारा हस्तलिखित पर्चियों का सटीक क्लिनिकल विश्लेषण",
+        samplePrompter: "⚡ 1-क्लिक सैंपल पर्चियां (तुरंत परीक्षण हेतु क्लिक करें):",
+        sample1Btn: "डॉ. ए.के. शर्मा (डायबिटीज + कोलेस्ट्रॉल)",
+        sample2Btn: "डॉ. आर.के. वर्मा (हाइपरटेंशन + एसिडिटी)",
+        sample3Btn: "डॉ. प्रिया गुप्ता (संक्रमण + बुखार)",
+        sample4Btn: "डॉ. वी.के. मिश्रा (सीने में दर्द + एलर्जी)",
+        dropzoneTitle: "पर्ची की फोटो यहां खींचें या अपलोड करें",
+        dropzoneSub: "कैमरा या गैलरी से JPEG, PNG फोटो अपलोड करें",
+        dropzoneBtn: "फाइल चुनें (Choose File)",
+        previewTitle: "पर्ची पूर्वावलोकन (Preview)",
+        previewStatus: "तैयार (Ready)",
+        previewPlaceholder: "कोई पर्ची नहीं चुनी गई (ऊपर 1-क्लिक सैंपल चुनें)",
+        btnStartScan: "AI विज़न से स्कैन करें (Analyze Prescription)",
+        btnResetScan: "रीसेट",
+        thResBranded: "लिखी गई ब्रांडेड दवा",
+        thResSalt: "पहचाना गया जेनेरिक साल्ट",
+        thResPmbjp: "समान जन औषधि दवा (PMBJP)",
+        thResBrandedRate: "ब्रांडेड मूल्य (₹)",
+        thResJanRate: "जन औषधि (₹)",
+        thResSavings: "बचत (%)",
+        thResDosage: "खुराक व सेवन विधि",
+        receiptTitle: "💰 कुल दवा बचत रसीद (Savings Summary)",
+        receiptMarket: "ब्रांडेड मार्केट कुल मूल्य:",
+        receiptGeneric: "जन औषधि सरकारी मूल्य:",
+        receiptNet: "आपकी कुल शुद्ध बचत:",
+        voiceShareTitle: "🗣️ वॉयस गाइड व साझाकरण विकल्प",
+        voiceShareDesc: "मरीज को हिंदी में दवा की खुराक सुनाएं या पर्ची की बचत रसीद तुरंत WhatsApp पर भेजें।",
+        btnVoiceGuide: "खुराक हिंदी में सुनें (Listen Voice Guide)",
+        btnWhatsApp: "WhatsApp शेयर",
+        btnPrintSlip: "रसीद प्रिंट",
+        pharmaSectionTag: "🩺 रजिस्टर्ड फार्मासिस्ट समीक्षा कक्ष (Clinical HITL)",
+        pharmaSectionTitle: "Human-in-the-Loop क्लिनिकल सुरक्षा द्वार",
+        pharmaSectionSub: "प्रत्येक AI विश्लेषण को प्रमाणित फार्मासिस्ट द्वारा अनुमोदित किया जाता है",
+        pharmaQueuePending: "समीक्षा हेतु लंबित (Pending)",
+        pharmaQueueVerified: "आज सत्यापित (Verified Today)",
+        pharmaQueueScore: "सुरक्षा अनुपालन स्कोर",
+        pharmaRxTitle: "पर्चा सत्यापन: #RX-2026-9812",
+        pharmaBadgeWait: "प्रतीक्षारत (Needs Approval)",
+        pharmaChecklistHeader: "दवा मिलान एवं सुरक्षा चेकलिस्ट:",
+        btnApproveRx: "पर्ची को अनुमोदित करें (Approve Jan Aushadhi Slip)",
+        btnClarifyRx: "डॉक्टर से स्पष्टीकरण मांगें",
+        catSectionTag: "💊 जन औषधि दवा डायरेक्टरी (CDSCO Master Database)",
+        catSectionTitle: "40+ प्रमाणित जन औषधि दवाएं एवं बचत खोजें",
+        catSectionSub: "समान साल्ट, समान क्षमता, लेकिन 50% से 90% कम कीमत पर उपलब्ध आधिकारिक दवाएं",
+        catSearchPlaceholder: "🔍 दवा का नाम, साल्ट या बीमारी खोजें (जैसे: Paracetamol, Metformin, BP)...",
+        btnResetSearch: "रीसेट खोज",
+        thPmbjpCode: "PMBJP कोड",
+        thGenericName: "जेनेरिक दवा का नाम (Generic Name)",
+        thComposition: "एक्टिव साल्ट एवं क्षमता (Composition)",
+        thCategoryCol: "श्रेणी",
+        thBrandedMrp: "ब्रांडेड MRP (₹)",
+        thJanPrice: "जन औषधि (₹)",
+        thSavingsCol: "बचत (%)",
+        thPackSize: "पैक साइज",
+        workSectionTag: "⚙️ आर्किटेक्चर व कार्यप्रणाली (How It Works)",
+        workSectionTitle: "4-टियर क्लिनिकल AI पाइपलाइन",
+        workSectionSub: "पर्ची की तस्वीर से लेकर सुरक्षित जेनेरिक दवा के वितरण तक का पूर्ण तकनीकी चक्र",
+        tier1Title: "1. हैंडराइटिंग OCR व इमेज नॉर्मलाइजेशन",
+        tier2Title: "2. एक्टिव साल्ट व जेनेरिक मैपिंग",
+        tier3Title: "3. ड्रग-ड्रग इंटरैक्शन व डोसेज सत्यापन",
+        tier4Title: "4. रजिस्टर्ड फार्मासिस्ट द्वार व वॉइस गाइड",
+        roadSectionTag: "📈 5-वर्षीय विकास रोडमैप व वित्तीय मॉडल",
+        roadSectionTitle: "Aavishkaar YEP 2026: 5-Year Scaling Model",
+        roadSectionSub: "2026 से 2030 तक 2 करोड़ भारतीय परिवारों तक सस्ती दवाएं पहुंचाने का वित्तीय मॉडल",
+        thYear: "वर्ष",
+        thFamilies: "सक्रिय परिवार",
+        thScans: "वार्षिक पर्ची स्कैन",
+        thCitizenSavings: "नागरिकों की बचत",
+        thKendraCount: "PMBJP केंद्र",
+        thRevenue: "प्रोजेक्टेड राजस्व",
+        aboutTag: "👨‍💻 इनोवेटर परिचय (Creator & Academic Vision)",
+        aboutTitle: "केशव नारायण (Keshav Narayan) एवं आरोग्यमित्र विज़न",
+        aboutSub: "Department of Computer Science & Engineering, IET, DDU Gorakhpur University",
+        aboutVisionTitle: "परियोजना की प्रेरणा व विज़न",
+        aboutVisionP1: "भारत में लाखों परिवार हर महीने अपनी कमाई का बड़ा हिस्सा महंगी ब्रांडेड दवाइयों पर खर्च कर देते हैं। डॉक्टरों की अस्पष्ट हैंडराइटिंग के कारण मरीजों को पता ही नहीं चल पाता कि उसी दवा का सरकारी जन औषधि में 80% सस्ता विकल्प उपलब्ध है।",
+        aboutVisionP2: "<strong>ArogyaMitra AI</strong> का उद्देश्य आर्टिफिशियल इंटेलिजेंस द्वारा हर भारतीय परिवार के दवा खर्च को आधा करना और सुरक्षित जेनेरिक दवाओं को जन-जन तक पहुंचाना है।",
+        footerNav: "Portal Navigation",
+        footerGovt: "Government Portals",
+        footerLead: "Lead Developer & Innovator",
+        chatAssistantTitle: "ArogyaMitra AI असिस्टेंट",
+        chatOnlineBadge: "● Gemini 2.5 Flash Online",
+        chatGreeting: "नमस्ते! मैं ArogyaMitra AI असिस्टेंट हूँ। आप मुझसे किसी भी दवा, उसके जेनेरिक साल्ट, सही खुराक, या पास के जन औषधि केंद्र के बारे में पूछ सकते हैं।",
+        chatPreset1: "💊 Paracetamol खुराक?",
+        chatPreset2: "💰 Metformin कीमत?",
+        chatPreset3: "📍 जन औषधि केंद्र?",
+        chatInputPlaceholder: "दवा या स्वास्थ्य से जुड़ा सवाल पूछें...",
+        btnSendChat: "भेजें"
+      },
+      en: {
+        topBanner: "🏛️ <strong>Aavishkaar YEP 2026 National Innovation</strong> • Pradhan Mantri Bhartiya Janaushadhi Pariyojana (PMBJP) Certified Initiative",
+        brandSubtitle: "Dept of CSE • IET DDU Gorakhpur University",
+        navPurpose: "🌟 Purpose",
+        navDashboard: "🏠 Dashboard",
+        navScanner: "📷 AI Scanner",
+        navCatalog: "💊 Jan Aushadhi (40+)",
+        navPharmacist: "🩺 Pharmacist (HITL)",
+        navRoadmap: "📈 Growth Model",
+        navAbout: "👨‍💻 Keshav Narayan",
+        searchBtn: "Search...",
+        navAiDoctor: "AI Doctor",
+        btnLogin: "Log In",
+        btnRegister: "Register Free",
+        btnLogout: "Logout",
+        floatingChatBtn: "Ask AI Doctor",
+        landingUniTitle: "ArogyaMitra AI (आरोग्यमित्र)",
+        landingUniSub: "Decode Doctor Prescriptions, Save 50% to 90% on Generic Medicines",
+        landingFaculty: "National Health Mission • Pradhan Mantri Bhartiya Janaushadhi Pariyojana (PMBJP)",
+        badgeInnovation: "🏛️ Aavishkaar YEP 2026 National Innovation",
+        badgeCdsco: "✓ CDSCO Certified 40+ Generic Salts",
+        badgeSavings: "💰 Avg Monthly Family Savings: ₹1,420+",
+        btnCreateAccount: "✨ Create Free Account",
+        btnSignIn: "🔑 Citizen Sign In",
+        btnLiveDemo: "⚡ Try Live Demo (No Login)",
+        scrollPrompter: "Explore Details & Benefits",
+        sheetTag: "🚀 Official Health Mission & AI Ecosystem",
+        sheetTitle: "The Complete Healthcare & Generic Medicine Hub for <span class=\"grad-text\">Every Indian</span>",
+        sheetDesc: "Welcome to <strong>ArogyaMitra AI</strong>. Decode complex handwritten prescriptions in seconds using Google Gemini 1.5 Flash Vision AI and map them directly to Pradhan Mantri Bhartiya Janaushadhi Pariyojana (PMBJP) generic salts, reducing family medicine expenses by 50% to 90%.",
+        regBannerTitle: "Create a free account to unlock full 40+ medicine directory and AI scanner tools",
+        regBannerSub: "This service is 100% free (₹0) for citizens, families, and senior citizens.",
+        btnRegisterNow: "✨ Register Free Now",
+        pillar1Title: "1. Accurate Prescription Reading",
+        pillar1Desc: "Google Gemini 1.5 Flash Vision AI decodes doctors' cursive handwriting in 2.4 seconds to identify the active chemical salt.",
+        pillar2Title: "2. Direct 50% to 90% Savings",
+        pillar2Desc: "Suggests government Jan Aushadhi (PMBJP) medicines with identical salts, bioavailability, and high quality at a fraction of the cost.",
+        pillar3Title: "3. 95%+ Clinical Safety",
+        pillar3Desc: "Human-in-the-Loop Architecture: Registered pharmacists review formulations, dosage safety, and contraindications before purchase.",
+        pillar4Title: "4. 24/7 Bilingual Guide",
+        pillar4Desc: "Bilingual dosage guidance with voice TTS. Share formatted prescription savings receipts directly to WhatsApp with 1 click.",
+        compTag: "📊 Real Savings Evidence & Validation",
+        compTitle: "Branded Medicines vs. Jan Aushadhi Generics: Direct Comparison",
+        compSub: "Identical scientific molecule, identical clinical efficacy — at 80% to 88% lower price",
+        thCategory: "Disease / Category",
+        thBrandedMed: "Branded Medicine (Market Brand)",
+        thActiveSalt: "Active Salt (Generic Salt)",
+        thPmbjpOpt: "Jan Aushadhi Alternative (PMBJP)",
+        thBrandedRate: "Branded Price (₹)",
+        thPmbjpRate: "Jan Aushadhi Price (₹)",
+        thDirectSavings: "Direct Savings (%)",
+        pricingTag: "💎 Transparent & Affordable Plans",
+        pricingTitle: "Reliable Health Protection Within <span style=\"background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;\">Every Family's Budget</span>",
+        pricingDesc: "Protect your entire family's prescriptions, dosage schedules, and clinical safety while saving over 80% on medicine bills.",
+        trialTitle: "7-Day Free Trial",
+        trialAccess: "Full Access",
+        trialPriceBox: "₹0 <span style=\"font-size: 0.9rem; font-weight: 500; color: var(--text-muted);\">/ for 7 days</span>",
+        trialDesc: "Complete features for all new families with zero credit card or advance fee required.",
+        monthTitle: "Family Monthly",
+        monthBadge: "Most Popular",
+        monthPriceBox: "₹49 <span style=\"font-size: 0.9rem; font-weight: 500; color: var(--text-muted);\">/ mo (only ₹1.6/day)</span>",
+        monthDesc: "Ideal for families saving ₹1,000+ to ₹3,000+ on chronic medicine bills each month.",
+        yearTitle: "Annual Health Protection",
+        yearBadge: "Best Value (Save 32%)",
+        yearPriceBox: "₹399 <span style=\"font-size: 0.9rem; font-weight: 500; color: var(--text-muted);\">/ year (only ₹33/mo)</span>",
+        yearDesc: "Full health safety and maximum medicine savings for up to 6 family members for 12 months.",
+        btnStartTrial: "Start Free 7-Day Trial",
+        btnGetMonthly: "Choose ₹49/mo Plan",
+        btnGetYearly: "Choose ₹399/yr Plan",
+        dashMember: "Verified Member",
+        dashCenterText: "ArogyaMitra AI Personal Health Hub • Your nearest Jan Aushadhi Kendra:",
+        dashBtnScan: "Scan New Prescription",
+        dashBtnDoctor: "AI Doctor Advice",
+        dashTile1Title: "Scan Prescription",
+        dashTile1Desc: "Upload handwriting prescription or test 1-click clinical samples",
+        dashTile1Cta: "Open Scanner →",
+        dashTile2Title: "Jan Aushadhi Directory",
+        dashTile2Desc: "Search prices & savings across 40+ CDSCO certified drugs",
+        dashTile2Cta: "View Medicines →",
+        dashTile3Title: "Pharmacist Safety Portal",
+        dashTile3Desc: "Clinical safety check & prescription verification queue",
+        dashTile3Cta: "Open HITL Review →",
+        dashTile4Title: "5-Year Growth Model",
+        dashTile4Desc: "Aavishkaar YEP 2026 scale roadmap & social health impact",
+        dashTile4Cta: "View Projections →",
+        metric1Title: "Avg Monthly Savings / Family",
+        metric1Sub: "On chronic (BP + Diabetes) medications",
+        metric2Title: "Active Generic Salt Database",
+        metric2Sub: "With CDSCO & PMBJP official codes",
+        metric3Title: "AI Vision Decoding Speed",
+        metric3Sub: "Gemini 1.5 Flash Vision OCR",
+        metric4Title: "Clinical Safety Accuracy",
+        metric4Sub: "Certified by Registered Pharmacists",
+        scanSectionTag: "🔬 AI Prescription Scanner",
+        scanSectionTitle: "Upload Doctor's Prescription or Select 1-Click Sample",
+        scanSectionSub: "Precise clinical OCR and handwriting decoding via Google Gemini 1.5 Flash Vision",
+        samplePrompter: "⚡ 1-Click Sample Prescriptions (Click for instant test):",
+        sample1Btn: "Dr. A.K. Sharma (Diabetes + Cholesterol)",
+        sample2Btn: "Dr. R.K. Verma (Hypertension + Acidity)",
+        sample3Btn: "Dr. Priya Gupta (Infection + Fever)",
+        sample4Btn: "Dr. V.K. Mishra (Chest Pain + Allergy)",
+        dropzoneTitle: "Capture or upload prescription photo here",
+        dropzoneSub: "Upload JPEG, PNG image from camera or device gallery",
+        dropzoneBtn: "Choose File",
+        previewTitle: "Prescription Preview",
+        previewStatus: "Ready",
+        previewPlaceholder: "No prescription selected (Pick a 1-click sample above)",
+        btnStartScan: "Scan with AI Vision (Analyze Prescription)",
+        btnResetScan: "Reset",
+        thResBranded: "Prescribed Branded Drug",
+        thResSalt: "Identified Generic Salt",
+        thResPmbjp: "Jan Aushadhi Equivalent (PMBJP)",
+        thResBrandedRate: "Branded MRP (₹)",
+        thResJanRate: "Jan Aushadhi (₹)",
+        thResSavings: "Savings (%)",
+        thResDosage: "Dosage & Usage Directions",
+        receiptTitle: "💰 Medicine Savings Summary Receipt",
+        receiptMarket: "Branded Market Total:",
+        receiptGeneric: "Jan Aushadhi Govt Total:",
+        receiptNet: "Your Total Net Savings:",
+        voiceShareTitle: "🗣️ Voice Guide & Sharing Options",
+        voiceShareDesc: "Listen to audio dosage directions or share savings summary directly via WhatsApp.",
+        btnVoiceGuide: "Listen to Voice Guide",
+        btnWhatsApp: "Share on WhatsApp",
+        btnPrintSlip: "Print Receipt",
+        pharmaSectionTag: "🩺 Registered Pharmacist Review Room (Clinical HITL)",
+        pharmaSectionTitle: "Human-in-the-Loop Clinical Safety Gateway",
+        pharmaSectionSub: "Every AI extraction is verified and authorized by licensed pharmacists",
+        pharmaQueuePending: "Pending Review",
+        pharmaQueueVerified: "Verified Today",
+        pharmaQueueScore: "Safety Compliance Score",
+        pharmaRxTitle: "Prescription Verification: #RX-2026-9812",
+        pharmaBadgeWait: "Needs Approval",
+        pharmaChecklistHeader: "Drug Bioequivalence & Safety Checklist:",
+        btnApproveRx: "Approve Jan Aushadhi Slip",
+        btnClarifyRx: "Request Doctor Clarification",
+        catSectionTag: "💊 Jan Aushadhi Medicine Directory (CDSCO Master Database)",
+        catSectionTitle: "Explore 40+ Certified Jan Aushadhi Medicines & Savings",
+        catSectionSub: "Official generic drugs with identical salt, potency, and quality at 50% to 90% lower price",
+        catSearchPlaceholder: "🔍 Search medicine name, salt, or disease (e.g. Paracetamol, Metformin, BP)...",
+        btnResetSearch: "Reset Search",
+        thPmbjpCode: "PMBJP Code",
+        thGenericName: "Generic Name",
+        thComposition: "Active Composition & Strength",
+        thCategoryCol: "Category",
+        thBrandedMrp: "Branded MRP (₹)",
+        thJanPrice: "Jan Aushadhi (₹)",
+        thSavingsCol: "Savings (%)",
+        thPackSize: "Pack Size",
+        workSectionTag: "⚙️ Architecture & Pipeline (How It Works)",
+        workSectionTitle: "4-Tier Clinical AI Pipeline",
+        workSectionSub: "From raw prescription photo to safe generic medicine dispensing",
+        tier1Title: "1. Handwriting OCR & Image Normalization",
+        tier2Title: "2. Active Salt & Generic Molecule Mapping",
+        tier3Title: "3. Drug-Drug Interaction & Dosage Safety",
+        tier4Title: "4. Pharmacist HITL Gateway & Voice Delivery",
+        roadSectionTag: "📈 5-Year Growth Roadmap & Financial Projections",
+        roadSectionTitle: "Aavishkaar YEP 2026: 5-Year Scaling Model",
+        roadSectionSub: "Financial roadmap to deliver affordable medicines to 20 million Indian families by 2030",
+        thYear: "Year",
+        thFamilies: "Active Families",
+        thScans: "Annual Rx Scans",
+        thCitizenSavings: "Citizen Savings",
+        thKendraCount: "PMBJP Kendras",
+        thRevenue: "Projected Revenue",
+        aboutTag: "👨‍💻 Innovator Profile (Creator & Academic Vision)",
+        aboutTitle: "Keshav Narayan & ArogyaMitra Vision",
+        aboutSub: "Department of Computer Science & Engineering, IET, DDU Gorakhpur University",
+        aboutVisionTitle: "Inspiration & National Vision",
+        aboutVisionP1: "Across India, millions of middle-class and rural families spend a large portion of their earnings on expensive branded medicines. Because doctor prescriptions are often written in illegible handwriting, patients rarely know that identical government Jan Aushadhi alternatives exist at 80% lower cost.",
+        aboutVisionP2: "<strong>ArogyaMitra AI</strong> leverages Artificial Intelligence to cut family healthcare burdens by half and bring safe, affordable generic medicines to every citizen.",
+        footerNav: "Portal Navigation",
+        footerGovt: "Government Portals",
+        footerLead: "Lead Developer & Innovator",
+        chatAssistantTitle: "ArogyaMitra AI Assistant",
+        chatOnlineBadge: "● Gemini 2.5 Flash Online",
+        chatGreeting: "Hello! I am ArogyaMitra AI Assistant. You can ask me about any medicine, generic salt, dosage instructions, or nearby PMBJP Jan Aushadhi stores.",
+        chatPreset1: "💊 Paracetamol Dosage?",
+        chatPreset2: "💰 Metformin Price?",
+        chatPreset3: "📍 Jan Aushadhi Stores?",
+        chatInputPlaceholder: "Ask any medicine or health question...",
+        btnSendChat: "Send"
+      }
+    };
 
     const Auth = {
       userKey: 'arogyamitra_user',
@@ -1290,12 +1665,16 @@
     const App = {
       currentSample: 'sample1',
       lastScanResult: null,
+      currentLang: 'hi',
 
       init() {
         const savedTheme = localStorage.getItem('arogyamitra_theme') || 'light';
         document.documentElement.setAttribute('data-theme', savedTheme);
         const icon = document.getElementById('theme-toggle-btn');
         if (icon) icon.innerText = savedTheme === 'dark' ? '☀️' : '🌙';
+
+        const savedLang = localStorage.getItem('arogyamitra_lang') || 'hi';
+        this.setLanguage(savedLang);
 
         const user = Auth.getCurrentUser();
         Auth.updateUI(user);
@@ -1316,6 +1695,12 @@
           } else if (e.key === 'Escape') {
             this.closeSearch();
             Auth.closeAuthModal();
+            const drawer = document.getElementById('chat-drawer');
+            const overlay = document.getElementById('chat-drawer-overlay');
+            if (drawer && drawer.classList.contains('open')) {
+              drawer.classList.remove('open');
+              if (overlay) overlay.classList.remove('open');
+            }
           }
         });
 
@@ -1381,7 +1766,96 @@
 
       toggleChat() {
         const drawer = document.getElementById('chat-drawer');
-        if (drawer) drawer.classList.toggle('open');
+        const overlay = document.getElementById('chat-drawer-overlay');
+        if (drawer) {
+          const isOpen = drawer.classList.toggle('open');
+          if (overlay) overlay.classList.toggle('open', isOpen);
+          if (isOpen) {
+            setTimeout(() => {
+              const input = document.getElementById('chat-input');
+              if (input) input.focus();
+            }, 120);
+          }
+        }
+      },
+
+      setLanguage(lang) {
+        if (!TRANSLATIONS[lang]) lang = 'hi';
+        this.currentLang = lang;
+        localStorage.setItem('arogyamitra_lang', lang);
+        document.documentElement.setAttribute('lang', lang);
+
+        ['btn-lang-hi', 'm-btn-lang-hi'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.classList.toggle('active', lang === 'hi');
+        });
+        ['btn-lang-en', 'm-btn-lang-en'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.classList.toggle('active', lang === 'en');
+        });
+
+        const dict = TRANSLATIONS[lang];
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (dict[key]) {
+            el.innerHTML = dict[key];
+          }
+        });
+
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+          const key = el.getAttribute('data-i18n-placeholder');
+          if (dict[key]) {
+            el.setAttribute('placeholder', dict[key]);
+          }
+        });
+
+        const floatLabel = document.getElementById('floating-ai-label');
+        if (floatLabel && dict.floatingChatBtn) floatLabel.innerText = dict.floatingChatBtn;
+
+        const chatHeader = document.getElementById('chat-drawer-title');
+        if (chatHeader && dict.chatAssistantTitle) chatHeader.innerText = dict.chatAssistantTitle;
+        const chatOnline = document.getElementById('chat-drawer-online');
+        if (chatOnline && dict.chatOnlineBadge) chatOnline.innerText = dict.chatOnlineBadge;
+        const chatInput = document.getElementById('chat-input');
+        if (chatInput && dict.chatInputPlaceholder) chatInput.placeholder = dict.chatInputPlaceholder;
+        const chatSendBtn = document.getElementById('chat-send-btn');
+        if (chatSendBtn && dict.btnSendChat) chatSendBtn.innerText = dict.btnSendChat;
+
+        const p1 = document.getElementById('chat-preset-1');
+        if (p1 && dict.chatPreset1) {
+          p1.innerText = dict.chatPreset1;
+          p1.onclick = () => App.sendPresetChat(lang === 'hi' ? 'Paracetamol कब और कितनी मात्रा में लेना चाहिए?' : 'When and in what dose should Paracetamol be taken?');
+        }
+        const p2 = document.getElementById('chat-preset-2');
+        if (p2 && dict.chatPreset2) {
+          p2.innerText = dict.chatPreset2;
+          p2.onclick = () => App.sendPresetChat(lang === 'hi' ? 'Metformin 500mg जन औषधि में कितने की मिलती है?' : 'How much does Metformin 500mg cost in Jan Aushadhi?');
+        }
+        const p3 = document.getElementById('chat-preset-3');
+        if (p3 && dict.chatPreset3) {
+          p3.innerText = dict.chatPreset3;
+          p3.onclick = () => App.sendPresetChat(lang === 'hi' ? 'गोरखपुर में जन औषधि केंद्र कहाँ स्थित हैं?' : 'Where are Jan Aushadhi Kendras located in Gorakhpur?');
+        }
+
+        this.updateCategoryPills();
+
+        if (this.lastScanResult) {
+          this.renderScanResults(this.currentSample);
+        }
+      },
+
+      updateCategoryPills() {
+        const isEn = this.currentLang === 'en';
+        const pillsContainer = document.getElementById('catalog-category-pills');
+        if (!pillsContainer) return;
+        const buttons = pillsContainer.querySelectorAll('button');
+        const labelsHi = ['सभी दवाएं (All 40+)', 'डायबिटीज', 'ब्लड प्रेशर', 'एंटीबायोटिक', 'हृदय रोग', 'गैस व पेट', 'दर्द व बुखार'];
+        const labelsEn = ['All Medicines (40+)', 'Diabetes', 'Hypertension (BP)', 'Antibiotics', 'Cardiac / Heart', 'Gastro / Acidity', 'Pain & Fever'];
+        buttons.forEach((btn, idx) => {
+          if (idx < labelsHi.length) {
+            btn.innerText = isEn ? labelsEn[idx] : labelsHi[idx];
+          }
+        });
       },
 
       openSearch() {
@@ -1711,17 +2185,28 @@
       generateClinicalChatResponse(query) {
         const q = query.toLowerCase();
         let reply = '';
+        const isHi = (this.currentLang || 'hi') === 'hi';
 
-        if (q.includes('paracetamol') || q.includes('बुखार') || q.includes('dolo')) {
-          reply = 'पैरासिटामोल (Paracetamol 650mg) बुखार और दर्द के लिए सुरक्षित दवा है। ब्रांडेड Dolo 650 का 1 पत्ता ₹34 का आता है, जबकि जन औषधि केंद्र पर यह सिर्फ ₹9.50 में उपलब्ध है (72% बचत)।';
-        } else if (q.includes('metformin') || q.includes('sugar') || q.includes('शुगर') || q.includes('डायबिटीज')) {
-          reply = 'मेटफॉर्मिन (Metformin 500mg SR) टाइप-2 डायबिटीज की पहली दवा है। जन औषधि केंद्र पर 10 गोलियां सिर्फ ₹14-₹18 में मिल जाती हैं, जबकि ब्रांडेड ₹65 तक का होता है।';
-        } else if (q.includes('bp') || q.includes('telmisartan') || q.includes('ब्लड प्रेशर')) {
-          reply = 'टेलमिसार्टन (Telmisartan 40mg) उच्च रक्तचाप नियंत्रण के लिए है। जन औषधि में 10 गोलियां केवल ₹18-₹28 में मिल जाती हैं, जबकि ब्रांडेड ₹140 का आता है।';
-        } else if (q.includes('गोरखपुर') || q.includes('केंद्र') || q.includes('kendra') || q.includes('दुकान')) {
-          reply = 'गोरखपुर में जन औषधि केंद्र: (1) बीआरडी मेडिकल कॉलेज परिसर, (2) जिला अस्पताल गेट नंबर 2, (3) विश्वविद्यालय चौराहा, और (4) मोहद्दीपुर मुख्य मार्ग पर स्थित हैं।';
+        if (q.includes('paracetamol') || q.includes('fever') || q.includes('बुखार') || q.includes('dolo') || q.includes('pain')) {
+          reply = isHi
+            ? 'पैरासिटामोल (Paracetamol 650mg) बुखार और दर्द के लिए सुरक्षित दवा है। ब्रांडेड Dolo 650 का 1 पत्ता ₹34 का आता है, जबकि जन औषधि केंद्र पर यह सिर्फ ₹9.50 में उपलब्ध है (72% बचत)।'
+            : 'Paracetamol (650mg IP) is safe for fever and pain relief. Branded Dolo 650 costs ₹34/strip, whereas government PMBJP Jan Aushadhi provides it for only ₹9.50 (72% savings).';
+        } else if (q.includes('metformin') || q.includes('sugar') || q.includes('शुगर') || q.includes('डायबिटीज') || q.includes('diabetes')) {
+          reply = isHi
+            ? 'मेटफॉर्मिन (Metformin 500mg SR) टाइप-2 डायबिटीज की पहली दवा है। जन औषधि केंद्र पर 10 गोलियां सिर्फ ₹14-₹18 में मिल जाती हैं, जबकि ब्रांडेड ₹65 तक का होता है।'
+            : 'Metformin 500mg SR is the first-line therapy for Type-2 Diabetes. PMBJP Jan Aushadhi provides 10 tablets for just ₹8.50-₹14, while branded alternatives cost up to ₹42-₹65.';
+        } else if (q.includes('bp') || q.includes('telmisartan') || q.includes('ब्लड प्रेशर') || q.includes('hypertension')) {
+          reply = isHi
+            ? 'टेलमिसार्टन (Telmisartan 40mg) उच्च रक्तचाप नियंत्रण के लिए है। जन औषधि में 10 गोलियां केवल ₹18-₹28 में मिल जाती हैं, जबकि ब्रांडेड ₹140 का आता है।'
+            : 'Telmisartan 40mg manages essential hypertension. In Jan Aushadhi, 10 tablets cost only ₹22, while branded Telma 40 costs ₹138 (84% savings).';
+        } else if (q.includes('gorakhpur') || q.includes('गोरखपुर') || q.includes('केंद्र') || q.includes('kendra') || q.includes('store') || q.includes('दुकान') || q.includes('location')) {
+          reply = isHi
+            ? 'गोरखपुर में जन औषधि केंद्र: (1) बीआरडी मेडिकल कॉलेज परिसर, (2) जिला अस्पताल गेट नंबर 2, (3) विश्वविद्यालय चौराहा (DDU), और (4) मोहद्दीपुर मुख्य मार्ग पर स्थित हैं।'
+            : 'PMBJP Jan Aushadhi stores in Gorakhpur: (1) BRD Medical College Campus, (2) District Hospital Gate No. 2, (3) DDU University Crossing, and (4) Mohaddipur Main Road.';
         } else {
-          reply = 'धन्यवाद! ArogyaMitra AI आपकी सेवा में सदैव तत्पर है। हमेशा डॉक्टर या फार्मासिस्ट की देखरेख में ही दवा लें। जन औषधि से समान साल्ट अपनाकर आप 50-90% खर्च बचा सकते हैं।';
+          reply = isHi
+            ? 'धन्यवाद! ArogyaMitra AI आपकी सेवा में सदैव तत्पर है। हमेशा डॉक्टर या फार्मासिस्ट की देखरेख में ही दवा लें। जन औषधि से समान साल्ट अपनाकर आप 50-90% खर्च बचा सकते हैं।'
+            : 'Thank you! ArogyaMitra AI is always here to assist. Always consult your doctor or registered pharmacist for dosages. By choosing identical Jan Aushadhi generic salts, you save 50% to 90% on healthcare costs.';
         }
 
         this.appendChatMessage(reply, 'ai');
