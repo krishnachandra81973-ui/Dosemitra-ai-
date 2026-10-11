@@ -2137,24 +2137,7 @@ button {
     grid-template-columns: 1fr 1fr;
   }
 }
-  .hero-grid-layout {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 32px;
-  }
-  .hero-buttons {
-    justify-content: center;
-  }
-  .hero-emblem-ring {
-    width: 140px;
-    height: 140px;
-  }
-  .hero-title { font-size: 2.2rem; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-  .form-row { grid-template-columns: 1fr; }
-  .admin-layout { flex-direction: column; }
-  .admin-sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
-}
+
 
 /* Mobile Phones (max-width: 768px) */
 @media (max-width: 768px) {
@@ -2549,27 +2532,27 @@ button {
   }
 }
 
-/* 1. Sticky Centered Grand University Logo Stage */
+/* 1. Fluid Modern Hero Stage (Fully Responsive on Laptop, Desktop, Tablet, Mobile) */
 .guest-welcome-stage {
-  position: sticky;
-  top: var(--header-height, 70px);
-  height: calc(100vh - var(--header-height, 70px));
-  min-height: 560px;
-  max-height: 860px;
+  position: relative;
+  min-height: auto;
+  max-height: none;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 24px 20px 70px;
+  padding: clamp(32px, 5vw, 56px) 20px clamp(28px, 4vw, 42px);
   z-index: 1;
-  background: radial-gradient(circle at 50% 36%, rgba(217, 119, 6, 0.14) 0%, rgba(30, 64, 175, 0.10) 45%, var(--bg-main) 100%);
+  background: radial-gradient(circle at 50% 25%, rgba(217, 119, 6, 0.12) 0%, rgba(30, 64, 175, 0.08) 45%, var(--bg-main) 100%);
   overflow: hidden;
   box-sizing: border-box;
+  border-bottom: 1px solid var(--border);
 }
 
 [data-theme="dark"] .guest-welcome-stage {
-  background: radial-gradient(circle at 50% 36%, rgba(217, 119, 6, 0.18) 0%, rgba(30, 64, 175, 0.15) 50%, var(--bg-main) 100%);
+  background: radial-gradient(circle at 50% 25%, rgba(217, 119, 6, 0.16) 0%, rgba(30, 64, 175, 0.14) 50%, var(--bg-main) 100%);
 }
 
 .guest-ambient-glow {
@@ -2601,13 +2584,13 @@ button {
 
 /* Centered Grand Emblem Ring */
 .guest-emblem-ring {
-  width: 210px;
-  height: 210px;
+  width: clamp(86px, 12vw, 112px);
+  height: clamp(86px, 12vw, 112px);
   border-radius: 50%;
   background: #ffffff;
-  padding: 10px;
-  border: 4.5px solid #d97706; /* University Heritage Gold */
-  box-shadow: 0 0 35px rgba(217, 119, 6, 0.45), 0 16px 36px rgba(0, 0, 0, 0.16);
+  padding: 6px;
+  border: 3.5px solid #d97706; /* University Heritage Gold */
+  box-shadow: 0 0 24px rgba(217, 119, 6, 0.35), 0 8px 20px rgba(0, 0, 0, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2640,22 +2623,22 @@ button {
 /* University Titles */
 .guest-uni-title-hi {
   font-family: 'Outfit', sans-serif;
-  font-size: 1.65rem;
+  font-size: clamp(1.4rem, 2.6vw, 2.2rem);
   font-weight: 800;
   color: var(--text-main);
-  margin-top: 20px;
-  margin-bottom: 2px;
+  margin-top: 14px;
+  margin-bottom: 4px;
   letter-spacing: -0.3px;
   line-height: 1.25;
 }
 
 .guest-uni-title-en {
-  font-size: 1.15rem;
+  font-size: clamp(0.95rem, 1.5vw, 1.18rem);
   font-weight: 700;
   color: #d97706;
   letter-spacing: 0.2px;
   margin-bottom: 6px;
-  line-height: 1.3;
+  line-height: 1.35;
 }
 
 [data-theme="dark"] .guest-uni-title-en {
@@ -2811,37 +2794,31 @@ button {
   }
 }
 
-/* 2. Overlapping Sliding Content Sheet (Glides Over University Crest on Scroll) */
+/* 2. Clean Natural Flow Content Section (Seamless & Fast) */
+.guest-scroll-prompter {
+  display: none !important;
+}
+
 .guest-content-sheet {
   position: relative;
-  z-index: 10;
+  z-index: 2;
   background: var(--bg-main);
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
-  box-shadow: 0 -25px 65px rgba(0, 0, 0, 0.35);
-  border-top: 2.5px solid rgba(217, 119, 6, 0.45);
-  padding: 30px 0 80px;
-  min-height: 100vh;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  box-shadow: none;
+  border-top: none;
+  padding: 36px 0 80px;
+  min-height: auto;
 }
 
 [data-theme="dark"] .guest-content-sheet {
-  box-shadow: 0 -25px 70px rgba(0, 0, 0, 0.7);
-  border-top-color: rgba(245, 158, 11, 0.4);
+  box-shadow: none;
+  border-top: none;
 }
 
-/* Elevated Grab Bar Indicator */
+/* Elevated Grab Bar Indicator - Hidden for clean flow */
 .sheet-grab-bar {
-  width: 54px;
-  height: 5px;
-  background: rgba(217, 119, 6, 0.5);
-  border-radius: 10px;
-  margin: 0 auto 30px auto;
-  transition: width 0.3s ease, background 0.3s ease;
-}
-
-.guest-content-sheet:hover .sheet-grab-bar {
-  width: 70px;
-  background: #d97706;
+  display: none !important;
 }
 
 /* Sheet Intro Section */
@@ -3106,53 +3083,41 @@ button {
   box-shadow: 0 6px 22px rgba(0, 0, 0, 0.3);
 }
 
-/* Responsive Rules for Small Devices */
+/* Responsive Rules for Small & Mid Devices */
 @media (max-width: 768px) {
   .guest-welcome-stage {
-    min-height: 520px;
-    padding-bottom: 60px;
+    padding: 28px 16px 24px;
   }
   .guest-emblem-ring {
-    width: 160px;
-    height: 160px;
-    padding: 7px;
+    width: 84px;
+    height: 84px;
+    padding: 5px;
   }
-  .guest-uni-title-hi {
-    font-size: 1.3rem;
+  .guest-actions-row {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
   }
-  .guest-uni-title-en {
-    font-size: 0.98rem;
+  .guest-actions-row button {
+    width: 100% !important;
+    justify-content: center !important;
   }
-  .guest-sheet-title {
-    font-size: 1.7rem;
-  }
-  .guest-content-sheet {
-    border-top-left-radius: 28px;
-    border-top-right-radius: 28px;
-    padding-top: 24px;
+  .guest-badges-row {
+    gap: 6px;
   }
 }
 
 @media (max-width: 480px) {
   .guest-welcome-stage {
-    min-height: 480px;
+    padding: 24px 12px 20px;
   }
   .guest-emblem-ring {
-    width: 140px;
-    height: 140px;
-    padding: 6px;
-  }
-  .guest-uni-title-hi {
-    font-size: 1.15rem;
-  }
-  .guest-uni-title-en {
-    font-size: 0.88rem;
-  }
-  .guest-uni-faculty {
-    font-size: 0.8rem;
+    width: 76px;
+    height: 76px;
+    padding: 4px;
   }
   .guest-btn-primary, .guest-btn-secondary {
-    padding: 10px 18px;
+    padding: 11px 16px;
     font-size: 0.88rem;
     width: 100%;
     justify-content: center;
@@ -3184,12 +3149,14 @@ button {
 .grid-2 { grid-template-columns: repeat(2, 1fr); }
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
 .grid-4 { grid-template-columns: repeat(4, 1fr); }
-@media (max-width: 992px) {
-  .grid-4 { grid-template-columns: repeat(2, 1fr); }
-  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+
+/* Laptop & Tablet Screen Adaptation (Prevents cramped 4-column cards) */
+@media (max-width: 1120px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); gap: 16px; }
 }
-@media (max-width: 640px) {
-  .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+@media (max-width: 680px) {
+  .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; gap: 14px; }
 }
 
 .portal-card {

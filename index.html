@@ -198,16 +198,12 @@
           </div>
         </div>
 
-        <!-- Scroll Down Prompter -->
-        <div class="guest-scroll-prompter" onclick="document.getElementById('guest-sheet').scrollIntoView({behavior: 'smooth'})" title="Scroll Down for Details">
-          <span data-i18n="scrollPrompter">Explore Details & Benefits</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
+
       </section>
 
       <!-- OVERLAPPING SLIDING CONTENT SHEET (DDU Style) -->
       <section class="guest-content-sheet" id="guest-sheet">
-        <div class="sheet-grab-bar" title="Elevated Content Sheet"></div>
+
 
         <div class="container">
           <!-- Sheet Hero Header -->
@@ -1149,7 +1145,7 @@
         <span style="font-size: 1.3rem;">🤖</span>
         <div>
           <h3 style="font-size: 1rem; font-weight: 700; margin: 0; color: var(--text-main);" id="chat-drawer-title" data-i18n="chatAssistantTitle">ArogyaMitra AI असिस्टेंट</h3>
-          <span style="font-size: 0.74rem; color: #10b981; font-weight: 600;" id="chat-drawer-online" data-i18n="chatOnlineBadge">● Gemini 2.5 Flash Online</span>
+
         </div>
       </div>
       <button onclick="App.toggleChat()" style="background: none; border: none; font-size: 1.3rem; color: var(--text-muted); cursor: pointer;" aria-label="Close Chat">✕</button>
@@ -1353,7 +1349,6 @@
         footerGovt: "Government Portals",
         footerLead: "Lead Developer & Innovator",
         chatAssistantTitle: "ArogyaMitra AI असिस्टेंट",
-        chatOnlineBadge: "● Gemini 2.5 Flash Online",
         chatGreeting: "नमस्ते! मैं ArogyaMitra AI असिस्टेंट हूँ। आप मुझसे किसी भी दवा, उसके जेनेरिक साल्ट, सही खुराक, या पास के जन औषधि केंद्र के बारे में पूछ सकते हैं।",
         chatPreset1: "💊 Paracetamol खुराक?",
         chatPreset2: "💰 Metformin कीमत?",
@@ -1535,7 +1530,6 @@
         footerGovt: "Government Portals",
         footerLead: "Lead Developer & Innovator",
         chatAssistantTitle: "ArogyaMitra AI Assistant",
-        chatOnlineBadge: "● Gemini 2.5 Flash Online",
         chatGreeting: "Hello! I am ArogyaMitra AI Assistant. You can ask me about any medicine, generic salt, dosage instructions, or nearby PMBJP Jan Aushadhi stores.",
         chatPreset1: "💊 Paracetamol Dosage?",
         chatPreset2: "💰 Metformin Price?",
@@ -1814,8 +1808,6 @@
 
         const chatHeader = document.getElementById('chat-drawer-title');
         if (chatHeader && dict.chatAssistantTitle) chatHeader.innerText = dict.chatAssistantTitle;
-        const chatOnline = document.getElementById('chat-drawer-online');
-        if (chatOnline && dict.chatOnlineBadge) chatOnline.innerText = dict.chatOnlineBadge;
         const chatInput = document.getElementById('chat-input');
         if (chatInput && dict.chatInputPlaceholder) chatInput.placeholder = dict.chatInputPlaceholder;
         const chatSendBtn = document.getElementById('chat-send-btn');
@@ -2142,7 +2134,7 @@
         alert('✅ प्रिस्क्रिप्शन #RX-2026-9812 को फार्मासिस्ट द्वारा सफलतापूर्वक सत्यापित और अनुमोदित कर दिया गया है।');
       },
 
-      sendChat() {
+      async sendChat() {
         const input = document.getElementById('chat-input');
         const text = input ? input.value.trim() : '';
         if (!text) return;
@@ -2155,15 +2147,12 @@
         const typingEl = document.createElement('div');
         typingEl.className = 'chat-bubble chat-ai';
         typingEl.id = typingId;
-        typingEl.innerText = 'ArogyaMitra AI सोच रहा है...';
+        const isHi = (this.currentLang || 'hi') === 'hi';
+        typingEl.innerHTML = `<span style="display: inline-flex; align-items: center; gap: 8px;"><span style="display:inline-block; width:10px; height:10px; border:2px solid var(--border); border-top-color:var(--primary); border-radius:50%; animation:spin 0.8s linear infinite;"></span> ${isHi ? 'ArogyaMitra AI उत्तर तैयार कर रहा है...' : 'ArogyaMitra AI is analyzing...'}</span>`;
         body.appendChild(typingEl);
         body.scrollTop = body.scrollHeight;
 
-        setTimeout(() => {
-          const el = document.getElementById(typingId);
-          if (el) el.remove();
-          this.generateClinicalChatResponse(text);
-        }, 800);
+        await this.generateClinicalChatResponse(text, typingId);
       },
 
       sendPresetChat(q) {
@@ -2172,44 +2161,114 @@
         this.sendChat();
       },
 
-      appendChatMessage(text, sender) {
+      appendChatMessage(text, sender, isHtml = false) {
         const body = document.getElementById('chat-body');
         if (!body) return;
         const msg = document.createElement('div');
         msg.className = 'chat-bubble ' + (sender === 'user' ? 'chat-user' : 'chat-ai');
-        msg.innerText = text;
+        if (isHtml) {
+          msg.innerHTML = text;
+        } else {
+          msg.innerText = text;
+        }
         body.appendChild(msg);
         body.scrollTop = body.scrollHeight;
       },
 
-      generateClinicalChatResponse(query) {
-        const q = query.toLowerCase();
-        let reply = '';
+      async generateClinicalChatResponse(query, typingId) {
         const isHi = (this.currentLang || 'hi') === 'hi';
+        const apiKey = "AIzaSyCGWJltwbL7q-sNcBLXArJBxXykjxpjs_o";
 
-        if (q.includes('paracetamol') || q.includes('fever') || q.includes('बुखार') || q.includes('dolo') || q.includes('pain')) {
-          reply = isHi
-            ? 'पैरासिटामोल (Paracetamol 650mg) बुखार और दर्द के लिए सुरक्षित दवा है। ब्रांडेड Dolo 650 का 1 पत्ता ₹34 का आता है, जबकि जन औषधि केंद्र पर यह सिर्फ ₹9.50 में उपलब्ध है (72% बचत)।'
-            : 'Paracetamol (650mg IP) is safe for fever and pain relief. Branded Dolo 650 costs ₹34/strip, whereas government PMBJP Jan Aushadhi provides it for only ₹9.50 (72% savings).';
-        } else if (q.includes('metformin') || q.includes('sugar') || q.includes('शुगर') || q.includes('डायबिटीज') || q.includes('diabetes')) {
-          reply = isHi
-            ? 'मेटफॉर्मिन (Metformin 500mg SR) टाइप-2 डायबिटीज की पहली दवा है। जन औषधि केंद्र पर 10 गोलियां सिर्फ ₹14-₹18 में मिल जाती हैं, जबकि ब्रांडेड ₹65 तक का होता है।'
-            : 'Metformin 500mg SR is the first-line therapy for Type-2 Diabetes. PMBJP Jan Aushadhi provides 10 tablets for just ₹8.50-₹14, while branded alternatives cost up to ₹42-₹65.';
-        } else if (q.includes('bp') || q.includes('telmisartan') || q.includes('ब्लड प्रेशर') || q.includes('hypertension')) {
-          reply = isHi
-            ? 'टेलमिसार्टन (Telmisartan 40mg) उच्च रक्तचाप नियंत्रण के लिए है। जन औषधि में 10 गोलियां केवल ₹18-₹28 में मिल जाती हैं, जबकि ब्रांडेड ₹140 का आता है।'
-            : 'Telmisartan 40mg manages essential hypertension. In Jan Aushadhi, 10 tablets cost only ₹22, while branded Telma 40 costs ₹138 (84% savings).';
-        } else if (q.includes('gorakhpur') || q.includes('गोरखपुर') || q.includes('केंद्र') || q.includes('kendra') || q.includes('store') || q.includes('दुकान') || q.includes('location')) {
-          reply = isHi
-            ? 'गोरखपुर में जन औषधि केंद्र: (1) बीआरडी मेडिकल कॉलेज परिसर, (2) जिला अस्पताल गेट नंबर 2, (3) विश्वविद्यालय चौराहा (DDU), और (4) मोहद्दीपुर मुख्य मार्ग पर स्थित हैं।'
-            : 'PMBJP Jan Aushadhi stores in Gorakhpur: (1) BRD Medical College Campus, (2) District Hospital Gate No. 2, (3) DDU University Crossing, and (4) Mohaddipur Main Road.';
-        } else {
-          reply = isHi
-            ? 'धन्यवाद! ArogyaMitra AI आपकी सेवा में सदैव तत्पर है। हमेशा डॉक्टर या फार्मासिस्ट की देखरेख में ही दवा लें। जन औषधि से समान साल्ट अपनाकर आप 50-90% खर्च बचा सकते हैं।'
-            : 'Thank you! ArogyaMitra AI is always here to assist. Always consult your doctor or registered pharmacist for dosages. By choosing identical Jan Aushadhi generic salts, you save 50% to 90% on healthcare costs.';
+        if (!this.chatHistory) {
+          this.chatHistory = [];
         }
 
-        this.appendChatMessage(reply, 'ai');
+        const systemPrompt = `You are ArogyaMitra AI (आरोग्यमित्र एआई), an official clinical AI healthcare and generic medicine assistant for India (developed at DDU Gorakhpur University YEP 2026).
+Your core mission:
+1. Explain medicines, generic salts, active compositions, and conditions accurately in simple terms.
+2. Recommend Government PMBJP (Pradhan Mantri Bhartiya Janaushadhi Pariyojana) generic equivalents, explicitly highlighting 50% to 90% direct savings compared to costly market brands.
+3. Provide safe dosage guidelines, precautions, food interactions, and timings.
+4. Help patients locate nearby PMBJP Jan Aushadhi Kendras (especially in Gorakhpur and UP: BRD Medical College Campus, District Hospital Gate 2, DDU University Crossing, Mohaddipur).
+Language: The patient prefers ${isHi ? 'Hindi (हिंदी)' : 'English'}. Respond in natural, polite, helpful ${isHi ? 'Hindi (Devanagari script)' : 'English'}.
+Formatting: Use short bullet points and bold highlights (**bold**) for key information. Always end with a caring note advising consultation with a licensed doctor or pharmacist for emergency or prescription changes.`;
+
+        let aiReplyText = "";
+
+        try {
+          const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+          const payload = {
+            contents: [
+              {
+                role: "user",
+                parts: [{ text: systemPrompt + "\n\nPatient Question:\n" + query }]
+              }
+            ]
+          };
+
+          const response = await fetch(endpoint, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+          });
+
+          if (response.ok) {
+            const data = await response.json();
+            if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts) {
+              aiReplyText = data.candidates[0].content.parts.map(p => p.text).join("\n").trim();
+            }
+          }
+        } catch (err) {
+          console.warn("Live Gemini API unavailable, using clinical knowledge base:", err);
+        }
+
+        if (!aiReplyText) {
+          aiReplyText = this.getLocalClinicalReply(query, isHi);
+        }
+
+        const formattedHtml = this.formatMarkdownToHtml(aiReplyText);
+
+        const el = document.getElementById(typingId);
+        if (el) el.remove();
+
+        this.appendChatMessage(formattedHtml, 'ai', true);
+      },
+
+      formatMarkdownToHtml(text) {
+        if (!text) return '';
+        let clean = text
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;');
+        clean = clean.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        clean = clean.replace(/\*(.*?)\*/g, '<em>$1</em>');
+        clean = clean.replace(/^[\*\-]\s+(.*)$/gm, '<li style="margin-left: 14px; margin-bottom: 4px;">$1</li>');
+        clean = clean.replace(/\n\n+/g, '<br><br>').replace(/\n/g, '<br>');
+        return clean;
+      },
+
+      getLocalClinicalReply(query, isHi) {
+        const q = query.toLowerCase();
+        if (q.includes('paracetamol') || q.includes('fever') || q.includes('बुखार') || q.includes('dolo') || q.includes('pain')) {
+          return isHi
+            ? '✅ **पैरासिटामोल (Paracetamol 650mg):**\n• बुखार और दर्द के लिए अत्यंत सुरक्षित दवा है।\n• **बचत:** ब्रांडेड Dolo 650 का 1 पत्ता ₹34 का आता है, जबकि सरकारी **जन औषधि (PMBJP)** केंद्र पर यह सिर्फ ₹9.50 में उपलब्ध है (**72% सीधी बचत**)।\n• **खुराक:** वयस्क 6-8 घंटे के अंतराल पर ले सकते हैं (दिन में अधिकतम 3-4 ग्राम)।\n\n*सलाह: 3 दिन से अधिक तेज बुखार रहने पर तुरंत डॉक्टर से परामर्श लें।*'
+            : '✅ **Paracetamol (650mg IP):**\n• Safe first-line treatment for fever and pain relief.\n• **Savings:** Branded Dolo 650 costs ₹34/strip, while government **PMBJP Jan Aushadhi** provides the identical salt for just ₹9.50 (**72% savings**).\n• **Dosage:** 1 tablet every 6–8 hours as needed for adults.\n\n*Note: Consult a physician if high fever persists beyond 3 days.*';
+        } else if (q.includes('metformin') || q.includes('sugar') || q.includes('शुगर') || q.includes('डायबिटीज') || q.includes('diabetes')) {
+          return isHi
+            ? '✅ **मेटफॉर्मिन (Metformin 500mg SR):**\n• टाइप-2 डायबिटीज नियंत्रण की मुख्य दवा।\n• **बचत:** जन औषधि केंद्र पर 10 गोलियां सिर्फ ₹14-₹18 में मिल जाती हैं, जबकि ब्रांडेड दवा ₹65 तक बिकती है (**75% बचत**)।\n• **समय:** पेट की सुरक्षा हेतु भोजन के साथ या तुरंत बाद लें।\n\n*सलाह: नियमित ब्लड शुगर (HbA1c) की जांच अवश्य कराएं।*'
+            : '✅ **Metformin 500mg SR:**\n• First-line oral therapy for Type-2 Diabetes Mellitus.\n• **Savings:** Jan Aushadhi provides 10 tablets for ₹14-₹18, whereas branded Glucophage costs up to ₹65 (**75% savings**).\n• **Timing:** Take with or right after meals.\n\n*Note: Monitor HbA1c and kidney parameters regularly.*';
+        } else if (q.includes('bp') || q.includes('telmisartan') || q.includes('ब्लड प्रेशर') || q.includes('hypertension')) {
+          return isHi
+            ? '✅ **टेलमिसार्टन (Telmisartan 40mg):**\n• उच्च रक्तचाप (High BP) और हृदय सुरक्षा हेतु।\n• **बचत:** जन औषधि में 10 गोलियां केवल ₹18-₹28 में मिल जाती हैं, जबकि ब्रांडेड Telma 40 लगभग ₹140 की आती है (**80%+ बचत**)।\n• **समय:** प्रतिदिन एक निश्चित समय (सुबह) पर लें।\n\n*सलाह: बिना डॉक्टर से पूछे बीपी की दवा कभी अचानक बंद न करें।*'
+            : '✅ **Telmisartan 40mg:**\n• Essential anti-hypertensive ARB medication.\n• **Savings:** Jan Aushadhi stores supply 10 tablets for just ₹18-₹28, while branded Telma 40 costs up to ₹138 (**80%+ savings**).\n• **Timing:** Take once daily at a consistent morning time.\n\n*Note: Never discontinue BP medication abruptly without doctor advice.*';
+        } else if (q.includes('gorakhpur') || q.includes('गोरखपुर') || q.includes('केंद्र') || q.includes('kendra') || q.includes('store') || q.includes('दुकान') || q.includes('location')) {
+          return isHi
+            ? '📍 **गोरखपुर में प्रमुख प्रधानमंत्री जन औषधि केंद्र (PMBJP):**\n1. **बीआरडी मेडिकल कॉलेज** मुख्य परिसर (BRD Gate)\n2. **सदर जिला अस्पताल**, गेट नंबर 2\n3. **दीनदयाल उपाध्याय विश्वविद्यालय** चौराहा (DDU Gate)\n4. **मोहद्दीपुर** चारफाटक मुख्य मार्ग\n5. **गोलघर** कचहरी बस स्टेशन के निकट\n\n*यहाँ 1,800+ दवाइयां 50% से 90% कम मूल्य पर उपलब्ध हैं।*'
+            : '📍 **Major PMBJP Jan Aushadhi Stores in Gorakhpur:**\n1. **BRD Medical College** Main Gate Campus\n2. **District Hospital (Sadar)** Gate No. 2\n3. **DDU Gorakhpur University** Crossing\n4. **Mohaddipur** Main Road\n5. **Golghar** Court Road\n\n*All centers stock over 1,800 CDSCO-certified medicines at 50% to 90% subsidized rates.*';
+        } else {
+          return isHi
+            ? 'नमस्ते! **ArogyaMitra AI** आपकी सेवा में सदैव तत्पर है।\n• आप किसी भी बीमारी (बुखार, बीपी, शुगर, गैस, दर्द), दवा के नाम या पर्ची के बारे में पूछ सकते हैं।\n• समान जेनेरिक साल्ट अपनाकर आप 50% से 90% दवा खर्च बचा सकते हैं।\n\n*कृपया बताएं कि मैं आज आपकी क्या सहायता कर सकता हूँ?*'
+            : 'Hello! **ArogyaMitra AI** is ready to help you.\n• Ask about any medical condition (Fever, BP, Diabetes, Acidity, Pain) or generic medicine prices.\n• Switching to identical Jan Aushadhi salts saves you 50% to 90% on medical expenses.\n\n*How may I assist you today?*';
+        }
       }
     };
 
